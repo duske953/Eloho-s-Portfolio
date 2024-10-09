@@ -9,17 +9,17 @@ import { MetaFunction } from '@remix-run/react';
 export const meta: MetaFunction = () => {
   return [
     {
-      title: 'GeoCoordinates - Accurate Navigation and Nearby Location Finder',
+      title: 'Anonymo - Anonymous Chat App with Random Users',
     },
     {
       name: 'description',
       content:
-        'GeoCoordinates is a navigation app that helps you find nearby locations like gas stations, restaurants, and more. Get accurate locations, step-by-step directions, and distance estimates. View your location on a map and see the best route to your destination.',
+        'Anonymo is an anonymous chat platform where users can connect randomly and chat without revealing their identity. With features like randomly generated usernames, chat time stamps, typing indicators, and temporary messages that disappear after the session ends, Anonymo ensures a truly anonymous and private chat experience.',
     },
     {
       name: 'keywords',
       content:
-        'GeoCoordinates, navigation app, location finder, nearby gas stations, step-by-step directions, accurate locations, map navigation, nearby places, route planner, distance estimates, find nearby restaurants, real-time navigation, map-based navigation, location services, location-based app, ArcGIS navigation, sort locations by distance, mobile-friendly navigation',
+        'Anonymo, anonymous chat, random chat app, private messaging, temporary messages, disappearing messages, chat without account, chat anonymously, secure chat platform, typing indicator, chat time stamps, random usernames, browser session chat, anonymous messaging app, privacy-focused chat, Node.js chat app, real-time chat, Socket.IO chat',
     },
   ];
 };
