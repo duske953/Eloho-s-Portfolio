@@ -27,7 +27,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "isbot": "^4.1.0",
-    "limiter": "^2.1.0",
     "lucide-react": "^0.441.0",
     "nodemailer": "^6.9.15",
     "rate-limiter-flexible": "^5.0.3",
