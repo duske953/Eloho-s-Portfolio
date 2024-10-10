@@ -14,7 +14,7 @@ export default function Overlay({
       onKeyDown={
         renderOverlayAction as unknown as KeyboardEventHandler<HTMLDivElement>
       }
-      className="fixed top-0 left-0 w-full h-full"
+      className="fixed top-0 left-0 w-full h-full z-10"
     >
       &nbsp;
     </div>

@@ -173,7 +173,7 @@ export default function Navbar({ className }: { className?: string }) {
           style={isTabletMobile ? animatedNavBox : {}}
           className={`flex gap-10 ${
             isTabletMobile && 'bg-slate-900/100 '
-          } items-center md:fixed md:h-lvh md:flex-col z-10 md:left-0 md:border-none  md:rounded-none md:p-20`}
+          } items-center md:fixed md:h-lvh md:flex-col z-20 md:left-0 md:border-none md:rounded-none md:p-20`}
         >
           {navSprings.map((prop, i) => {
             return (
