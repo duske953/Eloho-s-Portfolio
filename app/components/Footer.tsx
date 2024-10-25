@@ -26,7 +26,7 @@ export default function Footer() {
           <Link
             target="_blank"
             rel="noreferrer noopener"
-            to="www.linkedin.com/in/eloho-kennedy-65b731139"
+            to="https://linkedin.com/in/eloho-kennedy-65b731139"
           >
             <FaLinkedinIn className="size-5" />
           </Link>
