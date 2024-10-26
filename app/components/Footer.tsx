@@ -1,10 +1,5 @@
 import { Link } from '@remix-run/react';
-import {
-  FaArrowRight,
-  FaGithub,
-  FaLinkedinIn,
-  FaPinterest,
-} from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaPinterest } from 'react-icons/fa';
 import { Separator } from './ui/separator';
 
 export default function Footer() {
@@ -46,7 +41,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div>
+      {/* <div>
         <div className="flex items-center gap-3 pb-5">
           <p className="text-4xl">Get in touch</p>
           <FaArrowRight className="size-9 text-blue-500" />
@@ -57,7 +52,7 @@ export default function Footer() {
             kennyduske@gmail.com
           </Link>
         </div>
-      </div>
+      </div> */}
       <Separator className="col-span-2 mt-7 sm:col-auto sm:mt-3" />
       <div className="pt-14 sm:pt-6">
         <p>© 2024 Eloho Kennedy. All Rights Reserved.</p>
