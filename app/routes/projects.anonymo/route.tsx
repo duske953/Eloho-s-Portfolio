@@ -122,7 +122,7 @@ export default function Page() {
         conclusion="The development of Anonymo provided an opportunity to create a unique platform for real-time, anonymous communication. By focusing on features like anonymity, real-time messaging, and chat persistence within a session, the app offers a secure and engaging environment for open conversations. Despite challenges like message sorting and handling connectivity issues, these obstacles were overcome, resulting in a stable and user-friendly chat application. The use of technologies like Node.js, Socket.IO, and React ensured a smooth integration of frontend and backend functionalities, delivering a reliable chat experience."
         projectLink="https://anonymo.vercel.app/"
         githubLink="https://github.com/duske953/chatapplication-frontend"
-        nextProjectLink="/projects/rockins"
+        nextProjectLink="/projects/music-snip"
       />
     </>
   );

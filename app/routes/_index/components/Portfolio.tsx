@@ -1,4 +1,9 @@
-import { FaHotel, FaLocationArrow, FaShoppingCart } from 'react-icons/fa';
+import {
+  FaHotel,
+  FaLocationArrow,
+  FaMusic,
+  FaShoppingCart,
+} from 'react-icons/fa';
 import { Link } from '@remix-run/react';
 import { buttonVariants } from '~/components/ui/button';
 import { animated, useInView, useSprings } from '@react-spring/web';
@@ -13,7 +18,6 @@ import {
   CardHeader,
   CardTitle,
 } from '~/components/ui/card';
-import { RiNftLine } from 'react-icons/ri';
 import AnimateHeading from '~/components/AnimateHeading';
 const AnimatedCard = animated(Card);
 const projects = [
@@ -57,15 +61,25 @@ const projects = [
     detailsUrl: '/projects/anonymo',
   },
 
+  // {
+  //   title: 'Digital Nft',
+  //   description:
+  //     'Discover, Collect, and Trade Unique Digital Assets in the World of NFTs',
+  //   img: '/nft/hero.svg',
+  //   icon: <RiNftLine className="size-6" />,
+  //   tech: ['Html', 'Css'],
+  //   projectUrl: 'https://digital-nft.netlify.app/',
+  //   githubUrl: 'https://github.com/duske953/NFT-landing-page',
+  // },
+
   {
-    title: 'Digital Nft',
-    description:
-      'Discover, Collect, and Trade Unique Digital Assets in the World of NFTs',
-    img: '/nft/hero.svg',
-    icon: <RiNftLine className="size-6" />,
-    tech: ['Html', 'Css'],
-    projectUrl: 'https://digital-nft.netlify.app/',
-    githubUrl: 'https://github.com/duske953/NFT-landing-page',
+    title: 'Music Snip',
+    description: 'Preview latest music & albums',
+    img: '/music-snip/hero.svg',
+    icon: <FaMusic className="size-6" />,
+    tech: ['Next.js', 'React'],
+    projectUrl: 'https://music-snip.vercel.app',
+    detailsUrl: '/projects/music-snip',
   },
 ];
 
@@ -138,18 +152,14 @@ export function Porfolio() {
                   </Link>
 
                   <Link
-                    target={projects[i].githubUrl ? '_blank' : '_self'}
                     rel="noopener noreferrer"
                     className={`${buttonVariants({
                       variant: 'outline',
                       size: 'lg',
                     })}`}
-                    to={
-                      (projects[i].detailsUrl ||
-                        projects[i].githubUrl) as string
-                    }
+                    to={projects[i].detailsUrl}
                   >
-                    {projects[i].githubUrl ? 'Source code' : 'Details'}
+                    Details
                   </Link>
                 </CardFooter>
               </AnimatedCard>

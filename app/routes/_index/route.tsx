@@ -8,6 +8,7 @@ import AboutMe from './components/AboutMe';
 export const meta: MetaFunction = () => {
   return [
     { title: "I'm Eloho Kennedy | A Full-stack web developer" },
+
     {
       name: 'description',
       content:
@@ -17,6 +18,10 @@ export const meta: MetaFunction = () => {
       name: 'keywords',
       content:
         'Eloho Kennedy, web developer portfolio, full-stack developer, MERN stack, React developer, Node.js developer, MongoDB, Express.js, frontend development, backend development, JavaScript projects, hotel booking website, geocoordinates web app, anonymous chat application, Tech-freak eCommerce, React projects, developer projects, responsive web design, SEO optimization, modern web apps, Next.js, Tailwind CSS, Socket.IO',
+    },
+    {
+      name: 'author',
+      content: 'Eloho Kennedy',
     },
   ];
 };
