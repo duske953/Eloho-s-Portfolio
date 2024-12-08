@@ -28,12 +28,16 @@ export default function AboutMe() {
             alt="About Eloho Kennedy | Fullstack Web developer"
           />
         </div>
-        <div className="">
-          <p className="leading-loose text-lg text-gray-200/100">
-            Hi, I’m Eloho Kennedy, a full-stack web developer and a graduate of
-            Electrical/Electronics Engineering. I work with modern technologies
-            to create efficient and user-friendly web applications and have
-            worked on projects like hotel booking platforms and eCommerce sites.
+        <div>
+          <div className="leading-loose text-lg text-gray-200/100">
+            <p>
+              Hi, I’m Eloho Kennedy, a full-stack web developer and a graduate
+              of Electrical/Electronics Engineering. I work with modern
+              technologies to create efficient and user-friendly web
+              applications and have worked on projects like hotel booking
+              platforms and eCommerce sites.
+            </p>
+
             <p className="mt-5">
               I believe in building web apps that connect people, as Tim
               Berners-Lee said, "The Web does not just connect machines, it
@@ -46,11 +50,11 @@ export default function AboutMe() {
             </p>
             <p className="mt-5">
               Let’s collaborate and create something great together. Whether
-              you're looking to build a project or discuss new ideas, feel free
+              you’re looking to build a project or discuss new ideas, feel free
               to reach out. I’m always open to new opportunities and
               connections.
             </p>
-          </p>
+          </div>
         </div>
       </div>
     </animated.section>
