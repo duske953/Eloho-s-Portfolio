@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedinIn, FaPinterest } from 'react-icons/fa';
 import { Separator } from './ui/separator';
 
 export default function Footer() {
+  const date = new Date();
   return (
     <footer className="px-8 py-8 grid grid-cols-2 sm:grid-cols-1 sm:gap-16 section-container">
       <div>
@@ -55,7 +56,7 @@ export default function Footer() {
       </div> */}
       <Separator className="col-span-2 mt-7 sm:col-auto sm:mt-3" />
       <div className="pt-14 sm:pt-6">
-        <p>© 2024 Eloho Kennedy. All Rights Reserved.</p>
+        <p>© {date.getFullYear()} Eloho Kennedy. All Rights Reserved.</p>
       </div>
     </footer>
   );
