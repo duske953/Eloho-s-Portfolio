@@ -97,7 +97,7 @@ export function Porfolio() {
     }),
     []
   );
-  const [ref, inView] = useInView({ once: true, rootMargin: '-10% -80%' });
+  const [ref, inView] = useInView({ once: true, rootMargin: '-10%' });
   useEffect(() => {
     if (inView)
       setAnimatatePortfolio.start((i) => ({

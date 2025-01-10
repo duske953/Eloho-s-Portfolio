@@ -6,7 +6,7 @@ export default function AboutMe() {
       from: { opacity: 0, y: -100 },
       to: { opacity: 1, y: 0 },
     }),
-    { rootMargin: '-60% 0%', once: true }
+    { once: true, rootMargin: '-30%' }
   );
 
   return (

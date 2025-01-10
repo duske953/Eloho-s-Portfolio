@@ -82,7 +82,7 @@ export default function TechStack() {
     }),
     []
   );
-  const [ref, inView] = useInView({ once: true, rootMargin: '-100% 60%' });
+  const [ref, inView] = useInView({ once: true, rootMargin: '-10%' });
 
   useEffect(() => {
     if (inView)
