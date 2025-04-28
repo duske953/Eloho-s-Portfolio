@@ -24,6 +24,7 @@ import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import handleSendMessage from './actions/handleSendMessage';
+import { Analytics } from '@vercel/analytics/remix';
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -112,6 +113,7 @@ export default function AppWithProviders() {
   // const data = useLoaderData<typeof loader>();
   return (
     <ThemeProvider specifiedTheme="dark" themeAction="/action/set-theme">
+      <Analytics />
       <App />
     </ThemeProvider>
   );
