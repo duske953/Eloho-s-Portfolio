@@ -32,9 +32,9 @@ export const ThreeDMarquee = ({
               <motion.div
                 animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
                 transition={{
-                  duration: colIndex % 2 === 0 ? 10 : 15,
+                  duration: colIndex % 2 === 0 ? 2 : 4,
                   repeat: Infinity,
-                  repeatType: 'reverse',
+                  repeatType: 'mirror',
                 }}
                 key={colIndex + 'marquee'}
                 className="flex flex-col items-start gap-8"
