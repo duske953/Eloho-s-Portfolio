@@ -34,7 +34,7 @@ export default function Index() {
   return (
     <main className="section-container">
       <Hero />
-      {/* <WebsitesFacts /> */}
+      <WebsitesFacts />
       <PainPoints />
       <WebServices />
       <PorfolioMarquee />
