@@ -78,6 +78,10 @@
     background-size: cover;
   }
 
+  .animate-marquee {
+    transition: all 10s;
+  }
+
   .cta-gradient {
     background: hsla(205, 46%, 10%, 1);
 

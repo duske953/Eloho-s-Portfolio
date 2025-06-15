@@ -32,12 +32,14 @@ export const ThreeDMarquee = ({
               <motion.div
                 animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
                 transition={{
-                  duration: colIndex % 2 === 0 ? 50 : 100,
                   repeat: Infinity,
                   repeatType: 'reverse',
                 }}
                 key={colIndex + 'marquee'}
-                className="flex flex-col items-start gap-8"
+                className={cn(
+                  'flex flex-col items-start gap-8 transition-transform',
+                  colIndex % 2 === 0 ? 'duration-700' : 'duration-1000'
+                )}
               >
                 <GridLineVertical className="-left-4" offset="80px" />
                 {subarray.map((image, imageIndex) => (
