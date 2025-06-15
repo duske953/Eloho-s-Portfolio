@@ -1,126 +1,124 @@
+import { FaCss3, FaGit, FaHtml5, FaReact, FaStripe } from 'react-icons/fa';
 import {
+  RiJavascriptLine,
   RiNextjsLine,
-  RiRemixRunLine,
+  RiNodejsLine,
   RiTailwindCssLine,
 } from 'react-icons/ri';
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '~/components/ui/tooltip';
-import { SiExpress, SiSass, SiSocketdotio, SiTypescript } from 'react-icons/si';
-import { BiLogoMongodb } from 'react-icons/bi';
-import { animated, useInView, useTrail } from '@react-spring/web';
-import { MdCss, MdHtml, MdJavascript } from 'react-icons/md';
-import { FaNode, FaReact } from 'react-icons/fa';
-import { useEffect } from 'react';
-import AnimateHeading from '~/components/AnimateHeading';
-const technologies = [
+  SiExpress,
+  SiMongodb,
+  SiSass,
+  SiSocketdotio,
+  SiTypescript,
+} from 'react-icons/si';
+import { MovingCards } from '~/components/ui/MovingCards';
+
+const techStack = [
   {
-    tech: <MdHtml />,
-    content: 'HTML',
-  },
-  {
-    tech: <MdCss />,
-    content: 'CSS',
-  },
-  {
-    tech: <MdJavascript />,
-    content: 'JAVASCRIPT',
+    name: 'HTML',
+    quote: <FaHtml5 />,
+    title:
+      'This is the tool that provides the structure for all your website content.',
   },
 
   {
-    tech: <SiTypescript />,
-    content: 'TYPESCRIPT',
-  },
-  {
-    tech: <FaNode />,
-    content: 'NODE.JS',
+    name: 'CSS',
+    quote: <FaCss3 />,
+    title:
+      'This is the tool that makes your website look attractive and professional.',
   },
 
   {
-    tech: <SiExpress />,
-    content: 'EXPRESS.JS',
-  },
-  {
-    tech: <FaReact />,
-    content: 'REACT',
-  },
-  {
-    tech: <RiNextjsLine />,
-    content: 'NEXT.JS',
-  },
-  {
-    tech: <RiRemixRunLine />,
-    content: 'REMIX.JS',
-  },
-  {
-    tech: <RiTailwindCssLine />,
-    content: 'TAILWINDCSS',
-  },
-  {
-    tech: <SiSass />,
-    content: 'SASS/SCSS',
+    name: 'Tailwind CSS',
+    quote: <RiTailwindCssLine />,
+    title: 'This is the tool that speeds up creating clean, modern designs.',
   },
 
   {
-    tech: <SiSocketdotio />,
-    content: 'SOCKET.IO',
+    name: 'SASS',
+    quote: <SiSass />,
+    title:
+      'This is the tool that helps create organized and flexible styles for your site.',
   },
+
   {
-    tech: <BiLogoMongodb />,
-    content: 'MONGODB',
+    name: 'Javascript',
+    quote: <RiJavascriptLine />,
+    title:
+      'This is the tool that adds interactive features to keep visitors engaged.',
+  },
+
+  {
+    name: 'Typescript',
+    quote: <SiTypescript />,
+    title: 'This is the tool that adds extra safety and clarity to your code.',
+  },
+
+  {
+    name: 'React',
+    quote: <FaReact />,
+    title: 'This is the tool that builds fast, smooth user experiences.',
+  },
+
+  {
+    name: 'Next.js',
+    quote: <RiNextjsLine />,
+    title:
+      'This is the tool that helps make development faster and your website ranking higher on search engines.',
+  },
+
+  {
+    name: 'Node.js',
+    quote: <RiNodejsLine />,
+    title:
+      'This is the tool that runs your website’s behind-the-scenes operations.',
+  },
+
+  {
+    name: 'Express.js',
+    quote: <SiExpress />,
+    title:
+      'This is the tool that organizes data and connects your website’s parts.',
+  },
+
+  {
+    name: 'MongoDB',
+    quote: <SiMongodb />,
+    title:
+      'This is the tool that safely stores your website’s important information.',
+  },
+
+  {
+    name: 'Git',
+    quote: <FaGit />,
+    title:
+      'This is the tool that tracks all changes to keep your project organized.',
+  },
+
+  {
+    name: 'Stripe',
+    quote: <FaStripe />,
+    title: 'This is the tool that makes online payments easy and secure.',
+  },
+
+  {
+    name: 'Socket.IO',
+    quote: <SiSocketdotio />,
+    title:
+      'This is the tool that enables live updates like chat and notifications.',
   },
 ];
 
 export default function TechStack() {
-  const [animateTechStack, setAnimateTechStack] = useTrail(
-    13,
-    () => ({
-      from: { opacity: 0 },
-    }),
-    []
-  );
-  const [ref, inView] = useInView({ once: true, rootMargin: '-10%' });
-
-  useEffect(() => {
-    if (inView)
-      setAnimateTechStack.start(() => ({
-        from: { opacity: 0 },
-        to: { opacity: 1 },
-      }));
-  }, [inView]);
-
   return (
-    <animated.section
-      style={{}}
-      className="pb-32 px-6 flex flex-col items-center"
-    >
-      <AnimateHeading
-        className="text-xl xs:text-lg"
-        inView={inView}
-        text="Proudly working with these technologies"
-      />
-
-      <div className="flex gap-16 flex-wrap justify-center">
-        {animateTechStack.map((styles, i) => {
-          return (
-            <animated.span ref={ref} style={styles} key={crypto.randomUUID()}>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <span className="text-8xl cursor-pointer sm:text-5xl">
-                      {technologies[i].tech}
-                    </span>
-                  </TooltipTrigger>
-                  <TooltipContent>{technologies[i].content}</TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </animated.span>
-          );
-        })}
+    <section className="py-20 px-8">
+      <div>
+        <h2 className="uppercase text-4xl max-sm:text-2xl max-sm:leading-relaxed font-bold mb-10 text-gray-300 italic text-center">
+          Tools That Power Your Website’s Success
+        </h2>
+        <MovingCards speed="fast" items={techStack}></MovingCards>
       </div>
-    </animated.section>
+    </section>
   );
 }

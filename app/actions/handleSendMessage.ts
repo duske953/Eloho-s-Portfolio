@@ -19,7 +19,9 @@ export async function sendMail(subject: string, text: string, email: string) {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_RECEIVER,
     subject,
-    html: `<p style="font-size: 1.2rem">${text} <br /> <p style="margin-top:3.4rem">Message sent from ${email}</p></p>`,
+    html: `<p style="font-size: 1.2rem">${text} <br /> 
+    <p style="margin-top:3.4rem">Message sent from ${email}</p>
+    </p>`,
   };
 
   try {

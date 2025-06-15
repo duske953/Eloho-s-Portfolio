@@ -35,7 +35,7 @@ export const links: LinksFunction = () => [
 
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap',
   },
   {
     rel: 'apple-touch-icon',
@@ -92,6 +92,7 @@ export function App() {
         <Links />
       </head>
       <body>
+        {/* <Navbar /> */}
         <RecoilRoot>
           <Outlet />
           <ToastContainer

@@ -1,0 +1,40 @@
+import { ReactNode } from 'react';
+import GridBackground from '~/components/ui/GridBackground';
+import { Spotlight } from '~/components/ui/Spotlight';
+
+export default function ProjectHero({
+  imgSrc,
+  imgAlt,
+  heading,
+  description,
+  children,
+}: {
+  imgSrc: string;
+  imgAlt: string;
+  heading: string;
+  description: string;
+  children: ReactNode;
+}) {
+  return (
+    <GridBackground className="my-32">
+      <section className="relative overflow-hidden h-svh py-16">
+        <Spotlight />
+        <div className="grid grid-cols-2 px-8 items-center gap-4 max-lg:grid-cols-1">
+          <div>
+            <h1 className="text-5xl max-sm:text-3xl max-sm:leading-normal leading-normal font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+              {' '}
+              {heading}
+            </h1>
+            <p className="text-xl leading-loose">{description}</p>
+            <div className="flex gap-10 mt-8 text-4xl text-gray-400">
+              {children}
+            </div>
+          </div>
+          <div>
+            <img src={imgSrc} alt={imgAlt} className="rounded-lg" />
+          </div>
+        </div>
+      </section>
+    </GridBackground>
+  );
+}

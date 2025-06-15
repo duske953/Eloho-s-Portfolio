@@ -5,20 +5,16 @@ export default function ProjectConclusion({
   projectLink,
   githubLink,
   nextProjectLink,
-  conclusion,
 }: {
   projectLink: string;
   githubLink: string;
   nextProjectLink: string;
-  conclusion: string;
 }) {
   const nextLink = nextProjectLink.split('projects/')[1];
   return (
-    <section className=" py-20">
-      <h2 className="mb-7 font-bold text-3xl">Conclusion</h2>
-      <p className="text-lg leading-loose text-gray-200/100">{conclusion}</p>
-      <div className="grid grid-cols-3 gap-6 mt-10 flex-wrap xs:grid-cols-2">
-        <Link
+    <section className="max-w-3xl mx-auto py-20">
+      <div className="grid grid-cols-3 gap-6 mt-10 flex-wrap xs:grid-cols-2 px-4">
+        {/* <Link
           className={`${buttonVariants({
             variant: 'secondary',
             size: 'lg',
@@ -28,7 +24,7 @@ export default function ProjectConclusion({
           to={projectLink}
         >
           Visit
-        </Link>
+        </Link> */}
 
         <Link
           className={buttonVariants({ variant: 'outline', size: 'lg' })}

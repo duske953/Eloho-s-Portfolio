@@ -1,0 +1,52 @@
+import { Link } from '@remix-run/react';
+import { FaArrowRight } from 'react-icons/fa';
+import { Button, buttonVariants } from '~/components/ui/button';
+
+export default function ProjectCta({
+  githubUrl,
+  cta,
+  heading,
+  description,
+  nextProject,
+}: {
+  cta: string;
+  githubUrl: string;
+  heading: string;
+  description: string;
+  nextProject: string;
+}) {
+  return (
+    <>
+      <div className="cta-gradient py-28 px-8">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-3xl font-bold text-gray-300 mb-5 leading-relaxed">
+            {heading}
+          </p>
+          <span className="mb-5 inline-block leading-loose">{description}</span>
+          <Button className="rounded-none" variant="secondary" size="lg">
+            {cta}
+          </Button>
+        </div>
+      </div>
+      <div className="flex px-8 py-9">
+        <div className="ml-auto flex gap-10">
+          <Link
+            target="_blank"
+            rel="noreferrer noopener"
+            className={buttonVariants({ variant: 'outline', size: 'lg' })}
+            to={githubUrl}
+          >
+            Source Code
+          </Link>
+
+          <Link
+            className="flex items-center gap-3 uppercase font-bold"
+            to={`/projects/${nextProject}`}
+          >
+            <span>{nextProject}</span> <FaArrowRight />
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}

@@ -1,23 +1,27 @@
 import type { MetaFunction } from '@remix-run/node';
 import Hero from './components/Hero';
-import TechStack from './components/TechStack';
 import WebServices from './components/WebServices';
 import { Porfolio } from './components/Portfolio';
-import AboutMe from './components/AboutMe';
+import WebsitesFacts from './components/WebsitesFacts';
+import PorfolioMarquee from './components/PorfolioMarquee';
+import Faq from './components/Faq';
+import TechStack from './components/TechStack';
+import PainPoints from './components/PaintPoints';
+import Cta from './components/Cta';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "I'm Eloho Kennedy | A Full-stack web developer" },
+    { title: 'Eloho Kennedy – Web Developer for Businesses' },
 
     {
       name: 'description',
       content:
-        "Welcome to Eloho Kennedy's portfolio, showcasing a variety of web development projects including hotel booking website, navigation app, anonymous chat, and an eCommerce platform. Skilled in the MERN stack. Explore my work and discover how I create efficient and user-friendly web applications.",
+        'I build websites that don’t just look good — they work. From design to backend, I help businesses keep visitors engaged and coming back.',
     },
     {
       name: 'keywords',
       content:
-        'Eloho Kennedy, web developer portfolio, full-stack developer, MERN stack, React developer, Node.js developer, MongoDB, Express.js, frontend development, backend development, JavaScript projects, hotel booking website, geocoordinates web app, anonymous chat application, Tech-freak eCommerce, React projects, developer projects, responsive web design, SEO optimization, modern web apps, Next.js, Tailwind CSS, Socket.IO',
+        'web developer, business website, frontend developer, backend developer, Next.js, Node.js, website maintenance, Eloho Kennedy',
     },
     {
       name: 'author',
@@ -30,10 +34,14 @@ export default function Index() {
   return (
     <main className="section-container">
       <Hero />
-      <TechStack />
+      <WebsitesFacts />
+      <PainPoints />
       <WebServices />
+      <PorfolioMarquee />
       <Porfolio />
-      <AboutMe />
+      <Faq />
+      <TechStack />
+      <Cta />
     </main>
   );
 }

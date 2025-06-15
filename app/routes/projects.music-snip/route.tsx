@@ -1,23 +1,106 @@
-import { RiNextjsLine, RiTailwindCssLine } from 'react-icons/ri';
-import MediaPlayer from '~/components/Media';
-import ProjectOverView from '../projects/components/ProjectOverview';
-import { List, ListBox } from '~/components/List';
-import ProjectConclusion from '../projects/components/ProjectConclusion';
+// /* eslint-disable react/no-unescaped-entities */
 import { MetaFunction } from '@remix-run/react';
-import { FaNapster } from 'react-icons/fa';
+import { IoTrendingUp } from 'react-icons/io5';
+import { RiLayout2Line, RiNextjsLine } from 'react-icons/ri';
+import { SiTailwindcss, SiTypescript } from 'react-icons/si';
+import ProjectHero from '../projects/components/ProjectHero';
+import ProjectDescription from '../projects/components/ProjectDescription';
+import ProjectFeatures from '../projects/components/ProjectFeatures';
+import ProjectCarousel from '../projects/components/ProjectCarousel';
+import ProjectOutcomes from '../projects/components/ProjectOutocomes';
+import ProjectDemo from '../projects/components/ProjectDemo';
+import ProjectCta from '../projects/components/ProjectCta';
+import { FaHeart, FaNapster, FaPlay, FaSearch } from 'react-icons/fa';
+
+const features = [
+  {
+    icon: <FaPlay />,
+    title: '30-second song previews',
+    description:
+      'Quickly hear the best part of any song before deciding if you like it.',
+  },
+  {
+    icon: <FaSearch />,
+    title: 'Search by artist, album, or track',
+    description: 'Find songs or artists you like without scrolling endlessly.',
+  },
+  {
+    icon: <IoTrendingUp />,
+    title: "See what's trending",
+    description:
+      'Get a list of popular songs and albums people are listening to right now.',
+  },
+  {
+    icon: <FaHeart />,
+    title: 'Save your favorites',
+    description:
+      'Easily mark songs you enjoy so you can come back to them later.',
+  },
+  {
+    icon: <RiLayout2Line />,
+    title: 'Simple layout',
+    description:
+      'Everything is easy to use and understand, no need to figure anything out.',
+  },
+];
+
+const projectImg = [
+  {
+    title: 'Homepage',
+    src: '/music-snip/homepage.svg',
+  },
+
+  {
+    title: 'Albums Details',
+    src: '/music-snip/album.jpeg',
+  },
+
+  {
+    title: 'Trendig Albums',
+    src: '/music-snip/albums.jpeg',
+  },
+
+  {
+    title: 'Trending Songs',
+    src: '/music-snip/songs.jpeg',
+  },
+];
+
+const outcomes = [
+  {
+    heading: 'Faster song discovery',
+    text: 'Users quickly know if they like a song without wasting time listening to full tracks.',
+  },
+  {
+    heading: 'More engagement',
+    text: 'Short previews encourage users to explore more songs in less time.',
+  },
+  {
+    heading: 'Better decision-making',
+    text: 'Helps users build playlists or music collections based on what they actually enjoy.',
+  },
+  {
+    heading: 'Lower bounce rate',
+    text: 'Simple layout keeps users on the site longer without feeling lost or overwhelmed.',
+  },
+  {
+    heading: 'Repeat visits',
+    text: 'Users come back to check new trending tracks and listen to saved favorites.',
+  },
+];
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Discover Music with Song Previews | Music Exploration App' },
+    { title: ' Music-Snip | Preview Songs in 30 Seconds' },
     {
       name: 'description',
       content:
-        'Explore a modern music web app where you can preview 30 seconds of songs, search for albums and artists, check trending tracks, and save your favorites.',
+        'Don’t waste time listening to full tracks. Music-Snip plays the catchiest part of songs so you decide instantly if it’s your vibe.',
     },
     {
       name: 'keywords',
       content:
-        'music preview app, 30-second song previews, trending music, favorite songs, music discovery, albums, artists, search music',
+        'music preview app, 30 second song clips, discover music fast, listen before saving, short song previews, quick music discovery',
     },
   ];
 };
@@ -25,78 +108,50 @@ export const meta: MetaFunction = () => {
 export default function Page() {
   return (
     <>
-      <ProjectOverView
-        title=" HarmonySnip: A Music Preview Experience"
-        description="This web application is designed for music enthusiasts who want a quick way to discover and preview new tracks. The platform allows users to listen to the first 30 seconds of songs, offering a glimpse into the melody and vibe of each track before diving deeper. With features like trending tracks, popular albums, artist pages, and a personalized favorites section, it ensures an intuitive and engaging music discovery experience."
-        imgSrc="/music-snip/hero.svg"
-      />
-      <ListBox text="Core problems solved">
-        <List
-          title="Quick Music Discovery"
-          description="Users can quickly decide if a song suits their taste by previewing the first 30 seconds, saving time and effort in finding new music."
-        />
-        <List
-          title="Personalized Experience"
-          description="The app allows users to save their favorite songs, making it easier to revisit tracks they enjoy without searching repeatedly.."
-        />
-        <List
-          title="Efficient Music Search"
-          description="A robust search feature ensures users can quickly find songs, albums, or artists they’re interested in, streamlining the exploration process."
-        />
-      </ListBox>
-
-      <ListBox text="Core stack">
-        <List
-          icon={<RiNextjsLine className="size-8" />}
-          title="Next.js"
-          description="Leveraged for its server-side rendering capabilities and efficient routing to ensure a fast, SEO-friendly web application."
-        />
-
-        <List
-          icon={<RiTailwindCssLine className="size-8" />}
-          title="Tailwind CSS"
-          description="For the design, I used Tailwind CSS, a utility-first CSS framework. 
-                It allowed me to quickly style the website without writing a lot of custom CSS. 
-                This helped create a clean and modern design while keeping the code organized and efficient."
-        />
-
-        <List
-          icon={<FaNapster className="size-8" />}
-          title="Napster"
-          description="Integrated to fetch music data, including tracks, albums, and artist information, providing reliable and up-to-date content for users."
-        />
-      </ListBox>
-
-      <ListBox text="Functionality and Features">
-        <List
-          title="Song Previews"
-          description="Users can listen to the first 30 seconds of any song, helping them quickly decide if they like it.."
-        />
-        <List
-          title="Search Functionality"
-          description="A powerful search feature allows users to find their favorite songs, albums, or artists with ease."
-        />
-        <List
-          title="Trending Content"
-          description="Explore the most popular albums and tracks in the trending section, showcasing what’s hot in the music world."
-        />
-        <List
-          title="Favorites Management: "
-          description="Users can save their favorite songs locally, enabling them to curate their own personalized collection without the need for an account.."
-        />
-      </ListBox>
-
-      <section className="flex flex-col items-center py-12">
-        <h2 className="font-bold text-3xl uppercase mb-4">Music-Snip Demo</h2>
-        <MediaPlayer url="https://www.youtube.com/watch?v=t6MPgJzveXg" />
-      </section>
-
-      <ProjectConclusion
-        conclusion="This music web application demonstrates the power of combining a clean, responsive design with functional features to enhance the user experience. By allowing users to preview tracks, explore trending content, and save their favorites, it simplifies the process of discovering and enjoying music. The integration of Next.js, and the Napster API ensures high performance and reliable data delivery, making the app a practical and enjoyable tool for music lovers."
-        projectLink="https://music-snip.vercel.app/"
-        githubLink="https://github.com/duske953/preview-music"
-        nextProjectLink="/projects/rockins"
-      />
+      <ProjectHero
+        heading="Discover Music in Moments."
+        description="Preview songs, explore top charts, and save your favorites all in one place."
+        imgSrc="/music-snip/homepage.svg"
+        imgAlt="Discover Music in Moments"
+      >
+        <RiNextjsLine />
+        <SiTypescript />
+        <SiTailwindcss />
+        <FaNapster />
+      </ProjectHero>
+      <ProjectDescription heading="Why Music-Snip Was Built">
+        In today’s fast-paced world, most people don’t have the time or the
+        patience to sit through entire tracks just to figure out if they like a
+        song. Scrolling through endless libraries, previewing intros that don’t
+        reflect the true feel of the song, or getting stuck with music that
+        doesn’t match their mood can be frustrating. Music-Snip solves this
+        problem by cutting to the chase. It plays the most engaging 30 seconds
+        of each song, the part that usually hooks listeners so users can
+        instantly tell if the track is worth saving, sharing, or skipping.
+        Whether someone’s trying to quickly curate a playlist, discover new
+        tracks, or just get a feel for what's trending, Music-Snip makes the
+        experience quick, smooth, and fun. No fluff. Just the music highlights
+        that matter. For music businesses and creators, this means more
+        engagement, faster discovery, and a better shot at landing in someone’s
+        go-to playlist.
+      </ProjectDescription>
+      <ProjectFeatures
+        features={features}
+        heading="Everything That Makes Music-Snip Work"
+      ></ProjectFeatures>
+      <ProjectCarousel projectImg={projectImg}></ProjectCarousel>
+      <ProjectOutcomes
+        heading="How Music-Snip Helps You Decide Faster"
+        outcomes={outcomes}
+      ></ProjectOutcomes>
+      <ProjectDemo url="https://youtu.be/t6MPgJzveXg"></ProjectDemo>
+      <ProjectCta
+        nextProject="rockins"
+        githubUrl="https://github.com/duske953/preview-music"
+        cta="Try a quick preview"
+        heading="Find songs you’ll actually enjoy without the endless scrolling."
+        description="No need to listen to full tracks just to decide. Get a quick feel in under 30 seconds and move on if it’s not for you."
+      ></ProjectCta>
     </>
   );
 }

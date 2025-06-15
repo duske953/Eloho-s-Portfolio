@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   :root {
@@ -63,6 +63,10 @@
 }
 
 @layer components {
+  .secondary-heading {
+    @apply mb-10 text-4xl font-bold text-gray-300 leading-relaxed max-sm:text-2xl max-sm:leading-relaxed;
+  }
+
   .bg-img {
     background-image: linear-gradient(
         to right,
@@ -74,11 +78,38 @@
     background-size: cover;
   }
 
+  .cta-gradient {
+    background: hsla(205, 46%, 10%, 1);
+
+    background: linear-gradient(
+      90deg,
+      hsla(205, 46%, 10%, 1) 0%,
+      hsla(191, 28%, 23%, 1) 50%,
+      hsla(207, 41%, 27%, 1) 100%
+    );
+
+    background: -moz-linear-gradient(
+      90deg,
+      hsla(205, 46%, 10%, 1) 0%,
+      hsla(191, 28%, 23%, 1) 50%,
+      hsla(207, 41%, 27%, 1) 100%
+    );
+
+    background: -webkit-linear-gradient(
+      90deg,
+      hsla(205, 46%, 10%, 1) 0%,
+      hsla(191, 28%, 23%, 1) 50%,
+      hsla(207, 41%, 27%, 1) 100%
+    );
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0E1C26", endColorstr="#2A454B", GradientType=1 );
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-blue-600 via-green-500 inline-block to-indigo-400 text-transparent bg-clip-text;
   }
   .font-family {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   .section-container {
     max-width: 150rem;
@@ -92,5 +123,16 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
   }
 }

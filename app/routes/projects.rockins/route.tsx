@@ -1,23 +1,186 @@
-import { BiLogoMongodb } from 'react-icons/bi';
-import { RiNextjsLine, RiTailwindCssLine } from 'react-icons/ri';
-import MediaPlayer from '~/components/Media';
-import ProjectOverView from '../projects/components/ProjectOverview';
-import { List, ListBox } from '~/components/List';
-import ProjectConclusion from '../projects/components/ProjectConclusion';
+/* eslint-disable react/no-unescaped-entities */
 import { MetaFunction } from '@remix-run/react';
+import { FaBookmark, FaCreditCard, FaLock, FaStar } from 'react-icons/fa';
+import { IoMail } from 'react-icons/io5';
+import {
+  RiDashboard2Line,
+  RiJavascriptLine,
+  RiNextjsLine,
+  RiSmartphoneLine,
+  RiTailwindCssLine,
+} from 'react-icons/ri';
+import { SiMongodb, SiSimpleicons, SiTypescript } from 'react-icons/si';
+
+import ProjectHero from '../projects/components/ProjectHero';
+import ProjectDescription from '../projects/components/ProjectDescription';
+import ProjectFeatures from '../projects/components/ProjectFeatures';
+import ProjectCarousel from '../projects/components/ProjectCarousel';
+import ProjectOutcomes from '../projects/components/ProjectOutocomes';
+import ProjectDemo from '../projects/components/ProjectDemo';
+import ProjectCta from '../projects/components/ProjectCta';
+
+const features = [
+  {
+    icon: <FaLock size={28} />,
+    title: 'Secure Logins',
+    description:
+      'Guests can create personal accounts to safely manage bookings, encouraging repeat visits and trust.',
+  },
+  {
+    icon: <FaCreditCard size={28} />,
+    title: 'Seamless Payments',
+    description:
+      'Integrated with Stripe for smooth online transactions, reducing friction and speeding up conversions.',
+  },
+  {
+    icon: <FaStar size={28} />,
+    title: 'Room Reviews',
+    description:
+      "Reviews help new guests make confident decisions, while good feedback builds your hotel's reputation.",
+  },
+  {
+    icon: <FaBookmark size={28} />,
+    title: 'Bookmark Favorites',
+    description:
+      'Visitors can save rooms they like, making it easy to return and book later without searching again.',
+  },
+  {
+    icon: <IoMail size={28} />,
+    title: 'Real-Time Emails',
+    description:
+      'Automated emails confirm bookings and actions, keeping guests informed while saving you time.',
+  },
+  {
+    icon: <RiDashboard2Line size={28} />,
+    title: 'User Dashboard',
+    description:
+      'Every guest gets a simple dashboard to view and manage their bookings—no need for extra staff support.',
+  },
+  {
+    icon: <RiSmartphoneLine size={28} />,
+    title: 'Mobile-Ready Design',
+    description:
+      'Optimized for all screen sizes so guests can browse and book on the go without frustration.',
+  },
+  {
+    icon: <SiSimpleicons size={28} />,
+    title: 'Fast & Simple UI',
+    description:
+      'The interface is clean and distraction-free, helping guests act fast without feeling overwhelmed.',
+  },
+];
+
+const projectImg = [
+  {
+    title: 'Homepage',
+    src: '/rockins/hero.svg',
+  },
+
+  {
+    title: 'rooms section',
+    src: '/rockins/rooms.jpeg',
+  },
+
+  {
+    title: 'reviews section',
+    src: '/rockins/review.jpeg',
+  },
+
+  {
+    title: 'room section',
+    src: '/rockins/room.jpeg',
+  },
+
+  {
+    title: 'signup section',
+    src: '/rockins/signup.jpeg',
+  },
+
+  {
+    title: 'account profile section',
+    src: '/rockins/profile.jpeg',
+  },
+
+  {
+    title: 'payment gateway section',
+    src: '/rockins/stripe.jpeg',
+  },
+
+  {
+    title: 'featured section',
+    src: '/rockins/trending.jpeg',
+  },
+
+  {
+    title: 'delete account section',
+    src: '/rockins/delete-account.jpeg',
+  },
+
+  {
+    title: 'about-us section',
+    src: '/rockins/about-us.jpeg',
+  },
+
+  {
+    title: 'description section',
+    src: '/rockins/description.jpeg',
+  },
+
+  {
+    title: 'featured section',
+    src: '/rockins/featured.jpeg',
+  },
+
+  {
+    title: 'login section',
+    src: '/rockins/login.jpeg',
+  },
+
+  {
+    title: 'bookmarks section',
+    src: '/rockins/bookmarks.jpeg',
+  },
+];
+
+const outcomes = [
+  {
+    heading: 'More Visibility',
+    text: 'The hotel is now searchable on Google — making it easy for travelers to find and book rooms without walking around or asking.',
+  },
+  {
+    heading: 'Increased Bookings',
+    text: 'Visitors can now reserve rooms directly online, leading to faster decisions and more confirmed stays.',
+  },
+  {
+    heading: 'Automated Emails',
+    text: 'Booking confirmations and other important messages are sent automatically, reducing manual work for staff.',
+  },
+  {
+    heading: 'Return Guests',
+    text: 'Saved bookmarks and account logins make it easy for returning guests to rebook.',
+  },
+  {
+    heading: 'Streamlined Operations',
+    text: 'A well-designed dashboard helps the hotel team manage bookings and user details with minimal effort.',
+  },
+  {
+    heading: 'Better First Impressions',
+    text: 'A polished design reflects professionalism and builds trust at first glance.',
+  },
+];
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Rockins Hotel - Online Room Booking Experience' },
+    { title: ' Rockins Hotel Booking Platform | Browse & Book Rooms Online' },
     {
       name: 'description',
       content:
-        'Rockins Hotel offers a hassle-free online room booking experience with real-time availability, secure payments, and user-friendly features. Book your stay effortlessly and manage your reservations with ease through our optimized and secure platform.',
+        'Rockins makes hotel booking simple. View rooms, read reviews, and reserve online. No calls, no stress — just tap, book, stay.',
     },
     {
       name: 'keywords',
       content:
-        'Rockins Hotel, online room booking, hotel reservations, book hotel rooms, real-time availability, secure hotel booking, Stripe payments, hotel reviews, user dashboard, hotel management, hotel booking platform, best hotel booking website, hotel booking app, hotel deals, room availability, mobile-friendly hotel booking, optimized hotel website, hotel booking security, hotel SEO, easy hotel booking',
+        'hotel booking, book rooms online, hotel website, hotel finder, room reservation, hotel business online Rockins Hotel',
     },
   ];
 };
@@ -25,164 +188,61 @@ export const meta: MetaFunction = () => {
 export default function Page() {
   return (
     <>
-      <ProjectOverView
-        title=" Rockins: Efficient Hotel Booking Experience"
-        description="A hotel booking website, Rockins, was created to make it easier for people to book rooms online instead of physically going to the hotel. The goal is to give users a simple way to view available rooms and book them in just a few clicks. The purpose of this website is to allow users to book hotel rooms easily and quickly. It has an intuitive design, so even first-time users can navigate without confusion. The site shows a list of rooms, and users can immediately see if they are available, which saves them time."
+      <ProjectHero
+        heading="Book a Room Before You Even Arrive"
+        description="Find and book rooms fast no calls, no walking around."
         imgSrc="/rockins/hero.svg"
-      />
-      <ListBox text="Core problems solved">
-        <List
-          title="Complicated Booking Process"
-          description="Booking a hotel room can be confusing on many websites because there are
-                  too many steps or the design is hard to follow. With Rockins, the
-                booking process is made simple and clear. Users can choose a room, check
-                its availability, and book it without needing to go through complicated
-                forms or pages."
-        />
-        <List
-          title="Lack of Real-Time Availability"
-          description="Some hotel websites don't show if a room is available right away, 
-                leading to frustration when users try to book a room that's already taken. Rockins 
-                solves this by displaying real-time availability. If a room is booked, 
-                it immediately reflects that on the website, so users won’t waste time."
-        />
-        <List
-          title="Poor Mobile Experience"
-          description="Many people want to book rooms on their phones, 
-                but some hotel websites don’t work well on mobile devices. 
-                Rockins solves this by having a mobile-friendly design. 
-                Whether a user is on a phone, tablet, or computer, 
-                they will have the same smooth experience."
-        />
-      </ListBox>
+        imgAlt="Rockins Hotel Website"
+      >
+        <RiNextjsLine />
+        <RiTailwindCssLine />
+        <SiMongodb />
+        <RiJavascriptLine />
+        <SiTypescript />
+      </ProjectHero>
+      <ProjectDescription heading="Why Rockins Was Built">
+        A lot of hotel businesses still operate entirely offline. They depend on
+        people walking in or hearing about them by word of mouth. But in today’s
+        world, that limits your reach. If someone is new to town and looking for
+        a place to stay, chances are they’ll check online first not roam around
+        asking for directions. This creates a real problem for hotels that
+        aren't visible online. They lose out on potential guests, not because
+        their service isn’t good, but because no one knows they exist. Even
+        worse, many small hotel owners think building a website is either too
+        expensive or too complex. Rockins was built to fix that. It gives hotel
+        businesses a professional online presence. The kind that works even when
+        you're asleep. Here’s what it does It shows up on Google Maps. So anyone
+        searching for hotels nearby can find it. It displays rooms clearly.
+        Guests can see exactly what they're booking — pictures, prices, and
+        amenities. It handles bookings online. No need for long calls or
+        in-person visits. The booking system is built in. It accepts secure
+        payments. So the business doesn’t lose serious customers due to
+        complicated payment options. All this comes together in a simple,
+        mobile-friendly website that makes it easy for people to find and book
+        rooms fast.
+      </ProjectDescription>
 
-      <ListBox text="Core stack">
-        <List
-          icon={<RiNextjsLine className="size-8" />}
-          title="Next.js"
-          description="Next.js is a popular framework for building fast, dynamic websites. 
-                I used it to make sure that the website loads quickly,
-                 It also helps with server-side rendering, which improves performance and SEO"
-        />
+      <ProjectFeatures
+        heading="What Makes Rockins Work for You"
+        features={features}
+      ></ProjectFeatures>
 
-        <List
-          icon={<RiTailwindCssLine className="size-8" />}
-          title="Tailwind CSS"
-          description="For the design, I used Tailwind CSS, a utility-first CSS framework. 
-                It allowed me to quickly style the website without writing a lot of custom CSS. 
-                This helped create a clean and modern design while keeping the code organized and efficient."
-        />
+      <ProjectCarousel projectImg={projectImg}></ProjectCarousel>
 
-        <List
-          icon={<BiLogoMongodb className="size-8" />}
-          title="MongoDB"
-          description="To store all the data, such as room availability and bookings, I used MongoDB. 
-            It’s a database that can handle large amounts of data and is flexible enough 
-            to grow with the website as more users book rooms. It also works well with other technologies 
-            I used in the project."
-        />
-      </ListBox>
+      <ProjectOutcomes
+        heading="What This Website Solves for Hotels"
+        outcomes={outcomes}
+      ></ProjectOutcomes>
 
-      <ListBox text="Functionality and Features">
-        <List
-          title="User Authentication"
-          description="Users can create an account, log in, and reset their password if needed. 
-              This allows them to securely manage their bookings and personal information."
-        />
-        <List
-          title="Stripe Integration for Payment"
-          description="To handle payments, I integrated Stripe, a reliable and secure payment gateway. 
-              This allows users to pay for their room bookings directly through the website"
-        />
-        <List
-          title="Add Reviews for Rooms"
-          description="After staying in a room, users can leave reviews to help others make informed decisions. 
-              This feature encourages feedback and improves the overall user experience"
-        />
-        <List
-          title="Bookmark Rooms for Future Use"
-          description="Users can save or bookmark rooms they like, so they can easily find and book them later. 
-              This helps them keep track of their favorite options without needing to search again."
-        />
-        <List
-          title="Real-Time Emails"
-          description="For important actions like booking a room, resetting a password, 
-              or confirming an account, users receive real-time email notifications. 
-              This keeps them updated on their activities."
-        />
-        <List
-          title="User Dashboard"
-          description="Each user has a personal dashboard where they can see the rooms they have booked. 
-              The dashboard also allows them to view and edit their profile, 
-              such as changing their profile picture or name"
-        />
-        <List
-          title="Account Deletion"
-          description="If a user no longer wants to use the website, 
-              they have the option to delete their account along with all their data."
-        />
-      </ListBox>
-
-      <div className="py-12">
-        <h2 className="mb-7 font-bold text-3xl">Perfomance Optimization</h2>
-        <div className="flex flex-col gap-8">
-          <p className="text-lg leading-loose text-gray-200/100">
-            I ensured that every page is optimized for search engines. This
-            includes using proper meta tags, keywords, and descriptions so the
-            site is more likely to appear in search results. This helps
-            potential customers easily find the website when looking for hotel
-            bookings.
-          </p>
-
-          <p className="text-lg leading-loose text-gray-200/100">
-            Images are optimized to load quickly without sacrificing quality. I
-            used lazy loading to ensure that images only load when they are
-            visible on the screen, which improves page load times. I also
-            compressed the images to reduce file size, ensuring the website
-            stays fast, even with high-quality visuals.
-          </p>
-        </div>
-      </div>
-
-      <ListBox text="Security features">
-        <List
-          title="Rate limiting"
-          description="  I set up rate limiting to prevent users from making too many requests in a short amount of time. 
-              This helps avoid spam and ensures the website performs well for all users"
-        />
-        <List
-          title="Room Booking Limit"
-          description="To prevent spamming of room bookings, I limited users to a maximum of 3 active booked         rooms at a time. 
-              This ensures fair usage and avoids overbooking"
-        />
-        <List
-          title="User Authorization and Authentication"
-          description="I implemented proper user authorization and authentication systems to ensure that only verified users can access their accounts and make bookings. 
-              This keeps user data safe and prevents unauthorized actions."
-        />
-      </ListBox>
-      <section className="flex flex-col items-center py-12">
-        <h2 className="font-bold text-3xl uppercase mb-4">RockIns Demo</h2>
-        <MediaPlayer url="https://www.youtube.com/watch?v=tSCUbwa_mdQ" />
-      </section>
-
-      <ProjectConclusion
-        conclusion="Building the Rockins hotel website was an exciting challenge that
-        allowed me to solve real-world problems. By using a modern tech stack
-        including Next.js, Tailwind CSS, MongoDB, and React, I was able to
-        create a fast, secure, and user-friendly platform. The site offers
-        features like user authentication, secure payment processing through
-        Stripe, and real-time room availability, all while being optimized for
-        mobile devices and search engines. With performance enhancements like
-        lazy loading and image compression, and security measures like rate
-        limiting and user authorization, Rockins is both efficient and scalable.
-        This project helped me grow as a full-stack developer, and I look
-        forward to applying these skills to future projects. Feel free to
-        explore the site and see the features in action."
-        projectLink="https://rockins.vercel.app/"
-        githubLink="https://github.com/duske953/HOTEL"
-        nextProjectLink="/projects/tech-freak"
-      />
+      <ProjectDemo url='https://youtu.be/tSCUbwa_mdQ"'></ProjectDemo>
+      <ProjectCta
+        githubUrl="https://github.com/duske953/HOTEL"
+        nextProject="byte-cart"
+        cta="Explore the Booking Experience"
+        heading="Let Your Website Work While You Rest"
+        description="Turn visitors into customers with a site that does the heavy lifting
+            even while you're asleep."
+      ></ProjectCta>
     </>
   );
 }

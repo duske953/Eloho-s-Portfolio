@@ -13,7 +13,7 @@ import { Textarea } from './ui/textarea';
 import { object, string } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFetcher } from '@remix-run/react';
 import { ReloadIcon } from '@radix-ui/react-icons';
 import { toast } from 'react-toastify';
@@ -32,9 +32,9 @@ export const userDetailsSchema = object({
 });
 
 export default function ContactModal({
-  setAnimateContactBtn,
+  btnText = 'Contact',
 }: {
-  setAnimateContactBtn: Dispatch<SetStateAction<boolean>>;
+  btnText?: string;
 }) {
   const {
     register,
@@ -47,7 +47,6 @@ export default function ContactModal({
   const [contactModal, setContactModal] = useState(false);
   function renderContactModal(state: boolean) {
     if (fetcher.state === 'submitting') return;
-    setAnimateContactBtn(state);
     setContactModal(state);
   }
 
@@ -69,8 +68,8 @@ export default function ContactModal({
   return (
     <Dialog onOpenChange={renderContactModal} open={contactModal}>
       <DialogTrigger asChild>
-        <Button className="rounded-full" size="lg" variant="secondary">
-          Contact
+        <Button className="rounded-none" size="lg" variant="secondary">
+          {btnText}
         </Button>
       </DialogTrigger>
       <DialogContent aria-describedby={undefined}>

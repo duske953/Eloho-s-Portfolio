@@ -10,6 +10,18 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      animation: {
+        scroll:
+          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+      },
+
+      keyframes: {
+        scroll: {
+          to: {
+            transform: 'translate(calc(-50% - 0.5rem))',
+          },
+        },
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -53,14 +65,14 @@ export default {
         },
       },
     },
-    screens: {
-      '2xl': { max: '1535px' },
-      xl: { max: '1279px' },
-      lg: { max: '1023px' },
-      md: { max: '800px' },
-      sm: { max: '639px' },
-      xs: { max: '500px' },
-    },
+    // screens: {
+    //   '2xl': { max: '1535px' },
+    //   xl: { max: '1279px' },
+    //   lg: { max: '1023px' },
+    //   md: { max: '800px' },
+    //   sm: { max: '639px' },
+    //   xs: { max: '500px' },
+    // },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;

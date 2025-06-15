@@ -1,0 +1,137 @@
+import { motion, Variants } from 'motion/react';
+import { useState } from 'react';
+import { IoArrowDown } from 'react-icons/io5';
+import { TypewriterEffect } from '~/components/ui/TypeWriter';
+import { cn } from '~/lib/utils';
+
+const faqsAnswers = [
+  'Just send me a message through the contact form. I’ll reply within a day to discuss your goals and how we can move forward.',
+  'It depends on the size and complexity of your website. A simple site might take a few days, while a larger one with more features could take a few weeks. Once I understand your needs, I’ll give you a clear timeline.',
+  'There’s no one-size-fits-all price — it really comes down to how complex the site is. Once we talk through what you want, I’ll give you a clear and honest estimate.',
+  'I provide one week of free post-launch support to help you settle in. After that, ongoing help is available through a flexible maintenance plan.',
+  'If your site was built with actual code, yes I can jump in and improve or add features. I don’t work with drag-and-drop platforms like Webflow or Wix.',
+  'Nope. While I use tools like AI to speed things up, I don’t let them do the thinking for me. I write, debug, and understand every line. So when things break (and they do), I know how to fix them.',
+];
+
+export default function Faq() {
+  const container = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+  };
+
+  return (
+    <section className="py-32 px-8 max-sm:px-3">
+      <div className="max-w-3xl mx-auto">
+        <div>
+          <h2 className="text-center mb-16 text-5xl max-md:text-3xl max-md:leading-relaxed uppercase font-bold text-gray-300">
+            Questions you may have
+          </h2>
+          <motion.ul
+            className="flex flex-col gap-7"
+            variants={container}
+            initial="hidden"
+            viewport={{ once: true, amount: 0.2, margin: '0px 0px -100px 0px' }}
+            whileInView="show"
+          >
+            <FaqItem
+              answer={faqsAnswers[0].split(' ')}
+              question="How do we get started?"
+            />
+
+            <FaqItem
+              answer={faqsAnswers[1].split(' ')}
+              question="How long does it take to finish a website?"
+            />
+
+            <FaqItem
+              answer={faqsAnswers[2].split(' ')}
+              question="How much does a website cost?"
+            />
+
+            <FaqItem
+              answer={faqsAnswers[3].split(' ')}
+              question="Do you offer ongoing support or help after the site is launched?"
+            />
+
+            <FaqItem
+              answer={faqsAnswers[4].split(' ')}
+              question="Can you fix or improve my current website?"
+            />
+
+            <FaqItem
+              answer={faqsAnswers[5].split(' ')}
+              question="Are you a vibe coder?"
+            />
+          </motion.ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: Array<string>;
+}) {
+  const [openFaq, setOpenFaq] = useState(false);
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: -20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, type: 'spring', mass: 1.5, damping: 10 },
+    },
+  };
+
+  return (
+    <motion.li
+      variants={item}
+      className="flex flex-col border-b border-gray-300 py-4 px-6 mb-4 cursor-pointer relative"
+    >
+      <div className="relative">
+        <p
+          className={cn(
+            'text-xl font-bold max-sm:text-sm',
+            openFaq && 'text-blue-600'
+          )}
+        >
+          {question}
+        </p>
+
+        <IoArrowDown
+          className={cn(
+            'text-4xl max-sm:-right-8 absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-300 cursor-pointer transition-transform',
+            openFaq ? 'rotate-180' : ''
+          )}
+          onClick={() => setOpenFaq((prev) => !prev)}
+        />
+      </div>
+
+      <motion.div
+        className="h-0 text-sm"
+        initial={{ opacity: 0, y: -10, height: 0 }}
+        animate={{
+          opacity: openFaq ? 1 : 0,
+          y: openFaq ? 0 : -10,
+          height: openFaq ? 'auto' : 0,
+          marginTop: openFaq ? '1rem' : 0,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <TypewriterEffect
+          className="leading-loose text-sm"
+          words={answer.map((ans) => {
+            return {
+              text: ans,
+            };
+          })}
+          key={openFaq ? 'open' : 'closed'}
+        />
+      </motion.div>
+    </motion.li>
+  );
+}

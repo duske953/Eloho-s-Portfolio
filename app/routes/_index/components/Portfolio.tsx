@@ -6,8 +6,6 @@ import {
 } from 'react-icons/fa';
 import { Link } from '@remix-run/react';
 import { buttonVariants } from '~/components/ui/button';
-import { animated, useInView, useSprings } from '@react-spring/web';
-import { useEffect, useRef } from 'react';
 import { IoChatboxSharp } from 'react-icons/io5';
 import { Badge } from '~/components/ui/badge';
 import {
@@ -18,8 +16,11 @@ import {
   CardHeader,
   CardTitle,
 } from '~/components/ui/card';
-import AnimateHeading from '~/components/AnimateHeading';
-const AnimatedCard = animated(Card);
+import { motion } from 'motion/react';
+import { cn } from '~/lib/utils';
+import { DotBackground } from '~/components/ui/DotBackground';
+import { BackgroundGradient } from '~/components/ui/BackgroundGradient';
+
 const projects = [
   {
     title: 'RockIns',
@@ -32,13 +33,13 @@ const projects = [
   },
 
   {
-    title: 'Tech-Freak',
-    description: 'Ecommerce web application | Tech-Freak',
-    img: '/tech-freak/hero.svg',
+    title: 'Byte-Cart',
+    description: 'Ecommerce web application | Byte-Cart',
+    img: '/byte-cart/hero.jpeg',
     icon: <FaShoppingCart className="size-6" />,
-    tech: ['React', 'Node.js'],
-    projectUrl: 'https://tech-freak.vercel.app/',
-    detailsUrl: '/projects/tech-freak',
+    tech: ['Next.js', 'Node.js'],
+    projectUrl: 'https://byte-cart.vercel.app/',
+    detailsUrl: '/projects/byte-cart',
   },
 
   {
@@ -61,6 +62,16 @@ const projects = [
     detailsUrl: '/projects/anonymo',
   },
 
+  {
+    title: 'Music Snip',
+    description: 'Preview latest music & albums',
+    img: '/music-snip/homepage.svg',
+    icon: <FaMusic className="size-6" />,
+    tech: ['Next.js', 'React'],
+    projectUrl: 'https://music-snip.vercel.app',
+    detailsUrl: '/projects/music-snip',
+  },
+
   // {
   //   title: 'Digital Nft',
   //   description:
@@ -71,102 +82,86 @@ const projects = [
   //   projectUrl: 'https://digital-nft.netlify.app/',
   //   githubUrl: 'https://github.com/duske953/NFT-landing-page',
   // },
-
-  {
-    title: 'Music Snip',
-    description: 'Preview latest music & albums',
-    img: '/music-snip/hero.svg',
-    icon: <FaMusic className="size-6" />,
-    tech: ['Next.js', 'React'],
-    projectUrl: 'https://music-snip.vercel.app',
-    detailsUrl: '/projects/music-snip',
-  },
 ];
 
 export function Porfolio() {
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const [animatePortfolio, setAnimatatePortfolio] = useSprings(
-    5,
-    (i) => ({
-      from: { opacity: 0, transform: `scale(1)` },
-      delay: (i + 1) * 200,
-      config: {
-        tension: 120,
-        friction: 15,
-      },
-    }),
-    []
-  );
-  const [ref, inView] = useInView({ once: true, rootMargin: '-10%' });
-  useEffect(() => {
-    if (inView)
-      setAnimatatePortfolio.start((i) => ({
-        from: { opacity: 0, transform: `scale(0.5)` },
-        to: { opacity: 1, transform: `scale(1)` },
-        delay: (i + 1) * 200,
-      }));
-  }, [inView]);
-
   return (
-    <section id="projects" ref={projectsRef} className="px-6 pb-32 relative">
-      <AnimateHeading inView={inView} text="Portfolio" />
-      <ul
-        ref={ref}
-        className="grid grid-cols-2 gap-x-7 gap-y-12 md:grid-cols-1"
-      >
-        {animatePortfolio.map((styles, i) => {
-          return (
-            <li key={crypto.randomUUID()}>
-              <AnimatedCard style={styles} className="bg-slate-950/100">
-                <CardHeader>
-                  <CardTitle className="uppercase flex items-center gap-3">
-                    {projects[i].icon}
-                    <p className="xs:text-xs">{projects[i].title}</p>
-                    <div className="ml-auto flex gap-2">
-                      <Badge variant="secondary">{projects[i].tech[0]}</Badge>
-                      <Badge variant="secondary">{projects[i].tech[1]}</Badge>
-                    </div>
-                  </CardTitle>
-                  <CardDescription className="text-2xl text-white lg:text-xl sm:text-sm">
-                    {projects[i].description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="">
-                  <img
-                    className="rounded-2xl "
-                    src={projects[i].img}
-                    alt={projects[i].description}
-                  />
-                </CardContent>
-                <CardFooter className="flex justify-end gap-6">
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${buttonVariants({
-                      variant: 'secondary',
-                      size: 'lg',
-                    })}`}
-                    to={projects[i].projectUrl}
-                  >
-                    Visit
-                  </Link>
+    <DotBackground>
+      <section id="projects" className="px-6 pb-32 relative max-md:px-3">
+        <ul className="grid grid-cols-3 gap-x-7 gap-y-12 max-md:grid-cols-1">
+          {projects.map((project, i) => {
+            return (
+              <motion.li
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '0px 0px -250px 0px' }}
+                transition={{
+                  delay: i === 0 ? 0.5 : i * 0.2,
+                  mass: 1.5,
+                  damping: 10,
+                  type: 'spring',
+                }}
+                className={cn(
+                  project.title === 'Anonymo' && 'col-span-2 max-md:col-span-1',
+                  project.title === 'RockIns' && 'col-span-2 max-md:col-span-1',
+                  project.title === 'Music Snip' &&
+                    'col-span-3 max-md:col-span-1'
+                )}
+                key={crypto.randomUUID()}
+              >
+                <BackgroundGradient>
+                  <Card className="bg-slate-950/100 h-[30rem]">
+                    <CardHeader>
+                      <CardTitle className="uppercase flex items-center gap-3">
+                        {project.icon}
+                        <p className="xs:text-xs">{project.title}</p>
+                        <div className="ml-auto flex gap-2">
+                          <Badge variant="secondary">{project.tech[0]}</Badge>
+                          <Badge variant="secondary">{project.tech[1]}</Badge>
+                        </div>
+                      </CardTitle>
+                      <CardDescription className="text-xl text-blue-300 font-bold lg:text-xl sm:text-sm">
+                        {projects[i].description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="">
+                      <img
+                        className="rounded-2xl h-60 w-full object-cover"
+                        src={project.img}
+                        alt={project.description}
+                      />
+                    </CardContent>
+                    <CardFooter className="flex justify-end gap-6">
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${buttonVariants({
+                          variant: 'secondary',
+                          size: 'lg',
+                        })}`}
+                        to={project.projectUrl}
+                      >
+                        Visit
+                      </Link>
 
-                  <Link
-                    rel="noopener noreferrer"
-                    className={`${buttonVariants({
-                      variant: 'outline',
-                      size: 'lg',
-                    })}`}
-                    to={projects[i].detailsUrl}
-                  >
-                    Details
-                  </Link>
-                </CardFooter>
-              </AnimatedCard>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+                      <Link
+                        rel="noopener noreferrer"
+                        className={`${buttonVariants({
+                          variant: 'outline',
+                          size: 'lg',
+                        })}`}
+                        to={project.detailsUrl}
+                      >
+                        Details
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                </BackgroundGradient>
+              </motion.li>
+            );
+          })}
+        </ul>
+      </section>
+    </DotBackground>
   );
 }

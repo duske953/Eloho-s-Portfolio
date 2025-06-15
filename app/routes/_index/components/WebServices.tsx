@@ -1,82 +1,71 @@
-import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
-import { FaCheckCircle } from 'react-icons/fa';
-import { animated, useInView, useSprings } from '@react-spring/web';
-import { useEffect } from 'react';
-import AnimateHeading from '~/components/AnimateHeading';
-const AnimatedCard = animated(Card);
-
-const services = [
-  {
-    title: 'Website Development',
-    description:
-      'I create custom websites that fit your business needs. From design to launch, I make sure your site looks great, works well, and meets your goals.',
-  },
-
-  {
-    title: 'Backend Development',
-    description: `I handle the behind-the-scenes part of your website. Whether it’s managing data or building APIs, I make sure everything runs smoothly and securely.`,
-  },
-
-  {
-    title: 'Web Maintenance',
-    description: `I provide ongoing support to keep your website updated and secure. From regular updates to fixing bugs, I ensure everything stays running smoothly.`,
-  },
-];
+import { motion } from 'motion/react';
+import { cn } from '~/lib/utils';
 
 export default function WebServices() {
-  const [ref, inView] = useInView({ once: true, rootMargin: '-20% 0%' });
-
-  const [animatedServices, setAnimateServices] = useSprings(
-    3,
-    () => ({
-      from: { opacity: 0, transform: `scale(1)` },
-    }),
-    []
-  );
-
-  useEffect(() => {
-    if (inView) {
-      setAnimateServices.start((i) => ({
-        from: { opacity: 0, transform: `scale(0.5)` },
-        to: { opacity: 1, transform: `scale(1)` },
-        delay: (i + 1) * 200,
-      }));
-    }
-  }, [inView]);
-
   return (
-    <section className="pb-32 px-6 relative">
-      <AnimateHeading inView={inView} text="What I offer" />
-      <ul
-        ref={ref}
-        className="grid grid-cols-3 gap-7 lg:grid-cols-2 sm:grid-cols-1"
-      >
-        {animatedServices.map((styles, i) => {
-          return (
-            <li
-              ref={ref}
-              className="last:lg:translate-x-2/4 last:sm:translate-x-0"
-              key={crypto.randomUUID()}
-            >
-              <AnimatedCard
-                className="cursor-pointer hover:bg-slate-900/85 hover:transition-all"
-                style={styles}
-                key={services[i].description}
-              >
-                <CardHeader className="flex flex-row items-center gap-3">
-                  <FaCheckCircle className="size-7" />
-                  <CardTitle className="uppercase">
-                    {services[i].title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>{services[i].description}</p>
-                </CardContent>
-              </AnimatedCard>
-            </li>
-          );
-        })}
-      </ul>
+    <section className="px-8 pt-14 pb-24 relative z-10 web-services-container max-lg:px-3">
+      <div className="grid grid-cols-1 gap-16 max-lg:gap-24">
+        <WebServicesContent
+          heading="Make your site easy to use"
+          content="I build the parts of your website that people see and interact with.
+              I make sure everything is easy to use and looks good on any screen."
+          src="/landing-page.png"
+        />
+        <WebServicesContent
+          heading="Handle what happens in the background"
+          content="I also handle the behind-the-scenes work that keeps your website running smoothly and securely."
+          src="/backend.png"
+          className="order-3 max-lg:-order-1"
+        />
+
+        <WebServicesContent
+          heading=" Fix Issues and Keep Things Running"
+          content="Already have a site? I help with bugs, updates, and small changes
+              so your site keeps doing what it’s meant to do."
+          src="/bug-fix.png"
+        />
+      </div>
     </section>
+  );
+}
+
+function WebServicesContent({
+  src,
+  heading,
+  content,
+  alt,
+  className,
+}: {
+  src: string;
+  className?: string;
+  heading: string;
+  content: string;
+  alt?: string;
+}) {
+  return (
+    <motion.div
+      className="flex gap-12 items-center rounded-md max-lg:flex-col"
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, mass: 0.5, damping: 10 }}
+      viewport={{ once: true, amount: 0.2, margin: '0px 0px -200px 0px' }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className={cn(
+          'size-[35rem] rounded-full object-contain max-md:size-full',
+          className
+        )}
+      />
+      <div className="relative">
+        <p className="text-4xl font-bold mb-5 text-blue-500 max-md:text-2xl max-md:leading-relaxed leading-relaxed">
+          {heading}
+        </p>
+        <span className="text-2xl max-md:text-sm leading-relaxed text-gray-300">
+          {content}
+        </span>
+      </div>
+    </motion.div>
   );
 }
