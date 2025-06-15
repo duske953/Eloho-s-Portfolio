@@ -8,6 +8,7 @@ import Faq from './components/Faq';
 import TechStack from './components/TechStack';
 import PainPoints from './components/PaintPoints';
 import Cta from './components/Cta';
+import Navbar from '~/components/Navbar';
 
 export const meta: MetaFunction = () => {
   return [
@@ -32,16 +33,20 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <main className="section-container">
-      <Hero />
-      <WebsitesFacts />
-      <PainPoints />
-      <WebServices />
-      <PorfolioMarquee />
-      <Porfolio />
-      <Faq />
-      <TechStack />
-      <Cta />
-    </main>
+    <>
+      <Navbar className="bg-black pr-6" />
+
+      <main className="section-container">
+        <Hero />
+        <WebsitesFacts />
+        <PainPoints />
+        <WebServices />
+        <PorfolioMarquee />
+        <Porfolio />
+        <Faq />
+        <TechStack />
+        <Cta />
+      </main>
+    </>
   );
 }

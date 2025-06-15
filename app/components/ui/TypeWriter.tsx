@@ -70,12 +70,7 @@ export const TypewriterEffect = ({
     );
   };
   return (
-    <div
-      className={cn(
-        'max-sm:text-xl max-md:text-3xl max-lg:text-5xl text-lg leading-normal',
-        className
-      )}
-    >
+    <div className={cn('leading-normal', className)}>
       {renderWords()}
       <motion.span
         initial={{
@@ -89,10 +84,7 @@ export const TypewriterEffect = ({
           repeat: Infinity,
           repeatType: 'reverse',
         }}
-        className={cn(
-          'inline-block rounded-sm w-[4px] h-4 max-md:h-6 max-lg:h-10 bg-blue-500',
-          cursorClassName
-        )}
+        className={cn('rounded-sm w-[4px] h-4 bg-blue-500', cursorClassName)}
       ></motion.span>
     </div>
   );
@@ -156,7 +148,7 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-xs max-sm:text-base max-md:text-xl max-lg:text:3xl max-xl:text-5xl font-bold"
+          className="font-bold"
           style={{
             whiteSpace: 'nowrap',
           }}

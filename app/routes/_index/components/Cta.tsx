@@ -9,7 +9,7 @@ export default function Cta() {
           <h2 className="text-5xl font-bold max-sm:text-3xl max-sm:leading-normal">
             Get a website that actually helps your business.
           </h2>
-          <p className="text-xl italic leading-relaxed">
+          <p className="text-xl leading-relaxed">
             Tell me your goals, and I’ll take care of building a website that
             delivers.
           </p>

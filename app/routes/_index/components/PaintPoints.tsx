@@ -6,8 +6,8 @@ import { cn } from '~/lib/utils';
 
 export default function PainPoints() {
   return (
-    <section className="py-20 relative px-4">
-      <h2 className="mb-16 max-sm:mb-8 px-4 text-center text-4xl font-bold uppercase text-gray-300 max-sm:text-xl max-sm:leading-normal">
+    <section className="py-20 relative px-3">
+      <h2 className="mb-16 max-sm:mb-8 px-4 text-center text-5xl font-bold uppercase text-gray-300 max-sm:text-3xl max-sm:leading-normal">
         Why Your Website Isn’t Working As Well As It Could
       </h2>
       <DotBackground>

@@ -25,6 +25,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import handleSendMessage from './actions/handleSendMessage';
 import { Analytics } from '@vercel/analytics/remix';
+import { NavLinkBox } from './components/Navbar';
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -92,7 +93,6 @@ export function App() {
         <Links />
       </head>
       <body>
-        {/* <Navbar /> */}
         <RecoilRoot>
           <Outlet />
           <ToastContainer
@@ -105,6 +105,7 @@ export function App() {
         </RecoilRoot>
         <ScrollRestoration />
         <Scripts />
+        <NavLinkBox className="hidden max-md:flex max-md:sticky bottom-0 max-md:left-0 max-md:overflow-auto max-md:w-full" />
       </body>
     </html>
   );

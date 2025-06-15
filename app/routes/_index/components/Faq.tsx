@@ -123,7 +123,7 @@ function FaqItem({
         transition={{ duration: 0.3 }}
       >
         <TypewriterEffect
-          className="leading-loose text-sm"
+          className="text-lg leading-[1.8]"
           words={answer.map((ans) => {
             return {
               text: ans,

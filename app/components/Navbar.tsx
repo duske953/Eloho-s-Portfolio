@@ -2,12 +2,10 @@ import { Link } from '@remix-run/react';
 import { useMediaQuery } from 'react-responsive';
 import { cn } from '~/lib/utils';
 import { Button, buttonVariants } from './ui/button';
-import { IoClose } from 'react-icons/io5';
 import { useInView, motion, useAnimation } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 import ContactModal from './ContactModal';
-import { RiMenu4Line } from 'react-icons/ri';
 const navBarLinks = [
   {
     link: null,
@@ -30,63 +28,58 @@ const navBarLinks = [
 export default function Navbar({ className }: { className?: string }) {
   const isTabletMobile = useMediaQuery({ maxWidth: '800px' });
   const controls = useAnimation();
-  const [openNav, setOpenNav] = useState(false);
   const navRef = useRef(null);
   const isInView = useInView(navRef, {
     margin: '100% -20px 0px 0px',
+    initial: true,
   });
 
   useEffect(() => {
-    if (!isInView) controls.start({ y: 0 });
+    if (!isInView) {
+      controls.set({ y: -100 });
+      controls.start({ y: 0 });
+    }
   }, [isInView]);
 
   return (
     <>
-      <header ref={navRef} className={cn(className)}>
+      <header ref={navRef} className={cn(className, 'max-md:overflow-auto')}>
         <motion.nav
           key={isInView ? 'in-view' : 'out-of-view'}
-          initial={{ y: isInView ? 0 : -100 }}
           animate={controls}
           className={cn(
-            'flex justify-between items-center max-md:flex-col relative',
-            !isInView && 'fixed w-full z-50 left-0 px-3 backdrop-blur-3xl'
+            'flex justify-between items-center max-md:flex-col relative max-md:overflow-auto',
+            !isInView && 'fixed top-0 w-full z-50 left-0 px-3 bg-slate-900'
           )}
         >
           <Link to="/">
             <img
               src="/logo.jpg"
-              className="w-32"
+              className="w-32 max-sm:w-20 object-cover"
               alt="Logo - Eloho Kennedy, A fullstack web developer"
             />
           </Link>
 
-          <ul
-            className={cn(
-              `flex gap-10 items-center max-md:fixed max-md:bg-slate-900 max-md:h-lvh transition-transform max-md:flex-col z-20 max-md:left-0 max-md:border-none max-md:rounded-none max-md:p-20`,
-              isTabletMobile && 'bg-slate-900/10',
-              openNav && 'max-md:translate-x-0',
-              !openNav && 'max-md:-translate-x-full'
-            )}
-          >
-            {navBarLinks.map((prop, i) => {
-              return <NavLinks i={i} key={i} />;
-            })}
-            <ContactModal />
-
-            <IoClose
-              onClick={() => setOpenNav(false)}
-              className="absolute right-2 top-2 size-10 cursor-pointer hidden max-md:block"
-            />
-          </ul>
-          <RiMenu4Line
-            onClick={() => setOpenNav(true)}
-            className="absolute -left-6 text-6xl hidden max-md:block top-2/4 -translate-y-2/4 cursor-pointer"
-          />
-          {/* <AnimatedMenuIcon className="hidden cursor-pointer absolute size-12 xs:size-10 shadow-2xl shadow-slate-800 top-2/4 md:block left-4" /> */}
+          <NavLinkBox className="max-md:hidden flex max-md:pointer-events-none" />
         </motion.nav>
-        {/* {sideBar && <Overlay />} */}
       </header>
     </>
+  );
+}
+
+export function NavLinkBox({ className }: { className: string }) {
+  return (
+    <ul
+      className={cn(
+        className,
+        `gap-10 items-center z-[100] max-md:bg-slate-900 transition-transform max-md:border-none max-md:rounded-none max-md:py-5 max-md:px-2`
+      )}
+    >
+      {navBarLinks.map((prop, i) => {
+        return <NavLinks i={i} key={i} />;
+      })}
+      <ContactModal />
+    </ul>
   );
 }
 

@@ -112,9 +112,9 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="py-20 px-8">
+    <section className="py-20 px-8 max-sm:px-3">
       <div>
-        <h2 className="uppercase text-4xl max-sm:text-2xl max-sm:leading-relaxed font-bold mb-10 text-gray-300 italic text-center">
+        <h2 className="uppercase text-4xl max-sm:text-3xl max-sm:leading-relaxed font-bold mb-10 text-gray-300 text-center">
           Tools That Power Your Website’s Success
         </h2>
         <MovingCards speed="fast" items={techStack}></MovingCards>

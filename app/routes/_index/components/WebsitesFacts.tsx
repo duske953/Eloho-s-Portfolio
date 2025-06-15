@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader } from '~/components/ui/card';
 export default function WebsitesFacts() {
   const container = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+    show: { opacity: 1, y: 0, transition: { staggerChildren: 0.09 } },
   };
 
   const item: Variants = {
@@ -15,14 +15,14 @@ export default function WebsitesFacts() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, type: 'spring', mass: 1.5, damping: 10 },
+      transition: { type: 'spring', mass: 1.5, damping: 10 },
     },
   };
 
   return (
     <section className="py-10 px-6 max-sm:px-3">
       <div>
-        <h2 className="text-center text-gray-300 text-4xl font-bold mb-14 leading-normal max-sm:text-2xl">
+        <h2 className="text-center text-gray-300 text-5xl font-bold mb-14 leading-normal max-sm:text-3xl">
           Why <span className="text-blue-600 italic">Good Websites</span> Make a
           Difference.
         </h2>
