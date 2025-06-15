@@ -182,15 +182,15 @@ export default function Page() {
       <ProjectDescription heading="Why ByteCart Was Built">
         Many tech product retailers still rely only on their physical store to
         make sales. But in today’s world, people expect to find what they need
-        online — quickly and easily. When someone wants to buy a phone, laptop,
-        or any gadget, they usually start with a quick search. If your store
-        isn’t online, they’ll never find you. This is where Bytecart comes in.
-        It helps tech-focused businesses build a strong online presence.
-        Customers can browse available products, compare options, and place
-        orders from anywhere. It removes the barrier of location and lets
-        sellers meet buyers right where they are — on their phones and laptops.
-        With Bytecart, the buying experience is smooth, trustworthy, and
-        designed to make it easier for people to say yes to what you sell.
+        online quickly and easily. When someone wants to buy a phone, laptop, or
+        any gadget, they usually start with a quick search. If your store isn’t
+        online, they’ll never find you. This is where Bytecart comes in. It
+        helps tech-focused businesses build a strong online presence. Customers
+        can browse available products, compare options, and place orders from
+        anywhere. It removes the barrier of location and lets sellers meet
+        buyers right where they are on their phones and laptops. With Bytecart,
+        the buying experience is smooth, trustworthy, and designed to make it
+        easier for people to say yes to what you sell.
       </ProjectDescription>
       <ProjectFeatures
         features={features}

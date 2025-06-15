@@ -16,7 +16,7 @@ export default function ProjectCta({
   nextProject: string;
 }) {
   return (
-    <>
+    <section className="py-32">
       <div className="cta-gradient py-28 px-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-3xl font-bold text-gray-300 mb-5 leading-relaxed">
@@ -47,6 +47,6 @@ export default function ProjectCta({
           </Link>
         </div>
       </div>
-    </>
+    </section>
   );
 }

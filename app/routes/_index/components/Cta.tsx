@@ -5,7 +5,7 @@ export default function Cta() {
   return (
     <section className="py-20">
       <div className="py-28 cta-gradient px-4">
-        <div className="text-center flex flex-col gap-5 items-center">
+        <div className="flex-col gap-5 space-y-6">
           <h2 className="text-5xl font-bold max-sm:text-3xl max-sm:leading-normal">
             Get a website that actually helps your business.
           </h2>

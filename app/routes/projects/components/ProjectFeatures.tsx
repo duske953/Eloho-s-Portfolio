@@ -10,7 +10,7 @@ export default function ProjectFeatures({
   }>;
 }) {
   return (
-    <div className="max-w-6xl mx-auto px-8 py-28">
+    <div className="max-w-6xl mx-auto px-8 py-28 max-sm:px-3">
       <h2 className="secondary-heading">{heading}</h2>
 
       <ul className="list-disc space-y-4 text-xl grid grid-cols-2 gap-16 max-md:grid-cols-1">

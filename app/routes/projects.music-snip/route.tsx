@@ -129,7 +129,7 @@ export default function Page() {
         of each song, the part that usually hooks listeners so users can
         instantly tell if the track is worth saving, sharing, or skipping.
         Whether someone’s trying to quickly curate a playlist, discover new
-        tracks, or just get a feel for what's trending, Music-Snip makes the
+        tracks, or just get a feel for what&#39;s trending, Music-Snip makes the
         experience quick, smooth, and fun. No fluff. Just the music highlights
         that matter. For music businesses and creators, this means more
         engagement, faster discovery, and a better shot at landing in someone’s

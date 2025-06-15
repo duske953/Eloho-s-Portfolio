@@ -33,12 +33,12 @@ export const ThreeDMarquee = ({
                 animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
                 transition={{
                   repeat: Infinity,
-                  repeatType: 'reverse',
+                  repeatType: 'loop',
                 }}
                 key={colIndex + 'marquee'}
                 className={cn(
                   'flex flex-col items-start gap-8 transition-transform',
-                  colIndex % 2 === 0 ? 'duration-700' : 'duration-1000'
+                  colIndex % 2 === 0 ? 'duration-500' : 'duration-1000'
                 )}
               >
                 <GridLineVertical className="-left-4" offset="80px" />

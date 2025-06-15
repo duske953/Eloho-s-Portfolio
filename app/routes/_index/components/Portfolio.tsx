@@ -49,7 +49,7 @@ const projects = [
     icon: <FaLocationArrow className="size-6" />,
     tech: ['Javascript', 'ArcGis'],
     projectUrl: 'https://geocoordinates.netlify.app/',
-    detailsUrl: '/projects/geocoordinates',
+    detailsUrl: '/projects/geocoords',
   },
 
   {
@@ -71,17 +71,6 @@ const projects = [
     projectUrl: 'https://music-snip.vercel.app',
     detailsUrl: '/projects/music-snip',
   },
-
-  // {
-  //   title: 'Digital Nft',
-  //   description:
-  //     'Discover, Collect, and Trade Unique Digital Assets in the World of NFTs',
-  //   img: '/nft/hero.svg',
-  //   icon: <RiNftLine className="size-6" />,
-  //   tech: ['Html', 'Css'],
-  //   projectUrl: 'https://digital-nft.netlify.app/',
-  //   githubUrl: 'https://github.com/duske953/NFT-landing-page',
-  // },
 ];
 
 export function Porfolio() {
@@ -96,7 +85,7 @@ export function Porfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '0px 0px -250px 0px' }}
                 transition={{
-                  delay: i === 0 ? 0.5 : i * 0.2,
+                  delay: i === 0 ? 0.03 : i * 0.09,
                   mass: 1.5,
                   damping: 10,
                   type: 'spring',

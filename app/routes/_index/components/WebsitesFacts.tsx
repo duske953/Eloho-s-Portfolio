@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { FaCheck, FaCompass, FaEye, FaStar, FaStopwatch } from 'react-icons/fa';
 import { RiCellphoneFill } from 'react-icons/ri';
 import { Card, CardContent, CardHeader } from '~/components/ui/card';
-import { MovingBorderBox } from '~/components/ui/moving-border';
 
 export default function WebsitesFacts() {
   const container = {
@@ -120,19 +119,17 @@ function FactsCard({
   children: ReactNode;
 }) {
   return (
-    <MovingBorderBox containerClassName="w-full">
-      <Card className="flex items-center py-4 cursor-pointer h-60 bg-transparent w-full">
-        <CardHeader>
-          <p className="text-4xl">{children}</p>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-3">
-          <p className="text-blue-400 font-bold text-xl text-start max-lg:text-lg">
-            {headline}
-          </p>
-          <p className="text-blue-200 text-start leading-normal">{desc}</p>
-          <span className="italic text-gray-500 text-start">{source}</span>
-        </CardContent>
-      </Card>
-    </MovingBorderBox>
+    <Card className="flex items-center py-4 cursor-pointer h-60 bg-transparent w-full">
+      <CardHeader>
+        <p className="text-4xl">{children}</p>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-3">
+        <p className="text-blue-400 font-bold text-xl text-start max-lg:text-lg">
+          {headline}
+        </p>
+        <p className="text-blue-200 text-start leading-normal">{desc}</p>
+        <span className="italic text-gray-500 text-start">{source}</span>
+      </CardContent>
+    </Card>
   );
 }

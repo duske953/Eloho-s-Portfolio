@@ -6,7 +6,7 @@ export default function Footer() {
   const date = new Date();
   return (
     <>
-      <div className="px-8">
+      <div className="px-8 max-sm:px-3">
         <Separator />
       </div>
 

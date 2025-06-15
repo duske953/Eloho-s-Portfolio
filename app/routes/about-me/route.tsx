@@ -3,7 +3,6 @@ import Navbar from '~/components/Navbar';
 import { Button } from '~/components/ui/button';
 import { DotBackground } from '~/components/ui/DotBackground';
 import { MovingBorderBox } from '~/components/ui/moving-border';
-import { Spotlight } from '~/components/ui/Spotlight';
 import { Timeline } from '~/components/ui/Timeline';
 
 const timeline = [
@@ -92,13 +91,13 @@ export default function Page() {
         {/* <div className="relative overflow-x-hidden">
           <Spotlight />
         </div> */}
-        <section className="pt-8 relative z-50 w-full px-8 overflow-x-hidden">
-          <div className="grid grid-cols-2 items-center gap-7">
+        <section className="pt-24 relative z-50 w-full px-8 overflow-x-hidden">
+          <div className="grid grid-cols-2 items-center gap-7 max-lg:grid-cols-1">
             <div>
               <span className="mb-4 text-xl flex items-center gap-2">
                 <FaArrowRight /> Hello
               </span>
-              <h1 className="text-5xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-8">
+              <h1 className="text-5xl leading-relaxed font-bold uppercase bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-8">
                 I&#39;m <span className="text-blue-600">Eloho</span> Kennedy
               </h1>
               <p className="leading-loose text-lg mb-4">
@@ -112,11 +111,11 @@ export default function Page() {
               </MovingBorderBox>
             </div>
 
-            <div className="relative left-10 -top-7">
+            <div className="relative left-10 -top-7 max-lg:left-0 max-lg:top-0 max-lg:justify-self-center">
               <img
-                className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-75"
+                className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-75 max-lg:size-[33rem] max-sm:size-[20rem]"
                 src="/profile.png"
-                alt="Eloho Kennedy"
+                alt="Profile of Eloho Kennedy"
               />
             </div>
           </div>
@@ -126,11 +125,11 @@ export default function Page() {
         <Timeline data={timeline} />
       </div>
 
-      <section className="mx-auto px-9 py-20">
-        <h2 className="mb-24 text-5xl font-bold uppercase text-gray-300 text-center italic">
+      <section className="mx-auto px-9 py-44 max-sm:px-3">
+        <h2 className="mb-14 text-5xl font-bold uppercase text-center">
           How I Work
         </h2>
-        <div className="grid grid-rows-5 grid-cols-2 gap-16">
+        <ul className="grid grid-rows-5 grid-cols-2 gap-16 max-md:grid-cols-1">
           {workOperationData.map((data, i) => (
             <WorkOperation
               placement={data.placement}
@@ -140,14 +139,13 @@ export default function Page() {
               content={data.content}
             />
           ))}
-        </div>
+        </ul>
       </section>
     </>
   );
 }
 
 function WorkOperation({
-  index,
   placement,
   title,
   content,
@@ -158,19 +156,19 @@ function WorkOperation({
   content: string;
 }) {
   const gridItems = {
-    two: 'col-[2] row-[-5_/-4]',
-    three: 'row-[3_/4]',
-    four: 'col-[2] row-[-3_/-2]',
-    five: 'row-[5/6]',
+    two: 'col-[2] row-[-5_/-4] max-md:row-auto max-md:col-auto',
+    three: 'row-[3_/4] max-md:row-auto',
+    four: 'col-[2] row-[-3_/-2] max-md:row-auto max-md:col-auto',
+    five: 'row-[5/6] max-md:row-auto',
   };
   return (
-    <div className={`flex gap-14 ${gridItems[placement]}`}>
-      <p className="text-7xl font-bold text-gray-400">0{index}</p>
-
+    <li
+      className={`flex gap-14 ${gridItems[placement]} max-md:shadow-sm max-md:shadow-cyan-600 max-md:py-8 max-md:px-8 max-md:rounded-md`}
+    >
       <div className="flex flex-col gap-4">
         <p className="uppercase font-bold text-xl text-blue-600">{title}</p>
         <p className="leading-loose">{content}</p>
       </div>
-    </div>
+    </li>
   );
 }
