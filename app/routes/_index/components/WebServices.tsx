@@ -44,7 +44,7 @@ function WebServicesContent({
 }) {
   return (
     <motion.div
-      className="flex gap-12 items-center rounded-md max-lg:flex-col"
+      className="flex gap-12 items-center rounded-md max-lg:flex-col max-sm:gap-3 shadow-sm shadow-cyan-300 p-6"
       initial={{ opacity: 0, y: -100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, mass: 0.5, damping: 10 }}
