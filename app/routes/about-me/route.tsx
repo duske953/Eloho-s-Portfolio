@@ -132,7 +132,7 @@ export default function Page() {
 
               <div className="relative left-10 -top-7 max-lg:left-0 max-lg:top-0 max-lg:justify-self-center">
                 <img
-                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-75 max-lg:size-[33rem] max-sm:size-[20rem]"
+                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-50 max-lg:size-[33rem] max-sm:size-[20rem]"
                   src="/profile.png"
                   alt="Profile of Eloho Kennedy"
                 />
