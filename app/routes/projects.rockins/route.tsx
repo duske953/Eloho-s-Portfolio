@@ -237,6 +237,7 @@ export default function Page() {
       <ProjectDemo url='https://youtu.be/tSCUbwa_mdQ"'></ProjectDemo>
       <ProjectCta
         githubUrl="https://github.com/duske953/HOTEL"
+        projectUrl="https://rockins.vercel.app"
         nextProject="byte-cart"
         cta="Explore the Booking Experience"
         heading="Let Your Website Work While You Rest"

@@ -4,13 +4,13 @@ import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 export default function Hero() {
   return (
     <>
-      <section className="pt-12 mb-24 pb-16 bg-img">
+      <section className="pt-12 mb-24 pb-16 bg-img section-container">
         <section className="grid grid-cols-2 relative max-lg:grid-cols-1 max-lg:gap-10 items-center px-8 max-sm:px-3">
           <div className="">
             <span className="text-sm uppercase bg-gradient-to-r from-blue-600 to-blue-400 p-2 font-bold mb-5 inline-block">
               Websites That Work
             </span>
-            <h1 className="text-5xl max-md:text-4xl max-md:leading-relaxed leading-relaxed font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+            <h1 className="primary-heading">
               People come to your site. Let’s make sure they stay.
             </h1>
             <p className="text-xl mt-5 text-blue-200 max-sm:text-lg">

@@ -203,6 +203,7 @@ export default function Page() {
       ></ProjectOutcomes>
       <ProjectDemo url="https://www.youtube.com/watch?v=YZ0K683hgqY"></ProjectDemo>
       <ProjectCta
+        projectUrl="https://bytecart.vercel.app"
         githubUrl="https://github.com/duske953/Tech-Freak"
         nextProject="geocoords"
         cta="Experience Like a Real Shopper"

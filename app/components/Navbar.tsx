@@ -31,7 +31,6 @@ export default function Navbar({ className }: { className?: string }) {
   const navRef = useRef(null);
   const isInView = useInView(navRef, {
     margin: '100% -20px 0px 0px',
-    initial: true,
   });
 
   useEffect(() => {
@@ -43,13 +42,17 @@ export default function Navbar({ className }: { className?: string }) {
 
   return (
     <>
-      <header ref={navRef} className={cn(className, 'max-md:overflow-auto')}>
+      <header
+        ref={navRef}
+        className={cn(className, 'max-md:overflow-auto section-container')}
+      >
         <motion.nav
           key={isInView ? 'in-view' : 'out-of-view'}
           animate={controls}
           className={cn(
             'flex justify-between items-center max-md:flex-col relative max-md:overflow-auto',
-            !isInView && 'fixed top-0 w-full z-50 left-0 px-3 bg-slate-900'
+            !isInView &&
+              'fixed top-0 w-full z-50 left-0 px-3 bg-slate-900 section-container right-0'
           )}
         >
           <Link to="/">

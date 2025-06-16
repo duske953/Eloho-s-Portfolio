@@ -111,7 +111,7 @@ export default function Page() {
   return (
     <>
       <ProjectHero
-        heading="Anonymo Chat App"
+        heading="Speak Freely. No Logins. No Records."
         description="Chat freely with strangers no names, no logins, no pressure. Just real, anonymous conversations."
         imgSrc="/anonymo/hero.svg"
         imgAlt="Anonymo Chat App"
@@ -147,6 +147,7 @@ export default function Page() {
       ></ProjectOutcomes>
       <ProjectDemo url="https://youtu.be/oljFL41ISN8"></ProjectDemo>
       <ProjectCta
+        projectUrl="https://anonymo.vercel.app/"
         githubUrl="https://github.com/duske953/chatapplication-frontend"
         nextProject="music-snip"
         cta="Start Chatting Now"

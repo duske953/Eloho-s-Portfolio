@@ -6,11 +6,12 @@ import { cn } from '~/lib/utils';
 
 export default function PainPoints() {
   return (
-    <section className="py-20 relative px-3">
-      <h2 className="mb-16 max-sm:mb-8 px-4 text-center text-5xl font-bold uppercase text-gray-300 max-sm:text-3xl max-sm:leading-normal">
-        Why Your Website Isn’t Working As Well As It Could
-      </h2>
-      <DotBackground>
+    <DotBackground>
+      <section className="py-20 relative px-8 max-sm:px-3">
+        <h2 className="secondary-heading text-center">
+          Why Your Website Isn’t Working As Well As It Could
+        </h2>
+
         <div className="max-w-3xl mx-auto px-4 py-8">
           <ul className="grid grid-cols-2 grid-rows-7 gap-y-20 max-sm:gap-y-10">
             <PainPointList
@@ -45,15 +46,15 @@ export default function PainPoints() {
         </div>
 
         <div>
-          <p className="text-5xl max-md:leading-normal text-center relative z-40 uppercase font-bold text-gray-300 max-md:text-3xl">
+          <p className="secondary-heading relative z-50 text-center">
             Here's what i do and how I can{' '}
             <span className="text-blue-600">help</span> you
           </p>
 
-          <FaArrowDown className="text-9xl absolute left-2/4 -translate-x-2/4 -bottom-36 web-services-intro max-sm:text-6xl max-sm:-bottom-24" />
+          <FaArrowDown className="text-7xl absolute left-2/4 -translate-x-2/4 -bottom-0 web-services-intro max-sm:text-6xl max-sm:-bottom-24" />
         </div>
-      </DotBackground>
-    </section>
+      </section>
+    </DotBackground>
   );
 }
 
@@ -71,7 +72,7 @@ function PainPointList({
       viewport={{ once: true, amount: 0.2, margin: '0px 0px -150px 0px' }}
       className={cn(
         className,
-        'h-full max-sm:col-span-2 max-sm:rotate-0 border-blue-500 shadow-md shadow-blue-300 w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-10 border-2 p-4'
+        'h-full max-sm:col-span-2 max-sm:rotate-0 border-blue-500 shadow-xl shadow-cyan-800 w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-10 border-2 p-4'
       )}
     >
       <p>{point}</p>

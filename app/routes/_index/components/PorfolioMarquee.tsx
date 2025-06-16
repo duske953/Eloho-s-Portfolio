@@ -39,8 +39,20 @@ const images = [
 export default function PorfolioMarquee() {
   return (
     <section className="py-14 portfolio-container">
-      <div className="mx-auto my-10 max-w-7xl rounded-3xl bg-gray-950/5 p-2 ring-1 ring-neutral-700/10 dark:bg-neutral-800">
-        <ThreeDMarquee images={images} />
+      <div className="relative mx-auto my-10 flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-3xl">
+        <h2 className="relative uppercase leading-relaxed z-20 mx-auto max-w-4xl text-center font-bold text-balance text-white text-6xl max-md:text-4xl max-sm:text-3xl">
+          Real Projects Solving Real Problems
+        </h2>
+        <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-lg text-white">
+          See how I turn everyday business challenges into working web
+          solutions.
+        </p>
+
+        <div className="absolute inset-0 z-10 h-full w-full bg-black/80 dark:bg-black/40" />
+        <ThreeDMarquee
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          images={images}
+        />
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { Link } from '@remix-run/react';
 import { FaArrowRight } from 'react-icons/fa';
-import { Button, buttonVariants } from '~/components/ui/button';
+import { buttonVariants } from '~/components/ui/button';
+import { cn } from '~/lib/utils';
 
 export default function ProjectCta({
   githubUrl,
@@ -8,9 +9,11 @@ export default function ProjectCta({
   heading,
   description,
   nextProject,
+  projectUrl,
 }: {
   cta: string;
   githubUrl: string;
+  projectUrl: string;
   heading: string;
   description: string;
   nextProject: string;
@@ -23,9 +26,17 @@ export default function ProjectCta({
             {heading}
           </p>
           <span className="mb-5 inline-block leading-loose">{description}</span>
-          <Button className="rounded-none" variant="secondary" size="lg">
+          <Link
+            target="_blank"
+            rel="noreferrer noopener"
+            to={projectUrl}
+            className={cn(
+              buttonVariants({ variant: 'secondary', size: 'lg' }),
+              'rounded-none'
+            )}
+          >
             {cta}
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="flex px-8 py-9">

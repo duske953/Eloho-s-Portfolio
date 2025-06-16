@@ -64,7 +64,11 @@
 
 @layer components {
   .secondary-heading {
-    @apply mb-10 text-4xl font-bold  leading-relaxed max-sm:text-2xl max-sm:leading-relaxed;
+    @apply text-4xl max-md:leading-loose font-bold text-gray-300 max-md:text-3xl mb-10 leading-loose;
+  }
+
+  .primary-heading {
+    @apply text-5xl max-md:text-4xl max-md:leading-relaxed leading-relaxed font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50;
   }
 
   .bg-img {

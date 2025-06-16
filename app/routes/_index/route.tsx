@@ -35,7 +35,6 @@ export default function Index() {
   return (
     <>
       <Navbar className="bg-black pr-6" />
-
       <main className="section-container">
         <Hero />
         <WebsitesFacts />

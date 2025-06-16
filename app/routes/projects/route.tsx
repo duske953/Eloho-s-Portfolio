@@ -8,7 +8,7 @@ export default function page() {
         <Navbar className="fixed left-0 right-0 top-0 w-full px-8 z-[100] bg-slate-900" />
       </header>
 
-      <main className="">
+      <main className="section-container">
         <Outlet />
       </main>
     </>

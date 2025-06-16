@@ -1,3 +1,4 @@
+import { MetaFunction } from '@remix-run/react';
 import { FaArrowRight } from 'react-icons/fa';
 import Navbar from '~/components/Navbar';
 import { Button } from '~/components/ui/button';
@@ -80,67 +81,139 @@ const workOperationData = [
   },
 ];
 
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title:
+        'About Me – Web Developer Helping Businesses create a web presence',
+    },
+    {
+      name: 'description',
+      content:
+        "I'm a web developer with a background in engineering. I build clean, functional websites that help businesses get found and serve customers online.",
+    },
+    {
+      name: 'keywords',
+      content:
+        'web developer, about me, business website developer, frontend and backend developer, build website for business, Nigeria web developer, full-stack developer',
+    },
+  ];
+};
+
 export default function Page() {
   return (
     <>
       <header className="px-11">
         <Navbar className="fixed left-0 right-0 top-0 w-full px-8 z-[100] bg-slate-900" />
       </header>
-
-      <DotBackground>
-        {/* <div className="relative overflow-x-hidden">
+      <main className="section-container">
+        <DotBackground>
+          {/* <div className="relative overflow-x-hidden">
           <Spotlight />
         </div> */}
-        <section className="pt-24 relative z-50 w-full px-8 overflow-x-hidden">
-          <div className="grid grid-cols-2 items-center gap-7 max-lg:grid-cols-1">
-            <div>
-              <span className="mb-4 text-xl flex items-center gap-2">
-                <FaArrowRight /> Hello
-              </span>
-              <h1 className="text-5xl leading-relaxed font-bold uppercase bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-8">
-                I&#39;m <span className="text-blue-600">Eloho</span> Kennedy
-              </h1>
-              <p className="leading-loose text-lg mb-4">
-                A web developer who helps businesses create websites that are
-                easy to use, fast, and built to solve real problems.
-              </p>
-              <MovingBorderBox>
-                <Button variant="outline" size="lg" className="rounded-none">
-                  Download CV
-                </Button>
-              </MovingBorderBox>
-            </div>
+          <section className="pt-24 relative z-50 w-full px-8 overflow-x-hidden">
+            <div className="grid grid-cols-2 items-center gap-7 max-lg:grid-cols-1">
+              <div>
+                <span className="mb-4 text-xl flex items-center gap-2">
+                  <FaArrowRight /> Hello
+                </span>
+                <h1 className="primary-heading">
+                  I&#39;m <span className="text-blue-600">Eloho</span> Kennedy
+                </h1>
+                <p className="leading-loose text-lg mb-4">
+                  A web developer who helps businesses create websites that are
+                  easy to use, fast, and built to solve real problems.
+                </p>
+                <MovingBorderBox className="rounded-none">
+                  <Button variant="outline" size="lg" className="rounded-none">
+                    Download CV
+                  </Button>
+                </MovingBorderBox>
+              </div>
 
-            <div className="relative left-10 -top-7 max-lg:left-0 max-lg:top-0 max-lg:justify-self-center">
-              <img
-                className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-75 max-lg:size-[33rem] max-sm:size-[20rem]"
-                src="/profile.png"
-                alt="Profile of Eloho Kennedy"
-              />
+              <div className="relative left-10 -top-7 max-lg:left-0 max-lg:top-0 max-lg:justify-self-center">
+                <img
+                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-75 max-lg:size-[33rem] max-sm:size-[20rem]"
+                  src="/profile.png"
+                  alt="Profile of Eloho Kennedy"
+                />
+              </div>
             </div>
+          </section>
+        </DotBackground>
+        <div className="max-w-5xl mx-auto px-5 py-20">
+          <Timeline data={timeline} />
+        </div>
+
+        <section className="mx-auto px-9 py-44 max-sm:px-3">
+          <h2 className="secondary-heading text-center mb-4 uppercase">
+            How I Work
+          </h2>
+          <ul className="grid grid-rows-5 grid-cols-2 gap-16 max-md:grid-cols-1">
+            {workOperationData.map((data, i) => (
+              <WorkOperation
+                placement={data.placement}
+                key={data.title}
+                index={i + 1}
+                title={data.title}
+                content={data.content}
+              />
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <div className="max-w-3xl mx-auto px-8 max-sm:px-3 pb-32">
+            <h2 className="secondary-heading">
+              So… who am I outside of websites and code?
+            </h2>
+
+            <p className="flex flex-col gap-6 leading-loose text-lg text-gray-300">
+              <span>
+                You’ve probably read all the serious stuff — &quot;web developer
+                this, full-stack that. Cool. But let’s hit pause for a second.
+                Outside of work, I’m just a regular person with very real
+                obsessions. First up, wildlife documentaries. I don’t know how
+                best to put this, but I can watch monkeys jumping from tree to
+                tree for hours. Literally hours. Sometimes I wonder if I missed
+                my calling as a forest ranger. There’s just something fun about
+                watching animals live their lives and the mysteries that
+                surrounds them. And the narrators? Always calm. Always British.
+                It’s top-tier relaxation.
+              </span>
+
+              <span>
+                When I’m not wondering if I missed my calling as a forest
+                ranger, I’m probably watching a movie. Horror is my thing. I’ve
+                watched enough horror films to know that if you hear a strange
+                noise in the basement, don’t go check. But they always check.
+                Every time. And don’t get me started on exorcism scenes —
+                &quot;I command you, demon, tell me your name!&quot; chills.
+                Romance movies though? Nah. I try… but halfway through I’m
+                already checking my phone. I respect the lovebirds, but my brain
+                wants ghosts, not candlelit dinners.
+              </span>
+
+              <span>
+                As for music? I&#39;m not on the trendy side. No offense to
+                today’s hits, but I’ll take Don Williams over auto-tune any day.
+                Slow, calming, and just good for the soul. Play some old reggae
+                or country and I’m set. That kind of music doesn’t yell it just
+                speaks. As for anime… let&#39;s just say that&#39;s a whole
+                other rabbit hole we can talk about later.
+              </span>
+
+              <span>
+                So yeah, outside of code, I’m either watching animals live
+                better lives than me, screaming at horror movie characters who
+                make bad choices, or vibing to songs older than I am. Nothing
+                fancy. Just a normal person doing normal stuff, and trying not
+                to take life too seriously.
+              </span>
+            </p>
           </div>
         </section>
-      </DotBackground>
-      <div className="max-w-5xl mx-auto px-5 py-20">
-        <Timeline data={timeline} />
-      </div>
-
-      <section className="mx-auto px-9 py-44 max-sm:px-3">
-        <h2 className="mb-14 text-5xl font-bold uppercase text-center">
-          How I Work
-        </h2>
-        <ul className="grid grid-rows-5 grid-cols-2 gap-16 max-md:grid-cols-1">
-          {workOperationData.map((data, i) => (
-            <WorkOperation
-              placement={data.placement}
-              key={data.title}
-              index={i + 1}
-              title={data.title}
-              content={data.content}
-            />
-          ))}
-        </ul>
-      </section>
+      </main>
     </>
   );
 }
@@ -166,7 +239,7 @@ function WorkOperation({
       className={`flex gap-14 ${gridItems[placement]} max-md:shadow-sm max-md:shadow-cyan-600 max-md:py-8 max-md:px-8 max-md:rounded-md`}
     >
       <div className="flex flex-col gap-4">
-        <p className="uppercase font-bold text-xl text-blue-600">{title}</p>
+        <p className="uppercase font-bold text-lg text-blue-600">{title}</p>
         <p className="leading-loose">{content}</p>
       </div>
     </li>

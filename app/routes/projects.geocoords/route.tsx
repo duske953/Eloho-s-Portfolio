@@ -155,6 +155,7 @@ export default function Page() {
       ></ProjectOutcomes>
       <ProjectDemo url="https://youtu.be/IxJxwV2Wjfg"></ProjectDemo>
       <ProjectCta
+        projectUrl="https://geocoordinates.netlify.app/"
         githubUrl="https://github.com/duske953/geocoordinates"
         nextProject="anonymo"
         cta="Find Nearyby Places"

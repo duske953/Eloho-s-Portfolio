@@ -21,10 +21,7 @@ export default function ProjectHero({
         <Spotlight />
         <div className="grid grid-cols-2 px-8 items-center gap-4 max-lg:grid-cols-1">
           <div>
-            <h1 className="text-5xl max-sm:text-3xl max-sm:leading-normal leading-normal font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-              {' '}
-              {heading}
-            </h1>
+            <h1 className="primary-heading"> {heading}</h1>
             <p className="text-xl leading-loose">{description}</p>
             <div className="flex gap-10 mt-8 text-4xl text-gray-400">
               {children}
