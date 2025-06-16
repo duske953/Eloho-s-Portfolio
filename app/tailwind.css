@@ -68,7 +68,7 @@
 
 @layer components {
   .secondary-heading {
-    @apply text-4xl max-md:leading-loose font-bold text-gray-300 max-md:text-3xl mb-10 leading-loose;
+    @apply text-4xl max-md:leading-[1.6] font-bold text-gray-300 max-md:text-3xl mb-10 leading-[1.7];
   }
 
   .primary-heading {
