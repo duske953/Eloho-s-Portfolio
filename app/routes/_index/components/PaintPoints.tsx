@@ -72,7 +72,7 @@ function PainPointList({
       viewport={{ once: true, amount: 0.2, margin: '0px 0px -150px 0px' }}
       className={cn(
         className,
-        'h-full max-sm:col-span-2 max-sm:rotate-0 border-blue-500 shadow-xl shadow-cyan-800 w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-10 border-2 p-4'
+        'h-full max-sm:col-span-2 max-sm:rotate-0 shadow-lg shadow-slate-800 w-full bg-blue-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-10 border-2 p-4'
       )}
     >
       <p>{point}</p>
