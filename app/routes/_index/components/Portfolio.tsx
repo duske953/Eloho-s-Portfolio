@@ -134,6 +134,10 @@ export function Porfolio() {
                       </Link>
 
                       <Link
+                        onMouseEnter={() =>
+                          document.documentElement.style.scrollBehavior ===
+                          'auto'
+                        }
                         rel="noopener noreferrer"
                         className={`${buttonVariants({
                           variant: 'outline',
