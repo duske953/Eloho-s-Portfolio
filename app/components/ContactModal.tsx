@@ -13,10 +13,11 @@ import { Textarea } from './ui/textarea';
 import { object, string } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useFetcher } from '@remix-run/react';
 import { ReloadIcon } from '@radix-ui/react-icons';
 import { toast } from 'react-toastify';
+import { cn } from '~/lib/utils';
 
 export const userDetailsSchema = object({
   name: string()
@@ -33,8 +34,10 @@ export const userDetailsSchema = object({
 
 export default function ContactModal({
   btnText = 'Contact',
+  className,
 }: {
-  btnText?: string;
+  btnText?: string | ReactNode;
+  className?: string;
 }) {
   const {
     register,
@@ -68,7 +71,11 @@ export default function ContactModal({
   return (
     <Dialog onOpenChange={renderContactModal} open={contactModal}>
       <DialogTrigger asChild>
-        <Button className="rounded-none" size="lg" variant="secondary">
+        <Button
+          className={cn('rounded-none', className)}
+          size="lg"
+          variant="secondary"
+        >
           {btnText}
         </Button>
       </DialogTrigger>

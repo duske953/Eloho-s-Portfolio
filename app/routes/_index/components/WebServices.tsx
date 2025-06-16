@@ -3,7 +3,10 @@ import { cn } from '~/lib/utils';
 
 export default function WebServices() {
   return (
-    <section className="px-8 pt-14 pb-24 relative z-10 max-lg:px-3">
+    <section
+      id="services"
+      className="px-8 pt-14 pb-24 relative z-10 max-lg:px-3"
+    >
       <div className="grid grid-cols-1 gap-16 max-lg:gap-24">
         <WebServicesContent
           heading="Make your site easy to use"

@@ -1,20 +1,21 @@
 import { Link } from '@remix-run/react';
-import { useMediaQuery } from 'react-responsive';
 import { cn } from '~/lib/utils';
 import { Button, buttonVariants } from './ui/button';
 import { useInView, motion, useAnimation } from 'motion/react';
-import { useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 import ContactModal from './ContactModal';
+import { FaUser } from 'react-icons/fa';
+import { IoBriefcase, IoCode, IoMail } from 'react-icons/io5';
 const navBarLinks = [
   {
-    link: null,
+    link: '/#services',
     title: 'What I Do',
     ref: '.web-services-intro',
   },
 
   {
-    link: null,
+    link: '/#projects',
     title: 'Selected Works',
     ref: '.portfolio-container',
   },
@@ -26,7 +27,6 @@ const navBarLinks = [
 ];
 
 export default function Navbar({ className }: { className?: string }) {
-  const isTabletMobile = useMediaQuery({ maxWidth: '800px' });
   const controls = useAnimation();
   const navRef = useRef(null);
   const isInView = useInView(navRef, {
@@ -38,6 +38,7 @@ export default function Navbar({ className }: { className?: string }) {
       controls.set({ y: -100 });
       controls.start({ y: 0 });
     }
+    return () => controls.stop();
   }, [isInView]);
 
   return (
@@ -50,9 +51,8 @@ export default function Navbar({ className }: { className?: string }) {
           key={isInView ? 'in-view' : 'out-of-view'}
           animate={controls}
           className={cn(
-            'flex justify-between items-center max-md:justify-center',
-            !isInView &&
-              'fixed top-0 w-full z-50 left-0 px-3 bg-slate-900 section-container right-0'
+            'flex justify-between items-center max-md:justify-center bg-slate-900 section-container right-0 left-0 px-3',
+            !isInView && 'fixed top-0 w-full z-50 '
           )}
         >
           <Link to="/">
@@ -63,14 +63,14 @@ export default function Navbar({ className }: { className?: string }) {
             />
           </Link>
 
-          <NavLinkBox className="max-md:hidden flex max-md:pointer-events-none" />
+          <TopNavBar className="max-md:hidden flex max-md:pointer-events-none" />
         </motion.nav>
       </header>
     </>
   );
 }
 
-export function NavLinkBox({ className }: { className: string }) {
+function TopNavBar({ className }: { className: string }) {
   return (
     <ul
       className={cn(
@@ -87,6 +87,17 @@ export function NavLinkBox({ className }: { className: string }) {
 }
 
 function NavLinks({ i }: { i: number }) {
+  function renderMouseEnterNav(i: number) {
+    if (
+      navBarLinks[i].title === 'What I Do' ||
+      navBarLinks[i].title === 'Selected Works'
+    ) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    } else {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+  }
+
   return (
     <li>
       {!navBarLinks[i].link ? (
@@ -99,15 +110,73 @@ function NavLinks({ i }: { i: number }) {
         </Button>
       ) : (
         <Link
-          className={cn(
-            buttonVariants({ variant: 'outline', size: 'lg' }),
-            i === 3 && 'bg-blue-600 hover:bg-blue-500 rounded-none'
-          )}
+          onMouseEnter={() => renderMouseEnterNav(i)}
+          className={cn(buttonVariants({ variant: 'outline', size: 'lg' }))}
           to={navBarLinks[i].link}
         >
           {navBarLinks[i].title}
         </Link>
       )}
+    </li>
+  );
+}
+
+export function BottomNavBar() {
+  return (
+    <ul className="hidden pointer-events-none max-md:pointer-events-auto justify-around gap-5 max-md:flex z-[200] max-md:sticky bottom-0 max-md:left-0 bg-slate-900 items-center py-4">
+      <BottmonNavLinks link="/#services" text="Services">
+        <IoBriefcase />
+      </BottmonNavLinks>
+
+      <BottmonNavLinks link="/#projects" text="Projects">
+        <IoCode />
+      </BottmonNavLinks>
+
+      <BottmonNavLinks link="/about-me" text="About me">
+        <FaUser />
+      </BottmonNavLinks>
+
+      <li className="flex flex-col justify-center items-center gap-1">
+        <ContactModal
+          btnText={
+            <div className="flex flex-col items-center gap-1">
+              <IoMail className="text-blue-600" />
+              <span>Contact</span>
+            </div>
+          }
+          className="bg-transparent hover:bg-transparent p-0 contents font-semibold text-sm"
+        />
+      </li>
+    </ul>
+  );
+}
+
+function BottmonNavLinks({
+  text,
+  link,
+  children,
+}: {
+  text: string;
+  link: string;
+  children: ReactNode;
+}) {
+  function renderMouseEnterNav() {
+    if (text === 'Services' || text === 'Projects') {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    } else {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+  }
+  return (
+    <li>
+      <Link
+        onMouseEnter={renderMouseEnterNav}
+        className="flex flex-col justify-center items-center gap-1"
+        to={link}
+      >
+        <span className="text-blue-600">{children}</span>
+        <span className="font-semibold text-sm">{text}</span>
+      </Link>
     </li>
   );
 }

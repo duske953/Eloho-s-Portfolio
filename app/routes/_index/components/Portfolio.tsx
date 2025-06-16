@@ -76,7 +76,7 @@ const projects = [
 export function Porfolio() {
   return (
     <DotBackground>
-      <section id="projects" className="px-6 pb-32 relative max-md:px-3">
+      <section className="px-6 pb-32 relative max-md:px-3">
         <ul className="grid grid-cols-3 gap-x-7 gap-y-12 max-md:grid-cols-1">
           {projects.map((project, i) => {
             return (

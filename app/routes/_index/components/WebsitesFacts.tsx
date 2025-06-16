@@ -22,8 +22,8 @@ export default function WebsitesFacts() {
   return (
     <section className="py-10 px-6 max-sm:px-3">
       <div>
-        <h2 className="text-center text-gray-300 text-5xl font-bold mb-14 leading-normal max-sm:text-3xl">
-          Why <span className="text-blue-600 italic">Good Websites</span> Make a
+        <h2 className="secondary-heading text-center">
+          Why <span className="text-blue-600">Good Websites</span> Make a
           Difference.
         </h2>
 
