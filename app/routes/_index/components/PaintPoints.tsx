@@ -46,7 +46,7 @@ export default function PainPoints() {
         </div>
 
         <div>
-          <p className="secondary-heading relative z-50 text-center">
+          <p className="secondary-heading relative z-10 text-center">
             Here's what i do and how I can{' '}
             <span className="text-blue-600">help</span> you
           </p>
