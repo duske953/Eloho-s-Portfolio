@@ -50,7 +50,7 @@ export default function Navbar({ className }: { className?: string }) {
           key={isInView ? 'in-view' : 'out-of-view'}
           animate={controls}
           className={cn(
-            'flex justify-between items-center max-md:flex-col relative max-md:overflow-auto',
+            'flex justify-between items-center max-md:justify-center',
             !isInView &&
               'fixed top-0 w-full z-50 left-0 px-3 bg-slate-900 section-container right-0'
           )}

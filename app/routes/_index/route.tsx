@@ -34,7 +34,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <Navbar className="bg-black pr-6" />
+      <Navbar className="bg-black pr-6 max-md:pr-0" />
       <main className="section-container">
         <Hero />
         <WebsitesFacts />
