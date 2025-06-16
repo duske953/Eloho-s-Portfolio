@@ -123,7 +123,7 @@ function NavLinks({ i }: { i: number }) {
 
 export function BottomNavBar() {
   return (
-    <ul className="hidden pointer-events-none max-md:pointer-events-auto justify-around gap-5 max-md:flex z-[200] max-md:sticky bottom-0 max-md:left-0 bg-slate-900 items-center py-4">
+    <ul className="hidden pointer-events-none max-md:pointer-events-auto justify-around gap-5 max-md:flex z-[200] max-md:sticky bottom-0 max-md:left-0 bg-slate-900 items-center py-6">
       <BottmonNavLinks link="/#services" text="Services">
         <IoBriefcase />
       </BottmonNavLinks>
