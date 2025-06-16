@@ -36,14 +36,13 @@ function WebServicesContent({
   src,
   heading,
   content,
-  alt,
+
   className,
 }: {
   src: string;
   className?: string;
   heading: string;
   content: string;
-  alt?: string;
 }) {
   return (
     <motion.div
@@ -55,7 +54,7 @@ function WebServicesContent({
     >
       <img
         src={src}
-        alt={alt}
+        alt={heading}
         className={cn(
           'size-[35rem] rounded-full object-contain max-md:size-full',
           className
