@@ -121,7 +121,7 @@ function FactsCard({
   return (
     <Card className="flex items-center py-4 cursor-pointer h-60 bg-transparent w-full">
       <CardHeader>
-        <p className="text-4xl">{children}</p>
+        <p className="text-4xl max-sm:text-2xl">{children}</p>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <p className="text-blue-400 font-bold text-xl text-start max-lg:text-lg">

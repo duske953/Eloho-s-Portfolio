@@ -51,7 +51,7 @@ export default function PainPoints() {
             <span className="text-blue-600">help</span> you
           </p>
 
-          <FaArrowDown className="text-7xl absolute left-2/4 -translate-x-2/4 -bottom-0 web-services-intro max-sm:text-6xl max-sm:-bottom-24" />
+          <FaArrowDown className="text-7xl absolute left-2/4 -translate-x-2/4 -bottom-0 web-services-intro max-sm:text-6xl" />
         </div>
       </section>
     </DotBackground>

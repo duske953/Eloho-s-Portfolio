@@ -1,7 +1,6 @@
 import { motion, Variants } from 'motion/react';
 import { useState } from 'react';
 import { IoArrowDown } from 'react-icons/io5';
-import { TypewriterEffect } from '~/components/ui/TypeWriter';
 import { cn } from '~/lib/utils';
 
 const faqsAnswers = [
@@ -35,39 +34,33 @@ export default function Faq() {
             whileInView="show"
           >
             <FaqItem
-              answer={faqsAnswers[0].split(' ')}
+              answer={faqsAnswers[0]}
               question="How do we get started?"
             />
 
             <FaqItem
-              answer={faqsAnswers[1].split(' ')}
+              answer={faqsAnswers[1]}
               question="How long does it take to finish a website?"
             />
 
             <FaqItem
-              answer={faqsAnswers[2].split(' ')}
+              answer={faqsAnswers[2]}
               question="How much does a website cost?"
             />
 
-            <FaqItem
-              answer={faqsAnswers[3].split(' ')}
-              question="Are you a designer?"
-            />
+            <FaqItem answer={faqsAnswers[3]} question="Are you a designer?" />
 
             <FaqItem
-              answer={faqsAnswers[4].split(' ')}
+              answer={faqsAnswers[4]}
               question="Do you offer ongoing support or help after the site is launched?"
             />
 
             <FaqItem
-              answer={faqsAnswers[5].split(' ')}
+              answer={faqsAnswers[5]}
               question="Can you fix or improve my current website?"
             />
 
-            <FaqItem
-              answer={faqsAnswers[6].split(' ')}
-              question="Are you a vibe coder?"
-            />
+            <FaqItem answer={faqsAnswers[6]} question="Are you a vibe coder?" />
           </motion.ul>
         </div>
       </div>
@@ -75,13 +68,7 @@ export default function Faq() {
   );
 }
 
-function FaqItem({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: Array<string>;
-}) {
+function FaqItem({ question, answer }: { question: string; answer: string }) {
   const [openFaq, setOpenFaq] = useState(false);
 
   const item: Variants = {
@@ -110,7 +97,7 @@ function FaqItem({
 
         <IoArrowDown
           className={cn(
-            'text-4xl max-sm:-right-8 absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-300 cursor-pointer transition-transform',
+            'text-3xl max-sm:-right-8 absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-300 cursor-pointer transition-transform',
             openFaq ? 'rotate-180' : ''
           )}
           onClick={() => setOpenFaq((prev) => !prev)}
@@ -128,15 +115,9 @@ function FaqItem({
         }}
         transition={{ duration: 0.3 }}
       >
-        <TypewriterEffect
-          className="text-lg max-sm:text-sm leading-[1.8]"
-          words={answer.map((ans) => {
-            return {
-              text: ans,
-            };
-          })}
-          key={openFaq ? 'open' : 'closed'}
-        />
+        <p className="text-lg leading-relaxed max-sm:text-sm max-sm:leading-relaxed">
+          {answer}
+        </p>
       </motion.div>
     </motion.li>
   );

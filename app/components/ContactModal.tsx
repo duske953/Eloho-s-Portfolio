@@ -81,7 +81,7 @@ export default function ContactModal({
       </DialogTrigger>
       <DialogContent aria-describedby={undefined}>
         <DialogHeader>
-          <DialogTitle>Get in touch</DialogTitle>
+          <DialogTitle className="mb-5">Have a website In mind?</DialogTitle>
         </DialogHeader>
 
         <fetcher.Form id="contact" method="post" action="/">
@@ -117,7 +117,7 @@ export default function ContactModal({
             {fetcher.state === 'submitting' && (
               <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Send
+            Let&apos;s get started
           </Button>
         </DialogFooter>
       </DialogContent>

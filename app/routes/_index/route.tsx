@@ -7,8 +7,9 @@ import PorfolioMarquee from './components/PorfolioMarquee';
 import Faq from './components/Faq';
 import TechStack from './components/TechStack';
 import PainPoints from './components/PaintPoints';
-import Cta from './components/Cta';
+import Cta from '~/components/Cta';
 import Navbar from '~/components/Navbar';
+import ContactModal from '~/components/ContactModal';
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,7 +45,13 @@ export default function Index() {
         <Porfolio />
         <Faq />
         <TechStack />
-        <Cta />
+        <Cta
+          heading="Get a website that actually helps your business."
+          description="Tell me your goals, and I’ll take care of building a website that
+            delivers."
+        >
+          <ContactModal btnText="Let's Talk" />
+        </Cta>
       </main>
     </>
   );

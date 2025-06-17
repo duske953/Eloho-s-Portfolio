@@ -15,7 +15,7 @@ import ProjectHero from '../projects/components/ProjectHero';
 import ProjectDescription from '../projects/components/ProjectDescription';
 import ProjectFeatures from '../projects/components/ProjectFeatures';
 import ProjectCarousel from '../projects/components/ProjectCarousel';
-import ProjectOutcomes from '../projects/components/ProjectOutocomes';
+import ProjectOutcomes from '../projects/components/ProjectOutcomes';
 import ProjectDemo from '../projects/components/ProjectDemo';
 import ProjectCta from '../projects/components/ProjectCta';
 
@@ -77,67 +77,62 @@ const projectImg = [
   },
 
   {
-    title: 'rooms section',
+    title: 'Rooms Section',
     src: '/rockins/rooms.jpeg',
   },
 
   {
-    title: 'reviews section',
+    title: 'Reviews Section',
     src: '/rockins/review.jpeg',
   },
 
   {
-    title: 'room section',
+    title: 'Room Section',
     src: '/rockins/room.jpeg',
   },
 
   {
-    title: 'signup section',
+    title: 'Signup Section',
     src: '/rockins/signup.jpeg',
   },
 
   {
-    title: 'account profile section',
+    title: 'Account Profile Section',
     src: '/rockins/profile.jpeg',
   },
 
   {
-    title: 'payment gateway section',
+    title: 'Payment Gateway Section',
     src: '/rockins/stripe.jpeg',
   },
 
   {
-    title: 'featured section',
+    title: 'Featured Section',
     src: '/rockins/trending.jpeg',
   },
 
   {
-    title: 'delete account section',
+    title: 'Delete Account Section',
     src: '/rockins/delete-account.jpeg',
   },
 
   {
-    title: 'about-us section',
+    title: 'About-us Section',
     src: '/rockins/about-us.jpeg',
   },
 
   {
-    title: 'description section',
-    src: '/rockins/description.jpeg',
-  },
-
-  {
-    title: 'featured section',
+    title: 'Featured Section',
     src: '/rockins/featured.jpeg',
   },
 
   {
-    title: 'login section',
+    title: 'Login Section',
     src: '/rockins/login.jpeg',
   },
 
   {
-    title: 'bookmarks section',
+    title: 'Bookmarks Section',
     src: '/rockins/bookmarks.jpeg',
   },
 ];

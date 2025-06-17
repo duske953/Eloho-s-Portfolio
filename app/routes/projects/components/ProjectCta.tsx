@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react';
 import { FaArrowRight } from 'react-icons/fa';
+import Cta from '~/components/Cta';
 import { buttonVariants } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 
@@ -20,26 +21,21 @@ export default function ProjectCta({
 }) {
   return (
     <section className="py-32">
-      <div className="cta-gradient py-28 px-8 max-sm:px-3">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-3xl font-bold text-gray-300 mb-5 leading-relaxed">
-            {heading}
-          </p>
-          <span className="mb-5 inline-block leading-loose">{description}</span>
-          <Link
-            target="_blank"
-            rel="noreferrer noopener"
-            to={projectUrl}
-            className={cn(
-              buttonVariants({ variant: 'secondary', size: 'lg' }),
-              'rounded-none'
-            )}
-          >
-            {cta}
-          </Link>
-        </div>
-      </div>
-      <div className="flex px-8 py-9 max-sm:px-3">
+      <Cta heading={heading} description={description}>
+        <Link
+          target="_blank"
+          rel="noreferrer noopener"
+          to={projectUrl}
+          className={cn(
+            buttonVariants({ variant: 'secondary', size: 'lg' }),
+            'rounded-none'
+          )}
+        >
+          {cta}
+        </Link>
+      </Cta>
+
+      <div className="flex max-sm:px-3">
         <div className="ml-auto flex gap-10">
           <Link
             target="_blank"

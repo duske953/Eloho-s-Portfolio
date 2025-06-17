@@ -1,7 +1,9 @@
-import { MetaFunction } from '@remix-run/react';
+import { Link, MetaFunction } from '@remix-run/react';
 import { FaArrowRight } from 'react-icons/fa';
+import ContactModal from '~/components/ContactModal';
+import Cta from '~/components/Cta';
 import Navbar from '~/components/Navbar';
-import { Button } from '~/components/ui/button';
+import { buttonVariants } from '~/components/ui/button';
 import { DotBackground } from '~/components/ui/DotBackground';
 import { MovingBorderBox } from '~/components/ui/moving-border';
 import { Timeline } from '~/components/ui/Timeline';
@@ -104,12 +106,8 @@ export default function Page() {
   return (
     <>
       <Navbar className="fixed left-0 right-0 top-0 w-full z-[100] bg-slate-900" />
-
       <main className="section-container">
         <DotBackground>
-          {/* <div className="relative overflow-x-hidden">
-          <Spotlight />
-        </div> */}
           <section className="pt-24 relative z-50 w-full px-8 overflow-x-hidden">
             <div className="grid grid-cols-2 items-center gap-7 max-lg:grid-cols-1">
               <div>
@@ -124,9 +122,18 @@ export default function Page() {
                   easy to use, fast, and built to solve real problems.
                 </p>
                 <MovingBorderBox className="rounded-none">
-                  <Button variant="outline" size="lg" className="rounded-none">
+                  <Link
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    reloadDocument={true}
+                    to="/Eloho Kennedy's resume.pdf"
+                    className={buttonVariants({
+                      variant: 'outline',
+                      size: 'lg',
+                    })}
+                  >
                     Download CV
-                  </Button>
+                  </Link>
                 </MovingBorderBox>
               </div>
 
@@ -212,6 +219,15 @@ export default function Page() {
             </p>
           </div>
         </section>
+
+        <Cta
+          heading="Let’s Build Something That Works"
+          description="Whether you're starting fresh or need help with your current
+              site, I build websites that are clear, simple, and do what
+              they’re meant to do."
+        >
+          <ContactModal btnText="Let's Talk" />
+        </Cta>
       </main>
     </>
   );

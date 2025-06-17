@@ -136,10 +136,10 @@ export function BottomNavBar() {
         <FaUser />
       </BottmonNavLinks>
 
-      <li className="flex flex-col justify-center items-center gap-1">
+      <li>
         <ContactModal
           btnText={
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-3">
               <IoMail className="text-blue-600" />
               <span>Contact</span>
             </div>
@@ -171,7 +171,7 @@ function BottmonNavLinks({
     <li>
       <Link
         onMouseEnter={renderMouseEnterNav}
-        className="flex flex-col justify-center items-center gap-1"
+        className="flex flex-col justify-center items-center gap-3"
         to={link}
       >
         <span className="text-blue-600">{children}</span>

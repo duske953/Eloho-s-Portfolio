@@ -19,7 +19,7 @@ import ProjectHero from '../projects/components/ProjectHero';
 import ProjectDescription from '../projects/components/ProjectDescription';
 import ProjectFeatures from '../projects/components/ProjectFeatures';
 import ProjectCarousel from '../projects/components/ProjectCarousel';
-import ProjectOutcomes from '../projects/components/ProjectOutocomes';
+import ProjectOutcomes from '../projects/components/ProjectOutcomes';
 import ProjectDemo from '../projects/components/ProjectDemo';
 import ProjectCta from '../projects/components/ProjectCta';
 
@@ -64,47 +64,47 @@ const features = [
 
 const projectImg = [
   {
-    title: 'Hero section',
+    title: 'Hompage',
     src: '/byte-cart/hero.jpeg',
   },
 
   {
-    title: 'product section',
+    title: 'Product Section',
     src: '/byte-cart/product.jpeg',
   },
 
   {
-    title: 'products category section',
+    title: 'Products Category Section',
     src: '/byte-cart/products.jpeg',
   },
 
   {
-    title: 'authentication section',
+    title: 'Authentication Section',
     src: '/byte-cart/auth.jpeg',
   },
 
   {
-    title: 'cart section',
+    title: 'Cart Section',
     src: '/byte-cart/cart.jpeg',
   },
 
   {
-    title: 'cart section',
+    title: 'Cta section',
     src: '/byte-cart/cta.jpeg',
   },
 
   {
-    title: 'delete account section',
+    title: 'Delete Account Section',
     src: '/byte-cart/delete.jpeg',
   },
 
   {
-    title: 'project description section',
+    title: 'Project Description Dection',
     src: '/byte-cart/description.jpeg',
   },
 
   {
-    title: 'product description section',
+    title: 'Footer Section',
     src: '/byte-cart/footer.jpeg',
   },
 
@@ -114,13 +114,13 @@ const projectImg = [
   },
 
   {
-    title: 'payment gateway section',
+    title: 'Payment Gateway Section',
     src: '/byte-cart/stripe.jpeg',
   },
 
   {
-    title: 'featured section',
-    src: '/byte-cart/the-team.jpeg',
+    title: 'About Us Section',
+    src: '/byte-cart/about-us.jpeg',
   },
 ];
 

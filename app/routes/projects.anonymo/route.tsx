@@ -12,7 +12,7 @@ import ProjectHero from '../projects/components/ProjectHero';
 import ProjectDescription from '../projects/components/ProjectDescription';
 import ProjectFeatures from '../projects/components/ProjectFeatures';
 import ProjectCarousel from '../projects/components/ProjectCarousel';
-import ProjectOutcomes from '../projects/components/ProjectOutocomes';
+import ProjectOutcomes from '../projects/components/ProjectOutcomes';
 import ProjectDemo from '../projects/components/ProjectDemo';
 import ProjectCta from '../projects/components/ProjectCta';
 import { FaClock } from 'react-icons/fa';

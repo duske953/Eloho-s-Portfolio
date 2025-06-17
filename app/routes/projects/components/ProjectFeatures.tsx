@@ -19,7 +19,9 @@ export default function ProjectFeatures({
             key={index}
             className="flex items-start gap-4 border border-gray-700 p-4 rounded-lg hover:bg-slate-900 transition-colors cursor-pointer"
           >
-            <span className="text-blue-600 text-3xl">{feature.icon}</span>
+            <span className="text-blue-600 text-3xl max-sm:text-sm">
+              {feature.icon}
+            </span>
             <div className="flex flex-col gap-3">
               <p className="font-bold">{feature.title}</p>
               <p className="text-gray-400 text-lg">{feature.description}</p>
