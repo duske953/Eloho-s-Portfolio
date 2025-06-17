@@ -39,7 +39,7 @@ export default function ProjectCta({
           </Link>
         </div>
       </div>
-      <div className="flex px-8 py-9">
+      <div className="flex px-8 py-9 max-sm:px-3">
         <div className="ml-auto flex gap-10">
           <Link
             target="_blank"
