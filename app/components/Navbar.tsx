@@ -51,14 +51,14 @@ export default function Navbar({ className }: { className?: string }) {
           key={isInView ? 'in-view' : 'out-of-view'}
           animate={controls}
           className={cn(
-            'flex justify-between items-center max-md:justify-center bg-slate-900 section-container right-0 left-0 px-3',
+            'flex justify-between py-3 items-center max-md:justify-center bg-slate-900 section-container right-0 left-0 px-3 pl-10 max-md:pl-0',
             !isInView && 'fixed top-0 w-full z-50 '
           )}
         >
           <Link to="/">
             <img
-              src="/logo.jpg"
-              className="w-32 max-sm:w-20 object-cover"
+              src="/Eloho-Logo.png"
+              className="w-14 object-cover"
               alt="Logo - Eloho Kennedy, A fullstack web developer"
             />
           </Link>

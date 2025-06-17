@@ -13,11 +13,13 @@ export default function Footer() {
       <footer className="px-8 py-8 grid grid-cols-1 gap-8 section-container">
         <div>
           <div className="flex gap-3 items-center">
-            <img
-              className="size-20 object-cover rounded-full"
-              src="/logo.jpg"
-              alt="Eloho Kennedy | Fullstack Web Developer"
-            />
+            <Link to="/">
+              <img
+                src="/Eloho-Logo.png"
+                className="w-10 object-cover"
+                alt="Logo - Eloho Kennedy, A fullstack web developer"
+              />
+            </Link>
             <div className="">
               <p>Eloho Kennedy</p>
               <p className="text-gray-400">Fullstack Web Developer</p>
