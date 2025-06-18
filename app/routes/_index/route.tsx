@@ -18,12 +18,12 @@ export const meta: MetaFunction = () => {
     {
       name: 'description',
       content:
-        'I build websites that don’t just look good — they work. From design to backend, I help businesses keep visitors engaged and coming back.',
+        'I build websites that make it easy for businesses to serve customers, helping businesses grow online.',
     },
     {
       name: 'keywords',
       content:
-        'web developer, business website, frontend developer, backend developer, Next.js, Node.js, website maintenance, Eloho Kennedy',
+        'web developer, business website, Eloho Kennedy Eloho frontend developer, backend developer, Next.js, Node.js, website maintenance, Eloho Kennedy',
     },
     {
       name: 'author',
