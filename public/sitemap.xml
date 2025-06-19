@@ -1,37 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 <url>
-  <loc>https://eloho.vercel.app/</loc>
-  <lastmod>2024-10-10T23:43:24+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>https://www.eloho.pro/</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>1.00</priority>
 </url>
 <url>
-  <loc>https://eloho.vercel.app/projects/rockins</loc>
-  <lastmod>2024-10-10T23:43:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.eloho.pro/about-me</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://eloho.vercel.app/projects/tech-freak</loc>
-  <lastmod>2024-10-10T23:43:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.eloho.pro/projects/rockins</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://eloho.vercel.app/projects/geocoordinates</loc>
-  <lastmod>2024-10-10T23:43:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.eloho.pro/projects/byte-cart</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://eloho.vercel.app/projects/anonymo</loc>
-  <lastmod>2024-10-10T23:43:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.eloho.pro/projects/geocoords</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>0.80</priority>
 </url>
-
-
+<url>
+<loc>https://www.eloho.pro/projects/anonymo</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://www.eloho.pro/projects/music-snip</loc>
+<lastmod>2025-06-19T07:54:06+00:00</lastmod>
+<priority>0.80</priority>
+</url>
 </urlset>
