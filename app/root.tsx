@@ -116,7 +116,7 @@ export default function AppWithProviders() {
   // const data = useLoaderData<typeof loader>();
   return (
     <ThemeProvider specifiedTheme="dark" themeAction="/action/set-theme">
-      <Analytics />
+      {/* <Analytics /> */}
       <App />
     </ThemeProvider>
   );

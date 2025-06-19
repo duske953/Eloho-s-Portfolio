@@ -52,7 +52,7 @@ export default function Navbar({ className }: { className?: string }) {
           animate={controls}
           className={cn(
             'flex justify-between py-3 items-center max-md:justify-center bg-slate-900 section-container right-0 left-0 px-3 pl-10 max-md:pl-0',
-            !isInView && 'fixed top-0 w-full z-50 '
+            !isInView && 'fixed top-0 w-full z-50'
           )}
         >
           <Link to="/">
