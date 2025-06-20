@@ -110,7 +110,11 @@ export function App() {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${gaTrackingId}');`,
+
+                gtag('config', '${gaTrackingId}', {
+                  page_path: window.location.pathname,
+
+              `,
               }}
             />
           </>
