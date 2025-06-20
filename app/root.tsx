@@ -6,7 +6,6 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useLocation,
 } from '@remix-run/react';
 import type {
   ActionFunctionArgs,
@@ -26,9 +25,7 @@ import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import handleSendMessage from './actions/handleSendMessage';
-import * as gtag from '~/utils/gtag.client';
 import { BottomNavBar } from './components/Navbar';
-import { useEffect } from 'react';
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -83,42 +80,32 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export function App() {
-  const location = useLocation();
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
   const gaTrackingId = data.trackingId;
-  useEffect(() => {
-    if (gaTrackingId?.length) {
-      gtag.pageview(location.pathname, gaTrackingId);
-    }
-  }, [location, gaTrackingId]);
 
   return (
     <html lang="en" className={clsx(theme)}>
       <head>
-        {process.env.NODE_ENV === 'development' || !gaTrackingId ? null : (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
-            />
-            <script
-              async
-              id="gtag-init"
-              dangerouslySetInnerHTML={{
-                __html: `
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+          />
+          <script
+            async
+            id="gtag-init"
+            dangerouslySetInnerHTML={{
+              __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', '${gaTrackingId}', {
-                  page_path: window.location.pathname,
+                gtag('config', '${gaTrackingId}')`,
+            }}
+          />
+        </>
 
-              `,
-              }}
-            />
-          </>
-        )}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
