@@ -83,14 +83,14 @@ export function App() {
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
   const gaTrackingId = data.trackingId;
-
+  console.log(gaTrackingId);
   return (
     <html lang="en" className={clsx(theme)}>
       <head>
         <>
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=G-J2YJX7J91V`}
           />
           <script
             async
@@ -101,7 +101,7 @@ export function App() {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', '${gaTrackingId}')`,
+                gtag('config', 'G-J2YJX7J91V')`,
             }}
           />
         </>
