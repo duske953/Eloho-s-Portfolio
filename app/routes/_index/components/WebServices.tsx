@@ -9,12 +9,14 @@ export default function WebServices() {
     >
       <div className="grid grid-cols-1 gap-16 max-lg:gap-24">
         <WebServicesContent
+          service="frontend development"
           heading="Make your site easy to use"
           content="I build the parts of your website that people see and interact with.
               I make sure everything is easy to use and looks good on any screen."
           src="/landing-page.png"
         />
         <WebServicesContent
+          service="backend development"
           heading="Handle what happens in the background"
           content="I also handle the behind-the-scenes work that keeps your website running smoothly and securely."
           src="/backend.png"
@@ -22,6 +24,7 @@ export default function WebServices() {
         />
 
         <WebServicesContent
+          service="web maintenance"
           heading=" Fix Issues and Keep Things Running"
           content="Already have a site? I help with bugs, updates, and small changes
               so your site keeps doing what it’s meant to do."
@@ -36,22 +39,26 @@ function WebServicesContent({
   src,
   heading,
   content,
-
+  service,
   className,
 }: {
   src: string;
+  service: string;
   className?: string;
   heading: string;
   content: string;
 }) {
   return (
     <motion.div
-      className="flex gap-12 items-center rounded-md max-lg:flex-col max-sm:gap-3 shadow-sm shadow-cyan-300 p-6"
+      className="flex gap-12 items-center rounded-md max-lg:flex-col max-sm:gap-3 shadow-sm shadow-cyan-300 p-6 relative"
       initial={{ opacity: 0, y: -100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, mass: 0.5, damping: 10 }}
       viewport={{ once: true, amount: 0.2, margin: '0px 0px -200px 0px' }}
     >
+      <span className="absolute top-2 right-1 bg-blue-600 p-2 rounded-full font-semibold px-3 text-xs uppercase">
+        {service}
+      </span>
       <img
         src={src}
         alt={heading}
