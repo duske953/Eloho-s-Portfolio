@@ -58,8 +58,8 @@ export default function Navbar({ className }: { className?: string }) {
           <Link to="/">
             <img
               src="/Eloho-Logo.png"
-              className="w-14 object-cover"
-              alt="Logo - Eloho Kennedy, A fullstack web developer"
+              className="w-14 object-cover max-sm:w-10"
+              alt="Eloho Kennedy, web developer for local businesses"
             />
           </Link>
 
