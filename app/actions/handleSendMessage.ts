@@ -7,7 +7,7 @@ export async function sendMail(subject: string, text: string, email: string) {
     port: 465,
     connectionTimeout: +process.env.TIMED_OUT!,
     socketTimeout: +process.env.TIMED_OUT!,
-    secure: true,
+    secure: false,
     service: process.env.EMAIL_SERVICE,
     auth: {
       user: process.env.EMAIL_USER,
@@ -17,7 +17,7 @@ export async function sendMail(subject: string, text: string, email: string) {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_RECEIVER,
+    to: process.env.EMAIL_USER,
     subject,
     html: `<p style="font-size: 1.2rem">${text} <br /> 
     <p style="margin-top:3.4rem">Message sent from ${email}</p>
@@ -28,6 +28,7 @@ export async function sendMail(subject: string, text: string, email: string) {
     await transporter.sendMail(mailOptions);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
+    console.log(err);
     if (err.errno === -3008)
       throw new Error(
         'No internet connection. Please check your internet settings'
