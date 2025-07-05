@@ -50,8 +50,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-14 sm:pt-6">
+        <div className="pt-14 sm:pt-6 flex flex-col gap-2">
           <p>© {date.getFullYear()} Eloho Kennedy. All Rights Reserved.</p>
+          <Link to="/privacy-policy">Privacy Policy</Link>
         </div>
       </footer>
     </>
