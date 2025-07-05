@@ -83,7 +83,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
     <motion.li
       variants={item}
-      className="flex flex-col border-b border-gray-300 py-4 px-6 mb-4 cursor-pointer relative"
+      className="flex flex-col border-b border-gray-300 py-4 px-6 mb-4 cursor-pointer relative max-sm:pl-3"
     >
       <div className="relative">
         <p
