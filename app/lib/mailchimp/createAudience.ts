@@ -16,7 +16,7 @@ const footerContactInfo = {
 
 const campaignDefaults = {
   from_name: "Gettin' Together",
-  from_email: 'kennyduske@gmail.com',
+  from_email: 'oj@gmail.com',
   subject: 'JS Developers Meetup',
   language: 'EN_US',
 };
