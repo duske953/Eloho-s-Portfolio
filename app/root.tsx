@@ -88,21 +88,18 @@ export function App() {
     <html lang="en" className={clsx(theme)}>
       <head>
         <>
-          {process.env.NODE_ENV === 'production' && (
-            <>
-              {' '}
-              <script src="https://cdn.cookiehub.eu/c2/5818fe55.js"></script>
-              <script
-                type="text/javascript"
-                dangerouslySetInnerHTML={{
-                  __html: `document.addEventListener("DOMContentLoaded", function(event) {
+          <>
+            <script src="https://cdn.cookiehub.eu/c2/5818fe55.js"></script>
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={{
+                __html: `document.addEventListener("DOMContentLoaded", function(event) {
                       var cpm = {};
                       window.cookiehub.load(cpm);
 });`,
-                }}
-              ></script>
-            </>
-          )}
+              }}
+            ></script>
+          </>
 
           <script
             async
