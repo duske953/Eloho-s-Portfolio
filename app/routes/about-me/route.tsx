@@ -7,6 +7,7 @@ import { buttonVariants } from '~/components/ui/button';
 import { DotBackground } from '~/components/ui/DotBackground';
 import { MovingBorderBox } from '~/components/ui/moving-border';
 import { Timeline } from '~/components/ui/Timeline';
+import { cn } from '~/lib/utils';
 
 const timeline = [
   {
@@ -83,24 +84,54 @@ const workOperationData = [
   },
 ];
 
+const benefit = [
+  {
+    heading: 'Clear Communication, No Surprises',
+    text: 'I don’t hand you off to account managers. You speak directly with the person building your site. You always know what’s happening and why.',
+  },
+
+  {
+    heading: 'Websites Built for Your Type of Business',
+    text: 'I don’t guess. I take time to understand your work so your site reflects your reality, not a generic template.',
+  },
+
+  {
+    heading: 'No Lock-Ins, Just Real Results',
+    text: 'Unlike others who trap you with vague deliverables or hidden fees, I offer clear packages, flat pricing, and real outcomes like Google visibility, contact form protection, and mobile-first performance.',
+  },
+
+  {
+    heading: 'No Buzzwords. Just Work That Works.',
+    text: 'I won’t sell you on page speed scores or vanity metrics that don’t match your industry. I focus on what helps people find and trust you.',
+  },
+];
+
 export const meta: MetaFunction = () => {
   return [
     {
-      title:
-        'About Me – Web Developer Helping Businesses create a web presence',
+      title: 'About Eloho – Web Developer for Businesses',
     },
     {
       name: 'description',
       content:
-        "I'm a web developer with a background in engineering. I build clean, functional websites that help businesses get found and serve customers online.",
+        'Learn how Eloho helps businesses build modern, trustworthy websites that attract more customers and grow online visibility—without tech overwhelm.',
     },
     {
       name: 'keywords',
       content:
-        'web developer, about me, business website developer, frontend and backend developer, build website for business, Nigeria web developer, full-stack developer',
+        'web developer, web developer for small businesses, professional business website, about me, business website developer, frontend and backend developer, build website for business, Nigeria web developer, full-stack developer',
     },
   ];
 };
+
+function Benefit({ heading, text }: { heading: string; text: string }) {
+  return (
+    <li className="flex flex-col gap-2">
+      <span className="font-bold mb-1 text-blue-600 uppercase">{heading}</span>
+      <span className="leading-8">{text}</span>
+    </li>
+  );
+}
 
 export default function Page() {
   return (
@@ -139,7 +170,7 @@ export default function Page() {
 
               <div className="relative left-10 -top-7 max-lg:left-0 max-lg:top-0 max-lg:justify-self-center">
                 <img
-                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-50 max-lg:size-[33rem] max-sm:size-[20rem]"
+                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-90 max-lg:size-[33rem] max-sm:size-[20rem]"
                   src="/profile.png"
                   alt="Profile of Eloho Kennedy"
                 />
@@ -169,54 +200,62 @@ export default function Page() {
         </section>
 
         <section>
-          <div className="max-w-3xl mx-auto px-8 max-sm:px-3 pb-32">
-            <h2 className="secondary-heading">
-              So… who am I outside of websites and code?
-            </h2>
+          <div className="max-w-3xl mx-auto px-8 max-sm:px-3 pb-32 flex flex-col gap-20">
+            <div>
+              <h2 className={cn('secondary-heading', 'mb-4')}>
+                So… what makes me different?
+              </h2>
 
-            <p className="flex flex-col gap-6 leading-loose text-lg text-gray-300">
-              <span>
-                You’ve probably read all the serious stuff — &quot;web developer
-                this, full-stack that. Cool. But let’s hit pause for a second.
-                Outside of work, I’m just a regular person with very real
-                obsessions. First up, wildlife documentaries. I don’t know how
-                best to put this, but I can watch monkeys jumping from tree to
-                tree for hours. Literally hours. Sometimes I wonder if I missed
-                my calling as a forest ranger. There’s just something fun about
-                watching animals live their lives and the mysteries that
-                surrounds them. And the narrators? Always calm. Always British.
-                It’s top-tier relaxation.
-              </span>
+              <p className="flex flex-col gap-6 leading-loose text-lg text-gray-300">
+                <span>
+                  I'm <span className="font-bold">Eloho</span>, the web
+                  developer behind eloho.pro. I work with businesses who are
+                  proud of what they do, but frustrated by how their websites
+                  look or function. My job is simple: make your business easy to
+                  find, trust, and contact online. Just websites that help
+                  people walk through your door or call your number. I don’t
+                  drop your business into a template, I build it around your
+                  real goals. Where they confuse, I clarify. I build websites
+                  that match your business down to the tools you need and the
+                  language your customers understand.
+                </span>
+              </p>
+            </div>
+            <div>
+              <h2 className="secondary-heading mb-4">
+                Benefits of Working With Me
+              </h2>
 
-              <span>
-                When I’m not wondering if I missed my calling as a forest
-                ranger, I’m probably watching a movie. Horror is my thing. I’ve
-                watched enough horror films to know that if you hear a strange
-                noise in the basement, don’t go check. But they always check.
-                Every time. And don’t get me started on exorcism scenes —
-                &quot;I command you, demon, tell me your name!&quot; chills.
-                Romance movies though? Nah. I try… but halfway through I’m
-                already checking my phone. I respect the lovebirds, but my brain
-                wants ghosts, not candlelit dinners.
-              </span>
+              <ul className="flex flex-col gap-8">
+                {benefit.map((item) => (
+                  <Benefit
+                    key={item.heading}
+                    heading={item.heading}
+                    text={item.text}
+                  />
+                ))}
+              </ul>
+            </div>
 
-              <span>
-                As for music? I&#39;m not on the trendy side. No offense to
-                today’s hits, but I’ll take Don Williams over auto-tune any day.
-                Slow, calming, and just good for the soul. Play some old reggae
-                or country and I’m set. That kind of music doesn’t yell it just
-                speaks. As for anime… let&#39;s just say that&#39;s a whole
-                other rabbit hole we can talk about later.
-              </span>
-
-              <span>
-                So yeah, outside of code, I’m either watching animals live
-                better lives than me, screaming at horror movie characters who
-                make bad choices, or vibing to songs older than I am. Nothing
-                fancy. Just a normal person doing normal stuff, and trying not
-                to take life too seriously.
-              </span>
-            </p>
+            <div>
+              <h2 className="secondary-heading mb-7">
+                What You Get That Others Often Miss
+              </h2>
+              <ul className="flex flex-col gap-4 list-decimal">
+                <li>
+                  A trustworthy presence that looks good and loads fast on all
+                  devices
+                </li>
+                <li>
+                  A real person who understands small business realities, not
+                  just campaigns or code
+                </li>
+                <li>
+                  Support after launch. I don’t disappear once the invoice is
+                  paid
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 

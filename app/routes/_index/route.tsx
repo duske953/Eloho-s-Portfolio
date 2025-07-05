@@ -13,17 +13,17 @@ import ContactModal from '~/components/ContactModal';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Eloho Kennedy – Web Developer for Businesses' },
+    { title: 'Your business deserves more than a pretty homepage.' },
 
     {
       name: 'description',
       content:
-        'I build websites that make it easy for businesses to serve customers, helping businesses grow online.',
+        'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm. Start with Eloho today.',
     },
     {
       name: 'keywords',
       content:
-        'web developer, business website, Eloho Kennedy Eloho frontend developer, backend developer, Next.js, Node.js, website maintenance, Eloho Kennedy',
+        'web development for local business, small business websites, affordable website design, local business web developer, International website builder, website builder Nigeria, Eloho web services',
     },
     {
       name: 'author',

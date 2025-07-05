@@ -32,7 +32,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <h2 className="text-lg md:text-4xl mb-4 text-blue-600 font-bold max-w-4xl">
           How I Got Here
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 md:text-base max-w-sm leading-relaxed">
+        <p className="text-neutral-700 dark:text-neutral-300 max-md:text-base max-w-sm leading-7">
           From a lockdown decision to real-world web development this is the
           journey that shaped the developer behind your next project.
         </p>

@@ -20,6 +20,7 @@ import {
   useTheme,
 } from 'remix-themes';
 import { themeSessionResolver } from './sessions.server';
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import clsx from 'clsx';
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
@@ -82,12 +83,27 @@ export const loader: LoaderFunction = async ({ request }) => {
 export function App() {
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
-  const gaTrackingId = data.trackingId;
-  console.log(gaTrackingId);
+
   return (
     <html lang="en" className={clsx(theme)}>
       <head>
         <>
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              {' '}
+              <script src="https://cdn.cookiehub.eu/c2/5818fe55.js"></script>
+              <script
+                type="text/javascript"
+                dangerouslySetInnerHTML={{
+                  __html: `document.addEventListener("DOMContentLoaded", function(event) {
+                      var cpm = {};
+                      window.cookiehub.load(cpm);
+});`,
+                }}
+              ></script>
+            </>
+          )}
+
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=G-J2YJX7J91V`}

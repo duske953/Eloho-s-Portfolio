@@ -153,7 +153,7 @@ export const meta: MetaFunction = () => {
     {
       name: 'description',
       content:
-        'Shop phones, laptops, and gadgets on Bytecart. Secure checkout, real-time emails, and a dashboard to manage everything.',
+        'Shop quality tech at Bytecart. Find top laptops, smartphones, and accessories with fast delivery, trusted reviews, and clear pricing—built for real users.',
     },
     {
       name: 'keywords',
