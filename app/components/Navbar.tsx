@@ -1,4 +1,4 @@
-import { Link } from '@remix-run/react';
+import { Link, useLoaderData } from '@remix-run/react';
 import { cn } from '~/lib/utils';
 import { Button, buttonVariants } from './ui/button';
 import { useInView, motion, useAnimation } from 'motion/react';
@@ -7,6 +7,7 @@ import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 import ContactModal from './ContactModal';
 import { FaUser } from 'react-icons/fa';
 import { IoBriefcase, IoCode, IoMail } from 'react-icons/io5';
+
 const navBarLinks = [
   {
     link: '/#services',
@@ -27,11 +28,17 @@ const navBarLinks = [
 ];
 
 export default function Navbar({ className }: { className?: string }) {
+  const loader = useLoaderData();
+
   const controls = useAnimation();
   const navRef = useRef(null);
   const isInView = useInView(navRef, {
     margin: '100% -20px 0px 0px',
   });
+
+  useEffect(() => {
+    console.log(loader);
+  }, [loader]);
 
   useEffect(() => {
     if (!isInView) {
@@ -40,7 +47,7 @@ export default function Navbar({ className }: { className?: string }) {
     }
     return () => controls.stop();
   }, [isInView]);
-
+  console.log(loader);
   return (
     <>
       <header

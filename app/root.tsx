@@ -3,14 +3,16 @@ import {
   Links,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
+  useFetcher,
   useLoaderData,
 } from '@remix-run/react';
-import type {
-  ActionFunctionArgs,
-  LinksFunction,
-  LoaderFunction,
+import {
+  type ActionFunctionArgs,
+  type LinksFunction,
+  type LoaderFunction,
 } from '@remix-run/node';
 import './tailwind.css';
 import { RecoilRoot } from 'recoil';
@@ -23,10 +25,20 @@ import { themeSessionResolver } from './sessions.server';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import clsx from 'clsx';
 import Footer from './components/Footer';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import handleSendMessage from './actions/handleSendMessage';
+
 import { BottomNavBar } from './components/Navbar';
+import { freeAudit } from './lib/mailchimp/audience';
+import { userSubscribed } from './cookie.server';
+import { Button } from './components/ui/button';
+import { Input } from './components/ui/input';
+import { object, string } from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import { ReloadIcon } from '@radix-ui/react-icons';
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
@@ -71,18 +83,63 @@ export async function action({ request }: ActionFunctionArgs) {
     email: formData.get('email') as string,
     message: formData.get('message') as string,
   };
-  const response = await handleSendMessage(data);
-  return response;
+  if (data.name && data.email && data.message) {
+    const response = await handleSendMessage(data);
+    return response;
+  }
+
+  const cookieValue = await userSubscribed.serialize('subscribed');
+  const response = await freeAudit(data.email);
+  console.log(response);
+  return json(
+    { status: response.status, response: response.response },
+    {
+      headers: {
+        'Set-Cookie': response.status === 200 ? cookieValue : '',
+      },
+    }
+  );
 }
 export const loader: LoaderFunction = async ({ request }) => {
   const { getTheme } = await themeSessionResolver(request);
   const trackingId = process.env.GA_TRACKING_ID;
-  return json({ theme: getTheme(), trackingId });
+  const cookieHeader = request.headers.get('Cookie');
+  const subscribed = await userSubscribed.parse(cookieHeader);
+  return json({ theme: getTheme(), trackingId, subscribed });
 };
 
+export const userSchema = object({
+  email: string()
+    .required('Please enter your email address')
+    .email('Invalid email')
+    .max(30, 'Email must be in the range of 20 characters'),
+});
+
 export function App() {
+  const {
+    register,
+    reset,
+    formState: { isValid },
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
+  const fetcher = useFetcher<{ status: number; response: string }>();
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
+
+  useEffect(() => {
+    if (!fetcher.data) return;
+    if (fetcher.data?.status === 200) {
+      reset({ email: '' });
+      toast('Audit request received. We’ll be in touch soon', {
+        type: 'success',
+        toastId: 'free-audit',
+      });
+      return;
+    }
+
+    toast(fetcher.data.response, { type: 'error', toastId: 'free-audit' });
+  }, [fetcher.data, reset]);
 
   return (
     <html lang="en" className={clsx(theme)}>
@@ -97,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         ></script>
 
-        <script
+        {/* <script
           id="mcjs"
           dangerouslySetInnerHTML={{
             __html: `!function(c,h,i,m,p)
@@ -110,7 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }
           (document,"script","https://chimpstatic.com/mcjs-connected/js/users/05e559cded6eb6f18b02848a9/123c7ff68b2834a1f607ea330.js");`,
           }}
-        ></script>
+        ></script> */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
@@ -129,6 +186,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
 
         <RecoilRoot>
+          {data.subscribed !== 'subscribed' && (
+            <fetcher.Form id="free-audit" method="post" action="/">
+              <div className="flex gap-3 max-w-4xl py-1 justify-center mx-auto px-4 items-center">
+                <Input
+                  placeholder="Enter your email to get your free website audit"
+                  className="w-2/4 max-sm:w-full text-xs"
+                  type="email"
+                  {...register('email')}
+                />
+                <Button
+                  type="submit"
+                  variant="secondary"
+                  className="rounded-none flex gap-1"
+                  disabled={!isValid || fetcher.state === 'submitting'}
+                >
+                  {fetcher.state === 'submitting' && (
+                    <ReloadIcon className="animate-spin" />
+                  )}
+                  Free Website Audit
+                </Button>
+              </div>
+            </fetcher.Form>
+          )}
+
           <Outlet />
           <ToastContainer
             bodyClassName={`font-medium sm:text-sm font-family`}

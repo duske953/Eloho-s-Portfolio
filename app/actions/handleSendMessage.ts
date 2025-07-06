@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import { userDetailsSchema } from '~/components/ContactModal';
-import { createAudience } from '~/lib/mailchimp/createAudience';
+import { audienceExists, createAudience } from '~/lib/mailchimp/audience';
 
 export async function sendMail(subject: string, text: string, email: string) {
   const transporter = nodemailer.createTransport({
@@ -59,11 +59,12 @@ export default async function handleSendMessage(data: {
       data.message,
       data.email
     );
-    await createAudience(data.name, data.email);
+    if (!(await audienceExists(data.email))) {
+      await createAudience(data.name, data.email);
+    }
     return { status: 200, response: 'Success' };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
-    console.log(err);
-    return { status: 400, response: err.message };
+    return { status: 500, response: 'Something went wrong' };
   }
 }
