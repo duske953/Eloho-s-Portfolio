@@ -16,10 +16,10 @@ export default function ProjectHero({
   children: ReactNode;
 }) {
   return (
-    <GridBackground className="my-32 max-sm:my-20">
-      <section className="relative overflow-hidden py-16">
+    <GridBackground className="">
+      <section className="relative overflow-hidden py-40 max-sm:py-14">
         <Spotlight />
-        <div className="grid grid-cols-2 px-8 items-center gap-4 max-lg:grid-cols-1">
+        <div className="grid grid-cols-2 px-8 items-center gap-4 max-lg:grid-cols-1 max-sm:px-4">
           <div>
             <h1 className="primary-heading"> {heading}</h1>
             <p className="text-xl leading-loose">{description}</p>
