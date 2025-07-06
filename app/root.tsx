@@ -3,7 +3,6 @@ import {
   Links,
   Meta,
   Outlet,
-  redirect,
   Scripts,
   ScrollRestoration,
   useFetcher,
@@ -90,7 +89,6 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const cookieValue = await userSubscribed.serialize('subscribed');
   const response = await freeAudit(data.email);
-  console.log(response);
   return json(
     { status: response.status, response: response.response },
     {
@@ -188,7 +186,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <RecoilRoot>
           {data.subscribed !== 'subscribed' && (
             <fetcher.Form id="free-audit" method="post" action="/">
-              <div className="flex gap-3 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
+              <div className="flex gap-3 max-sm:gap-1 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
                 <Input
                   placeholder="Enter your email to get your free website audit"
                   className="w-2/4 max-sm:w-full text-xs"
@@ -199,6 +197,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   type="submit"
                   variant="secondary"
                   className="rounded-none flex gap-1"
+                  size="sm"
                   disabled={!isValid || fetcher.state === 'submitting'}
                 >
                   {fetcher.state === 'submitting' && (

@@ -1,44 +1,51 @@
-import mailchimp from '@mailchimp/mailchimp_marketing';
+import axios from 'axios';
 
-mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: process.env.MAILCHIMP_SERVER_PREFIX,
-});
+function contactOptions(method: string, identifier: string, params: any = {}) {
+  return {
+    method,
+    url: `https://api.brevo.com/v3/${identifier}`,
+    params,
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'api-key': process.env.BREVO_API_KEY,
+    },
+  };
+}
 
 export async function createAudience(
   audienceName: string,
   audienceEmail: string
 ) {
-  const splitName = audienceName.split(' ');
-  const FNAME = splitName[0];
-  const LNAME = splitName[1] || '';
-  await mailchimp.lists.addListMember(
-    process.env.MAILCHIMP_AUDIENCE_ID as string,
-    {
-      email_address: audienceEmail,
-      merge_fields: {
-        FNAME,
-        LNAME,
-      },
-      status: 'subscribed',
-    }
-  );
-  return { status: 200, response: 'Success' };
+  try {
+    const splitName = audienceName.split(' ');
+    const FNAME = splitName[0];
+    const LNAME = splitName[1] || '';
+
+    await axios.request({
+      ...contactOptions('POST', 'contacts'),
+      data: { email: audienceEmail, attributes: { FNAME, LNAME } },
+    });
+
+    return { status: 200, response: 'Success' };
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 }
 
 export async function audienceExists(audienceEmail: string) {
   try {
-    const response = await mailchimp.lists.getListMember(
-      process.env.MAILCHIMP_AUDIENCE_ID as string,
-      audienceEmail
-    );
+    await axios.request({
+      ...contactOptions('GET', `contacts/${audienceEmail}`, {
+        identifierType: 'email_id',
+      }),
+    });
 
-    return response.status === 'subscribed';
-  } catch (error) {
-    if (error.status === 404) {
-      return false;
-    }
-    throw error;
+    return true;
+  } catch (err) {
+    if (err.status === 404) return false;
+    throw err;
   }
 }
 
@@ -52,7 +59,6 @@ export async function freeAudit(email: string) {
     await createAudience('', email);
     return { status: 200, response: 'success' };
   } catch (err) {
-    console.log(err);
     return { status: 500, response: 'Something went wrong' };
   }
 }
