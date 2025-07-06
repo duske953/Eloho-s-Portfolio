@@ -14,14 +14,13 @@ import {
   type LoaderFunction,
 } from '@remix-run/node';
 import './tailwind.css';
-import { RecoilRoot } from 'recoil';
+import { CookieConsent } from 'react-cookie-consent';
 import {
   PreventFlashOnWrongTheme,
   ThemeProvider,
   useTheme,
 } from 'remix-themes';
 import { themeSessionResolver } from './sessions.server';
-import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import clsx from 'clsx';
 import Footer from './components/Footer';
 import { toast, ToastContainer } from 'react-toastify';
@@ -142,7 +141,7 @@ export function App() {
   return (
     <html lang="en" className={clsx(theme)}>
       <head>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -150,22 +149,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5W8WTZ8S');`,
           }}
-        ></script>
-
-        {/* <script
-          id="mcjs"
-          dangerouslySetInnerHTML={{
-            __html: `!function(c,h,i,m,p)
-          {
-            ((m = c.createElement(h)),
-            (p = c.getElementsByTagName(h)[0]),
-            (m.async = 1),
-            (m.src = i),
-            p.parentNode.insertBefore(m, p))
-          }
-          (document,"script","https://chimpstatic.com/mcjs-connected/js/users/05e559cded6eb6f18b02848a9/123c7ff68b2834a1f607ea330.js");`,
-          }}
         ></script> */}
+
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
@@ -182,42 +167,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="hidden invisible"
           ></iframe>
         </noscript>
+        <CookieConsent
+          buttonClasses=""
+          buttonStyle={{
+            backgroundColor: '#1D4ED8',
+            color: '#fff',
+          }}
+        >
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
 
-        <RecoilRoot>
-          {data.subscribed !== 'subscribed' && (
-            <fetcher.Form id="free-audit" method="post" action="/">
-              <div className="flex gap-3 max-sm:gap-1 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
-                <Input
-                  placeholder="Enter your email to get your free website audit"
-                  className="w-2/4 max-sm:w-full text-xs"
-                  type="email"
-                  {...register('email')}
-                />
-                <Button
-                  type="submit"
-                  variant="secondary"
-                  className="rounded-none flex gap-1"
-                  size="sm"
-                  disabled={!isValid || fetcher.state === 'submitting'}
-                >
-                  {fetcher.state === 'submitting' && (
-                    <ReloadIcon className="animate-spin" />
-                  )}
-                  Free Website Audit
-                </Button>
-              </div>
-            </fetcher.Form>
-          )}
+        {data.subscribed !== 'subscribed' && (
+          <fetcher.Form id="free-audit" method="post" action="/">
+            <div className="flex gap-3 max-sm:gap-1 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
+              <Input
+                placeholder="Enter your email to get your free website audit"
+                className="w-2/4 max-sm:w-full text-xs"
+                type="email"
+                {...register('email')}
+              />
+              <Button
+                type="submit"
+                variant="secondary"
+                className="rounded-none flex gap-1"
+                size="sm"
+                disabled={!isValid || fetcher.state === 'submitting'}
+              >
+                {fetcher.state === 'submitting' && (
+                  <ReloadIcon className="animate-spin" />
+                )}
+                Free Website Audit
+              </Button>
+            </div>
+          </fetcher.Form>
+        )}
 
-          <Outlet />
-          <ToastContainer
-            bodyClassName={`font-medium sm:text-sm font-family`}
-            autoClose={5000}
-            hideProgressBar={true}
-            theme="dark"
-          />
-          <Footer />
-        </RecoilRoot>
+        <Outlet />
+        <ToastContainer
+          bodyClassName={`font-medium sm:text-sm font-family`}
+          autoClose={5000}
+          hideProgressBar={true}
+          theme="dark"
+        />
+        <Footer />
+
         <ScrollRestoration />
         <Scripts />
         <BottomNavBar />

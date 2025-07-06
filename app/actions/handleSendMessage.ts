@@ -29,7 +29,6 @@ export async function sendMail(subject: string, text: string, email: string) {
     await transporter.sendMail(mailOptions);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
-    console.log(err);
     if (err.errno === -3008)
       throw new Error(
         'No internet connection. Please check your internet settings'
@@ -54,14 +53,16 @@ export default async function handleSendMessage(data: {
   });
   if (!isValid) return { status: 400, response: 'Please fill in all details' };
   try {
+    if (!(await audienceExists(data.email))) {
+      await createAudience(data.name, data.email);
+    }
+
     await sendMail(
       `Important message from ${data.name}`,
       data.message,
       data.email
     );
-    if (!(await audienceExists(data.email))) {
-      await createAudience(data.name, data.email);
-    }
+
     return { status: 200, response: 'Success' };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {

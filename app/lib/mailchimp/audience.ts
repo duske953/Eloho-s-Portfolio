@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 function contactOptions(method: string, identifier: string, params: any = {}) {
   return {
     method,
@@ -29,8 +28,7 @@ export async function createAudience(
 
     return { status: 200, response: 'Success' };
   } catch (err) {
-    console.log(err);
-    throw err;
+    return { status: 500, response: 'Something went wrong' };
   }
 }
 
@@ -53,6 +51,7 @@ export async function freeAudit(email: string) {
   try {
     if (!email)
       return { status: 400, response: 'Please provide your email address' };
+
     if (await audienceExists(email)) {
       return { status: 200, response: 'success' };
     }
