@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 import { cn } from '~/lib/utils';
 import { Button, buttonVariants } from './ui/button';
 import { useInView, motion, useAnimation } from 'motion/react';
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 import ContactModal from './ContactModal';
 import { FaUser } from 'react-icons/fa';
@@ -29,6 +29,7 @@ const navBarLinks = [
 
 export default function Navbar({ className }: { className?: string }) {
   const controls = useAnimation();
+
   const navRef = useRef(null);
   const isInView = useInView(navRef, {
     margin: '100% -20px 0px 0px',
@@ -123,8 +124,32 @@ function NavLinks({ i }: { i: number }) {
 }
 
 export function BottomNavBar() {
+  const [scrollingDown, setScrollingDown] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setScrollingDown(true);
+      } else {
+        setScrollingDown(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <ul className="hidden pointer-events-none max-md:pointer-events-auto justify-around gap-5 max-md:flex z-[200] max-md:sticky bottom-0 max-md:left-0 bg-slate-900 items-center py-6">
+    <ul
+      className={cn(
+        'hidden transition-transform pointer-events-none max-md:pointer-events-auto max-md:flex justify-around gap-5 z-[200] max-md:sticky bottom-0 max-md:left-0 bg-slate-900 items-center py-6',
+        scrollingDown ? 'translate-y-full' : ' translate-y-0 '
+      )}
+    >
       <BottmonNavLinks link="/#services" text="Services">
         <IoBriefcase />
       </BottmonNavLinks>
