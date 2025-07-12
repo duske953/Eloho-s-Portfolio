@@ -19,7 +19,7 @@ export default function PainPoints() {
               className="-rotate-12"
             />
             <PainPointList
-              point="It’s hard to use on phones or tablets, so you lose mobile customers."
+              point="Your website is hard to use on phones or tablets, so you lose mobile customers."
               className="row-[-7] col-[2] rotate-12"
             />
 
@@ -29,7 +29,7 @@ export default function PainPoints() {
             />
 
             <PainPointList
-              point="Visitors get confused and don’t take action because the site isn’t clear."
+              point="Your visitors get confused and don’t take action because the site isn’t clear."
               className="row-[-5] col-[2] -rotate-12"
             />
 
