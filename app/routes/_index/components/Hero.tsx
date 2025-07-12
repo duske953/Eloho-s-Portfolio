@@ -12,8 +12,8 @@ export default function Hero() {
               Your Business Deserves a Clear, Trustworthy Website
             </h1>
             <p className="text-xl mt-5 text-blue-200 max-sm:text-lg leading-10">
-              I help businesses build websites that reflect their values and
-              make it easy for customers to take the next step.
+              I help your business build a website that reflects your values and
+              makes it easy for your customers to take the next step.
             </p>
             <div className="flex gap-9 mt-7 max-lg:gap-3">
               <Button
