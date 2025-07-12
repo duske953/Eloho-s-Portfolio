@@ -10,7 +10,7 @@ export default function WebServices() {
       <div className="grid grid-cols-1 gap-16 max-lg:gap-24">
         <WebServicesContent
           service="frontend development"
-          heading="Make your site easy to use"
+          heading="Make your site professional"
           content="I build the parts of your website your visitors see and interact with, making sure it's clear, fast, 
           and works on every screen. So your business looks professional, earns trust, and turns visits into action."
           src="/landing-page.png"
