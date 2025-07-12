@@ -11,14 +11,15 @@ export default function WebServices() {
         <WebServicesContent
           service="frontend development"
           heading="Make your site easy to use"
-          content="I build the parts of your website that people see and interact with.
-              I make sure everything is easy to use and looks good on any screen."
+          content="I build the parts of your website your visitors see and interact with, making sure it's clear, fast, 
+          and works on every screen. So your business looks professional, earns trust, and turns visits into action."
           src="/landing-page.png"
         />
         <WebServicesContent
           service="backend development"
           heading="Handle what happens in the background"
-          content="I also handle the behind-the-scenes work that keeps your website running smoothly and securely."
+          content="I manage the behind-the-scenes work that keeps your website reliable and secure. This means your site runs smoothly, 
+          stays protected from problems, and gives your customers a trustworthy experience every time."
           src="/backend.png"
           className="order-3 max-lg:-order-1"
         />
@@ -26,8 +27,8 @@ export default function WebServices() {
         <WebServicesContent
           service="web maintenance"
           heading=" Fix Issues and Keep Things Running"
-          content="Already have a site? I help with bugs, updates, and small changes
-              so your site keeps doing what it’s meant to do."
+          content="Already have a website? I keep it running smoothly by fixing issues, 
+          updating it regularly, and making small improvements so your site stays secure and up to date."
           src="/bug-fix.png"
         />
       </div>
