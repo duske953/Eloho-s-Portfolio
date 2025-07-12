@@ -6,7 +6,7 @@ import WebsitesFacts from './components/WebsitesFacts';
 import PorfolioMarquee from './components/PorfolioMarquee';
 import Faq from './components/Faq';
 import TechStack from './components/TechStack';
-import PainPoints from './components/PaintPoints';
+import PainPoints from './components/PainPoints';
 import Cta from '~/components/Cta';
 import Navbar from '~/components/Navbar';
 import ContactModal from '~/components/ContactModal';
