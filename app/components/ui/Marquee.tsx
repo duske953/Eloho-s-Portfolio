@@ -1,8 +1,5 @@
 import { motion } from 'motion/react';
 import { cn } from '~/lib/utils';
-import { Image } from '@unpic/react';
-import { transform } from 'unpic/providers/vercel';
-import ken from '../../../public/bgImg.jpg';
 
 export const ThreeDMarquee = ({
   images,
@@ -13,7 +10,6 @@ export const ThreeDMarquee = ({
 }) => {
   // Split the images array into 4 equal parts
   const chunkSize = Math.ceil(images.length / 4);
-  const MotionImage = motion.create(Image);
   const chunks = Array.from({ length: 4 }, (_, colIndex) => {
     const start = colIndex * chunkSize;
     return images.slice(start, start + chunkSize);
@@ -50,11 +46,8 @@ export const ThreeDMarquee = ({
                 {subarray.map((image, imageIndex) => (
                   <div className="relative" key={imageIndex + image}>
                     <GridLineHorizontal className="-top-4" offset="20px" />
-                    {/* <Image width={1000} height={1000} cdn='imageengine' src={image} alt='ken'/> */}
-                    <MotionImage
-                      width={2000}
-                      height={2000}
-                      cdn="imageengine"
+
+                    <motion.img
                       whileHover={{
                         y: -10,
                       }}
