@@ -60,7 +60,7 @@ const features = [
 const projectImg = [
   {
     title: 'Homepage',
-    src: '/anonymo/hero.svg',
+    src: '/anonymo/homepage.jpeg',
   },
 ];
 
@@ -113,7 +113,7 @@ export default function Page() {
       <ProjectHero
         heading="Speak Freely. No Logins. No Records."
         description="Chat freely with strangers no names, no logins, no pressure. Just real, anonymous conversations."
-        imgSrc="/anonymo/hero.svg"
+        imgSrc="/anonymo/homepage.jpeg"
         imgAlt="Anonymo Chat App"
       >
         <RiReactjsLine />

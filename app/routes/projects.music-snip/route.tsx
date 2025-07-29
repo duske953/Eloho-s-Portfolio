@@ -47,7 +47,7 @@ const features = [
 const projectImg = [
   {
     title: 'Homepage',
-    src: '/music-snip/homepage.svg',
+    src: '/music-snip/homepage.jpeg',
   },
 
   {
@@ -111,7 +111,7 @@ export default function Page() {
       <ProjectHero
         heading="Discover Music in Moments."
         description="Preview songs, explore top charts, and save your favorites all in one place."
-        imgSrc="/music-snip/homepage.svg"
+        imgSrc="/music-snip/homepage.jpeg"
         imgAlt="Discover Music in Moments"
       >
         <RiNextjsLine />

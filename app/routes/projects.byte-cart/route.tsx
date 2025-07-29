@@ -65,7 +65,7 @@ const features = [
 const projectImg = [
   {
     title: 'Hompage',
-    src: '/byte-cart/hero.jpeg',
+    src: '/byte-cart/homepage.jpeg',
   },
 
   {
@@ -169,7 +169,7 @@ export default function Page() {
       <ProjectHero
         heading="Bring Your Tech Store Online, the Right Way"
         description="Bytecart makes it easy for tech customers to find products, place orders, and check out without friction."
-        imgSrc="/byte-cart/hero.jpeg"
+        imgSrc="/byte-cart/homepage.jpeg"
         imgAlt="Bytecart Ecommerce Website"
       >
         <RiNextjsLine />

@@ -1,5 +1,9 @@
 import { motion } from 'motion/react';
 import { cn } from '~/lib/utils';
+import { Image } from '@unpic/react';
+import { transform } from 'unpic/providers/vercel';
+import ken from '../../../public/bgImg.jpg';
+
 export const ThreeDMarquee = ({
   images,
   className,
@@ -9,6 +13,7 @@ export const ThreeDMarquee = ({
 }) => {
   // Split the images array into 4 equal parts
   const chunkSize = Math.ceil(images.length / 4);
+  const MotionImage = motion.create(Image);
   const chunks = Array.from({ length: 4 }, (_, colIndex) => {
     const start = colIndex * chunkSize;
     return images.slice(start, start + chunkSize);
@@ -26,7 +31,7 @@ export const ThreeDMarquee = ({
             style={{
               transform: 'rotateX(55deg) rotateY(0deg) rotateZ(-45deg)',
             }}
-            className="relative top-96 right-[50%] grid size-full origin-top-left grid-cols-4 gap-8 transform-3d"
+            className="relative top-96 right-[50%] grid size-full origin-top-left grid-cols-5 gap-8 transform-3d"
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
@@ -45,7 +50,11 @@ export const ThreeDMarquee = ({
                 {subarray.map((image, imageIndex) => (
                   <div className="relative" key={imageIndex + image}>
                     <GridLineHorizontal className="-top-4" offset="20px" />
-                    <motion.img
+                    {/* <Image width={1000} height={1000} cdn='imageengine' src={image} alt='ken'/> */}
+                    <MotionImage
+                      width={2000}
+                      height={2000}
+                      cdn="imageengine"
                       whileHover={{
                         y: -10,
                       }}
@@ -56,9 +65,7 @@ export const ThreeDMarquee = ({
                       key={imageIndex + image}
                       src={image}
                       alt={`Image ${imageIndex + 1}`}
-                      className="aspect-[970/700] rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
-                      width={970}
-                      height={700}
+                      className="size-80 max-sm:size-auto rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
                     />
                   </div>
                 ))}

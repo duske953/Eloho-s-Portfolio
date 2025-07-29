@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'RockIns',
     description: 'Hotel web application | Rockins',
-    img: '/rockins/hero.svg',
+    img: '/rockins/homepage.jpeg',
     icon: <FaHotel className="size-6" />,
     tech: ['React', 'Next.js'],
     projectUrl: 'https://rockins.vercel.app/',
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Byte-Cart',
     description: 'Ecommerce web application | Byte-Cart',
-    img: '/byte-cart/hero.jpeg',
+    img: '/byte-cart/homepage.jpeg',
     icon: <FaShoppingCart className="size-6" />,
     tech: ['Next.js', 'Node.js'],
     projectUrl: 'https://byte-cart.vercel.app/',
@@ -45,7 +45,7 @@ const projects = [
   {
     title: 'Geocoords',
     description: 'Geocoordinates web application | Geocoords',
-    img: '/geocoords/hero.svg',
+    img: '/geocoords/homepage.jpeg',
     icon: <FaLocationArrow className="size-6" />,
     tech: ['Javascript', 'ArcGis'],
     projectUrl: 'https://geocoordinates.netlify.app/',
@@ -55,7 +55,7 @@ const projects = [
   {
     title: 'Anonymo',
     description: 'Anonymous chat web application | Anonymo',
-    img: '/anonymo/hero.svg',
+    img: '/anonymo/homepage.jpeg',
     icon: <IoChatboxSharp className="size-6" />,
     tech: ['React', 'Socket.io'],
     projectUrl: 'https://anonymo.vercel.app/',
@@ -65,7 +65,7 @@ const projects = [
   {
     title: 'Music Snip',
     description: 'Preview latest music & albums',
-    img: '/music-snip/homepage.svg',
+    img: '/music-snip/homepage.jpeg',
     icon: <FaMusic className="size-6" />,
     tech: ['Next.js', 'React'],
     projectUrl: 'https://music-snip.vercel.app',
@@ -115,7 +115,7 @@ export function Porfolio() {
                     </CardHeader>
                     <CardContent className="">
                       <img
-                        className="rounded-2xl h-60 w-full object-cover"
+                        className="rounded-2xl h-72 w-full object-cover"
                         src={project.img}
                         alt={project.description}
                       />

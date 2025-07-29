@@ -39,7 +39,7 @@ export default function Hero() {
           <div>
             <img
               className="w-full"
-              src="/hero-img.png"
+              src="./hero-img.png"
               alt="Eloho Kennedy | A fullstack web developer"
             />
           </div>

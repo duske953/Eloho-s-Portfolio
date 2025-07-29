@@ -1,6 +1,6 @@
 import { ThreeDMarquee } from '~/components/ui/Marquee';
 const images = [
-  './rockins/hero.jpeg',
+  './rockins/homepage.jpeg',
   './byte-cart/cta.jpeg',
   './rockins/featured.jpeg',
   './byte-cart/cart.jpeg',
@@ -11,10 +11,10 @@ const images = [
   './rockins/login.jpeg',
   './rockins/delete-account.jpeg',
   './rockins/bookmarks.jpeg',
-  './anonymo/hero.svg',
+  './anonymo/h.svg',
   './rockins/stripe.jpeg',
   './byte-cart/stripe.jpeg',
-  './byte-cart/hero.jpeg',
+  './byte-cart/homepage.jpeg',
   './byte-cart/featured.jpeg',
   './rockins/trending.jpeg',
   './byte-cart/footer.jpeg',
@@ -30,11 +30,10 @@ const images = [
   './byte-cart/the-team.jpeg',
   './rockins/profile.jpeg',
   './music-snip/songs.jpeg',
-  './byte-cart/hero.jpeg',
   './music-snip/homepage.svg',
   './music-snip/albums.jpeg',
   './music-snip/album.jpeg',
-  './geocoords/hero.svg',
+  './geocoords/homepage.jpeg',
 ];
 export default function PorfolioMarquee() {
   return (

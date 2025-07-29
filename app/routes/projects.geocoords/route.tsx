@@ -119,7 +119,7 @@ export default function Page() {
       <ProjectHero
         heading="Navigate Any City Like You’ve Lived There"
         description="New in town? Skip the awkward questions. Geocoords helps you find nearby essentials like gas stations and hotels with directions that just work"
-        imgSrc="/geocoords/hero.svg"
+        imgSrc="/geocoords/homepage.jpeg"
         imgAlt="GeoCoords Web App"
       >
         <RiJavascriptLine />

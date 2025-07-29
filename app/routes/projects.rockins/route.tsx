@@ -73,7 +73,7 @@ const features = [
 const projectImg = [
   {
     title: 'Homepage',
-    src: '/rockins/hero.svg',
+    src: '/rockins/homepage.jpeg',
   },
 
   {
@@ -186,7 +186,7 @@ export default function Page() {
       <ProjectHero
         heading="Book a Room Before You Even Arrive"
         description="Find and book rooms fast no calls, no walking around."
-        imgSrc="/rockins/hero.svg"
+        imgSrc="/rockins/homepage.jpeg"
         imgAlt="Rockins Hotel Website"
       >
         <RiNextjsLine />
