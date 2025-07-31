@@ -115,7 +115,7 @@ export function Porfolio() {
                     </CardHeader>
                     <CardContent className="">
                       <img
-                        className="rounded-2xl h-72 w-full object-cover"
+                        className="rounded-2xl h-60 w-full object-cover"
                         src={project.img}
                         alt={project.description}
                       />
