@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { cn } from '~/lib/utils';
-
 export const ThreeDMarquee = ({
   images,
   className,
@@ -27,26 +26,23 @@ export const ThreeDMarquee = ({
             style={{
               transform: 'rotateX(55deg) rotateY(0deg) rotateZ(-45deg)',
             }}
-            className="relative top-96 right-[50%] grid size-full origin-top-left grid-cols-5 gap-8 transform-3d"
+            className="relative top-96 right-[50%] grid size-full origin-top-left grid-cols-4 gap-8 transform-3d"
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
                 animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
                 transition={{
+                  duration: colIndex % 2 === 0 ? 10 : 15,
                   repeat: Infinity,
-                  repeatType: 'loop',
+                  repeatType: 'reverse',
                 }}
                 key={colIndex + 'marquee'}
-                className={cn(
-                  'flex flex-col items-start gap-8 transition-transform',
-                  colIndex % 2 === 0 ? 'duration-500' : 'duration-1000'
-                )}
+                className="flex flex-col items-start gap-8"
               >
                 <GridLineVertical className="-left-4" offset="80px" />
                 {subarray.map((image, imageIndex) => (
                   <div className="relative" key={imageIndex + image}>
                     <GridLineHorizontal className="-top-4" offset="20px" />
-
                     <motion.img
                       whileHover={{
                         y: -10,
@@ -58,7 +54,9 @@ export const ThreeDMarquee = ({
                       key={imageIndex + image}
                       src={image}
                       alt={`Image ${imageIndex + 1}`}
-                      className="size-80 max-sm:size-auto rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
+                      className="aspect-[970/700] rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
+                      width={970}
+                      height={700}
                     />
                   </div>
                 ))}
