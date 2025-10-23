@@ -20,7 +20,7 @@ export default function ProjectCta({
   nextProject: string;
 }) {
   return (
-    <section className="py-32">
+    <section className="py-32 ox">
       <Cta heading={heading} description={description}>
         <Link
           target="_blank"
@@ -36,7 +36,7 @@ export default function ProjectCta({
       </Cta>
 
       <div className="flex max-sm:px-3">
-        <div className="ml-auto flex gap-10">
+        <div className="ml-auto flex gap-10 px-6">
           <Link
             target="_blank"
             rel="noreferrer noopener"
@@ -47,6 +47,7 @@ export default function ProjectCta({
           </Link>
 
           <Link
+            viewTransition
             className="flex items-center gap-3 uppercase font-bold"
             to={`/projects/${nextProject}`}
           >

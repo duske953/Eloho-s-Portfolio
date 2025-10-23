@@ -134,6 +134,7 @@ export function Porfolio() {
                       </Link>
 
                       <Link
+                        viewTransition
                         onMouseEnter={() =>
                           (document.documentElement.style.scrollBehavior =
                             'auto')
