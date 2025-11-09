@@ -115,7 +115,7 @@ export function Porfolio() {
                       alt={project.description}
                     />
                   </CardContent>
-                  <CardFooter className="flex justify-end gap-6 relative z-50">
+                  <CardFooter className="flex justify-end gap-6 relative z-40">
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"

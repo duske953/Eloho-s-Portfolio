@@ -39,7 +39,7 @@ export default function PorfolioMarquee() {
     <section id="projects" className="py-14 portfolio-container relative">
       <div className="bg-black/45 size-full absolute left-0 z-40">&nbsp;</div>
       <div className="relative mx-auto my-10 flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-3xl">
-        <div className="relative z-50">
+        <div className="relative z-40">
           <h2 className="relative uppercase leading-relaxed z-20 mx-auto max-w-4xl text-center font-bold text-balance text-white text-6xl max-md:text-4xl max-sm:text-3xl">
             Real <span className="text-blue-600">Projects</span> Solving Real
             Problems
