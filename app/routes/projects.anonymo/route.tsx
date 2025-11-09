@@ -113,7 +113,7 @@ export default function Page() {
       <ProjectHero
         heading="Speak Freely. No Logins. No Records."
         description="Chat freely with strangers no names, no logins, no pressure. Just real, anonymous conversations."
-        imgSrc="/anonymo/homepage.jpeg"
+        imgSrc="/anonymo/homepage.png"
         imgAlt="Anonymo Chat App"
       >
         <RiReactjsLine />

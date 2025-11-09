@@ -39,7 +39,8 @@ export default function PorfolioMarquee() {
     <section id="projects" className="py-14 portfolio-container">
       <div className="relative mx-auto my-10 flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-3xl">
         <h2 className="relative uppercase leading-relaxed z-20 mx-auto max-w-4xl text-center font-bold text-balance text-white text-6xl max-md:text-4xl max-sm:text-3xl">
-          Real Projects Solving Real Problems
+          Real <span className="text-blue-600">Projects</span> Solving Real
+          Problems
         </h2>
         <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-lg text-white">
           See how I turn everyday business challenges into working web

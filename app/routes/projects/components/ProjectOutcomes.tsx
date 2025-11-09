@@ -14,7 +14,7 @@ export default function ProjectOutcomes({
         {outcomes.map((outcome) => (
           <li
             key={outcome.heading}
-            className="border-b-2 relative pb-2 flex items-center gap-10 shadow-2xl shadow-gray-800 mb-8 p-5 rounded-lg transition-colors cursor-pointer pl-24 max-sm:pl-16"
+            className="border-b-2 relative pb-2 flex items-center gap-10 mb-8 p-5 rounded-lg transition-colors cursor-pointer pl-24 max-sm:pl-16"
           >
             <FaCheck className="text-3xl absolute left-4 max-sm:text-2xl" />
             <div>

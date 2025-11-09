@@ -1,5 +1,6 @@
 import { Link, MetaFunction } from '@remix-run/react';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaNodeJs, FaReact } from 'react-icons/fa';
+import { RiJavascriptFill } from 'react-icons/ri';
 import ContactModal from '~/components/ContactModal';
 import Cta from '~/components/Cta';
 import Navbar from '~/components/Navbar';
@@ -109,7 +110,7 @@ const benefit = [
 export const meta: MetaFunction = () => {
   return [
     {
-      title: 'About Eloho – Web Developer for Businesses',
+      title: 'Eloho Kennedy',
     },
     {
       name: 'description',
@@ -170,10 +171,13 @@ export default function Page() {
 
               <div className="relative left-10 -top-7 max-lg:left-0 max-lg:top-0 max-lg:justify-self-center">
                 <img
-                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full brightness-50 max-lg:size-[33rem] max-sm:size-[20rem]"
+                  className="size-[27rem] object-cover border-b-8 border-blue-600 rounded-full max-lg:size-[33rem] max-sm:size-[20rem]"
                   src="/profile.png"
                   alt="Profile of Eloho Kennedy"
                 />
+                <RiJavascriptFill className="absolute top-0 left-0 text-6xl" />
+                <FaNodeJs className="absolute top-16 right-20 text-6xl max-sm:-right-10" />
+                <FaReact className="absolute bottom-0 left-0 text-6xl" />
               </div>
             </div>
           </section>

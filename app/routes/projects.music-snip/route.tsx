@@ -111,7 +111,7 @@ export default function Page() {
       <ProjectHero
         heading="Discover Music in Moments."
         description="Preview songs, explore top charts, and save your favorites all in one place."
-        imgSrc="/music-snip/homepage.jpeg"
+        imgSrc="/music-snip/homepage.png"
         imgAlt="Discover Music in Moments"
       >
         <RiNextjsLine />

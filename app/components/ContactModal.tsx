@@ -102,6 +102,10 @@ export default function ContactModal({
             </div>
           </div>
         </fetcher.Form>
+        <span className="text-xs font-bold">
+          By submitting this form, you consent to the use of your email for
+          communication and updates.
+        </span>
         <DialogFooter>
           <Button
             type="submit"

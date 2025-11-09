@@ -186,7 +186,7 @@ export default function Page() {
       <ProjectHero
         heading="Book a Room Before You Even Arrive"
         description="Find and book rooms fast no calls, no walking around."
-        imgSrc="/rockins/homepage.jpeg"
+        imgSrc="/rockins/homepage.png"
         imgAlt="Rockins Hotel Website"
       >
         <RiNextjsLine />

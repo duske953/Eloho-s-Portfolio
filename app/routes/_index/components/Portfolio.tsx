@@ -19,13 +19,12 @@ import {
 import { motion } from 'motion/react';
 import { cn } from '~/lib/utils';
 import { DotBackground } from '~/components/ui/DotBackground';
-import { BackgroundGradient } from '~/components/ui/BackgroundGradient';
 
 const projects = [
   {
     title: 'RockIns',
     description: 'Hotel web application | Rockins',
-    img: '/rockins/homepage.jpeg',
+    img: '/rockins/homepage.png',
     icon: <FaHotel className="size-6" />,
     tech: ['React', 'Next.js'],
     projectUrl: 'https://rockins.vercel.app/',
@@ -35,7 +34,7 @@ const projects = [
   {
     title: 'Byte-Cart',
     description: 'Ecommerce web application | Byte-Cart',
-    img: '/byte-cart/homepage.jpeg',
+    img: '/byte-cart/homepage.png',
     icon: <FaShoppingCart className="size-6" />,
     tech: ['Next.js', 'Node.js'],
     projectUrl: 'https://byte-cart.vercel.app/',
@@ -45,7 +44,7 @@ const projects = [
   {
     title: 'Geocoords',
     description: 'Geocoordinates web application | Geocoords',
-    img: '/geocoords/homepage.jpeg',
+    img: '/geocoords/homepage.png',
     icon: <FaLocationArrow className="size-6" />,
     tech: ['Javascript', 'ArcGis'],
     projectUrl: 'https://geocoordinates.netlify.app/',
@@ -55,7 +54,7 @@ const projects = [
   {
     title: 'Anonymo',
     description: 'Anonymous chat web application | Anonymo',
-    img: '/anonymo/homepage.jpeg',
+    img: '/anonymo/homepage.png',
     icon: <IoChatboxSharp className="size-6" />,
     tech: ['React', 'Socket.io'],
     projectUrl: 'https://anonymo.vercel.app/',
@@ -65,7 +64,7 @@ const projects = [
   {
     title: 'Music Snip',
     description: 'Preview latest music & albums',
-    img: '/music-snip/homepage.jpeg',
+    img: '/music-snip/homepage.png',
     icon: <FaMusic className="size-6" />,
     tech: ['Next.js', 'React'],
     projectUrl: 'https://music-snip.vercel.app',
@@ -77,7 +76,7 @@ export function Porfolio() {
   return (
     <DotBackground>
       <section className="px-6 pb-32 relative max-md:px-3">
-        <ul className="grid grid-cols-3 gap-x-7 gap-y-12 max-md:grid-cols-1">
+        <ul className="grid grid-cols-2 gap-x-7 gap-y-12 max-md:grid-cols-1">
           {projects.map((project, i) => {
             return (
               <motion.li
@@ -91,65 +90,59 @@ export function Porfolio() {
                   type: 'spring',
                 }}
                 className={cn(
-                  project.title === 'Anonymo' && 'col-span-2 max-md:col-span-1',
-                  project.title === 'RockIns' && 'col-span-2 max-md:col-span-1',
-                  project.title === 'Music Snip' &&
-                    'col-span-3 max-md:col-span-1'
+                  project.title === 'Music snip' && 'left-2/4 max-md:left-0'
                 )}
                 key={crypto.randomUUID()}
               >
-                <BackgroundGradient>
-                  <Card className="bg-slate-950/100 h-[30rem]">
-                    <CardHeader>
-                      <CardTitle className="uppercase flex items-center gap-3">
-                        {project.icon}
-                        <p className="xs:text-xs">{project.title}</p>
-                        <div className="ml-auto flex gap-2">
-                          <Badge variant="secondary">{project.tech[0]}</Badge>
-                          <Badge variant="secondary">{project.tech[1]}</Badge>
-                        </div>
-                      </CardTitle>
-                      <CardDescription className="text-xl text-blue-300 font-bold lg:text-xl sm:text-sm">
-                        {projects[i].description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="">
-                      <img
-                        className="rounded-2xl h-60 w-full object-cover"
-                        src={project.img}
-                        alt={project.description}
-                      />
-                    </CardContent>
-                    <CardFooter className="flex justify-end gap-6">
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${buttonVariants({
-                          variant: 'secondary',
-                          size: 'lg',
-                        })}`}
-                        to={project.projectUrl}
-                      >
-                        Visit
-                      </Link>
+                <Card className="bg-slate-950/100 h-full">
+                  <CardHeader>
+                    <CardTitle className="uppercase flex items-center gap-3">
+                      {project.icon}
+                      <p className="xs:text-xs">{project.title}</p>
+                      <div className="ml-auto flex gap-2">
+                        <Badge variant="secondary">{project.tech[0]}</Badge>
+                        <Badge variant="secondary">{project.tech[1]}</Badge>
+                      </div>
+                    </CardTitle>
+                    <CardDescription className="text-xl text-blue-300 font-bold lg:text-xl sm:text-sm">
+                      {projects[i].description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="overflow-hidden">
+                    <img
+                      className="rounded-2xl object-cover size-full scale-125"
+                      src={project.img}
+                      alt={project.description}
+                    />
+                  </CardContent>
+                  <CardFooter className="flex justify-end gap-6 relative z-50">
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${buttonVariants({
+                        variant: 'secondary',
+                        size: 'lg',
+                      })}`}
+                      to={project.projectUrl}
+                    >
+                      Visit
+                    </Link>
 
-                      <Link
-                        viewTransition
-                        onMouseEnter={() =>
-                          (document.documentElement.style.scrollBehavior =
-                            'auto')
-                        }
-                        className={`${buttonVariants({
-                          variant: 'outline',
-                          size: 'lg',
-                        })}`}
-                        to={project.detailsUrl}
-                      >
-                        Details
-                      </Link>
-                    </CardFooter>
-                  </Card>
-                </BackgroundGradient>
+                    <Link
+                      viewTransition
+                      onMouseEnter={() =>
+                        (document.documentElement.style.scrollBehavior = 'auto')
+                      }
+                      className={`${buttonVariants({
+                        variant: 'outline',
+                        size: 'lg',
+                      })}`}
+                      to={project.detailsUrl}
+                    >
+                      Details
+                    </Link>
+                  </CardFooter>
+                </Card>
               </motion.li>
             );
           })}

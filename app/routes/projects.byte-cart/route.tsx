@@ -169,7 +169,7 @@ export default function Page() {
       <ProjectHero
         heading="Bring Your Tech Store Online, the Right Way"
         description="Bytecart makes it easy for tech customers to find products, place orders, and check out without friction."
-        imgSrc="/byte-cart/homepage.jpeg"
+        imgSrc="/byte-cart/homepage.png"
         imgAlt="Bytecart Ecommerce Website"
       >
         <RiNextjsLine />

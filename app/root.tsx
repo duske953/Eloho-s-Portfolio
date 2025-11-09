@@ -83,6 +83,7 @@ export async function action({ request }: ActionFunctionArgs) {
   };
   if (data.name && data.email && data.message) {
     const response = await handleSendMessage(data);
+    console.log(response);
     return response;
   }
 
@@ -177,30 +178,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           This website uses cookies to enhance the user experience.
         </CookieConsent>
 
-        {data.subscribed !== 'subscribed' && (
-          <fetcher.Form id="free-audit" method="post" action="/">
-            <div className="flex gap-3 max-sm:gap-1 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
-              <Input
-                placeholder="Enter your email to get your free website audit"
-                className="w-2/4 max-sm:w-full text-xs"
-                type="email"
-                {...register('email')}
-              />
-              <Button
-                type="submit"
-                variant="secondary"
-                className="rounded-none flex gap-1"
-                size="sm"
-                disabled={!isValid || fetcher.state === 'submitting'}
-              >
-                {fetcher.state === 'submitting' && (
-                  <ReloadIcon className="animate-spin" />
-                )}
-                Free Website Audit
-              </Button>
-            </div>
-          </fetcher.Form>
-        )}
+        <fetcher.Form id="free-audit" method="post" action="/">
+          <div className="flex gap-3 max-sm:gap-1 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
+            <Input
+              placeholder="Enter your email to get your free website audit"
+              className="w-2/4 max-sm:w-full text-xs"
+              type="email"
+              {...register('email')}
+            />
+            <Button
+              type="submit"
+              variant="secondary"
+              className="rounded-none flex gap-1"
+              size="sm"
+              disabled={!isValid || fetcher.state === 'submitting'}
+            >
+              {fetcher.state === 'submitting' && (
+                <ReloadIcon className="animate-spin" />
+              )}
+              Free Website Audit
+            </Button>
+          </div>
+        </fetcher.Form>
 
         <Outlet />
         <ToastContainer

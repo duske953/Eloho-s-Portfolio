@@ -10,6 +10,7 @@ import PainPoints from './components/PainPoints';
 import Cta from '~/components/Cta';
 import Navbar from '~/components/Navbar';
 import ContactModal from '~/components/ContactModal';
+import Testimonial from './components/Testimonial';
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,8 +44,10 @@ export default function Index() {
         <WebServices />
         <PorfolioMarquee />
         <Porfolio />
+        <Testimonial />
         <Faq />
         <TechStack />
+
         <Cta
           heading="Get a website that actually helps your business."
           description="Tell me your goals, and I’ll take care of building a website that
