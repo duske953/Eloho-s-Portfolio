@@ -48,7 +48,7 @@ export const AnimatedTestimonials = ({
         Testimonials that speak to{' '}
         <span className="text-blue-600">My Results</span>
       </h2>
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2 justify-center">
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
@@ -81,7 +81,7 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: 'easeInOut',
                   }}
-                  className="absolute inset-0 origin-bottom"
+                  className="absolute inset-0 origin-bottom justify-self-center"
                 >
                   <img
                     src={testimonial.src}
@@ -146,7 +146,7 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex gap-4 pt-12 md:pt-0 max-sm:pt-6 max-sm:self-center">
             <button
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"

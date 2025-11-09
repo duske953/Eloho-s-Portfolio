@@ -83,7 +83,6 @@ export async function action({ request }: ActionFunctionArgs) {
   };
   if (data.name && data.email && data.message) {
     const response = await handleSendMessage(data);
-    console.log(response);
     return response;
   }
 
@@ -178,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           This website uses cookies to enhance the user experience.
         </CookieConsent>
 
-        <fetcher.Form id="free-audit" method="post" action="/">
+        {/* <fetcher.Form id="free-audit" method="post" action="/">
           <div className="flex gap-3 max-sm:gap-1 max-w-4xl py-1 justify-center mx-auto px-4 items-center max-sm:flex-col">
             <Input
               placeholder="Enter your email to get your free website audit"
@@ -199,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               Free Website Audit
             </Button>
           </div>
-        </fetcher.Form>
+        </fetcher.Form> */}
 
         <Outlet />
         <ToastContainer

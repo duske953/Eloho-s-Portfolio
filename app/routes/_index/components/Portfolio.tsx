@@ -94,7 +94,7 @@ export function Porfolio() {
                 )}
                 key={crypto.randomUUID()}
               >
-                <Card className="bg-slate-950/100 h-full">
+                <Card className="bg-slate-950/100 h-full overflow-hidden">
                   <CardHeader>
                     <CardTitle className="uppercase flex items-center gap-3">
                       {project.icon}
@@ -110,7 +110,7 @@ export function Porfolio() {
                   </CardHeader>
                   <CardContent className="overflow-hidden">
                     <img
-                      className="rounded-2xl object-cover size-full scale-125"
+                      className="rounded-2xl object-cover scale-125"
                       src={project.img}
                       alt={project.description}
                     />
