@@ -9,11 +9,11 @@ export default function Hero() {
         <section className="grid grid-cols-2 relative max-lg:grid-cols-1 max-lg:gap-10 items-center px-8 max-sm:px-3">
           <div className="">
             <h1 className={cn('primary-heading', 'leading-normal')}>
-              Your Business Deserves a Clear, Trustworthy Website
+              Stop Losing Visitors to Slow, Broken Websites.
             </h1>
             <p className="text-xl mt-5 text-blue-200 max-sm:text-lg leading-10">
-              I help your business grow online with a website that reflects your
-              values and makes it easy for customers to take the next step.
+              I develop professional websites so slow speeds and technical
+              problems don't break trust with visitors
             </p>
             <div className="flex gap-9 mt-7 max-lg:gap-3">
               <Button
@@ -24,6 +24,7 @@ export default function Hero() {
               >
                 See My Work
               </Button>
+
               {/* <Link
                 to="/eloho-kennedy's-resume.pdf"
                 reloadDocument

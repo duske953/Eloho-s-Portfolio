@@ -30,7 +30,7 @@ export const ThreeDMarquee = ({
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
-                animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
+                animate={{ y: colIndex % 2 === 0 ? 0 : 0 }}
                 transition={{
                   repeat: Infinity,
                   repeatType: 'reverse',
@@ -38,7 +38,7 @@ export const ThreeDMarquee = ({
                 key={colIndex + 'marquee'}
                 className={cn(
                   `flex flex-col items-start gap-8`,
-                  colIndex % 2 === 0 ? 'duration-500' : 'duration-1000'
+                  colIndex % 2 === 0 ? 'duration-0' : 'duration-0'
                 )}
               >
                 <GridLineVertical className="-left-4" offset="80px" />

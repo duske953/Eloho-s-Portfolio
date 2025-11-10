@@ -11,34 +11,29 @@ export default function PainPoints() {
       </h2>
 
       <div className="max-w-3xl mx-auto px-4 py-8">
-        <ul className="grid grid-cols-2 grid-rows-7 gap-y-20 max-sm:gap-y-10">
+        <ul className="grid grid-cols-2 grid-rows-6 gap-y-20 max-sm:gap-y-10">
           <PainPointList
-            point="Your website loads slowly or feels outdated, causing visitors to leave."
+            point="Your website loads too slowly, causing visitors to leave before they even see your content"
             className="-rotate-12"
           />
           <PainPointList
             point="Your website is hard to use on phones or tablets, so you lose mobile customers."
-            className="row-[-7] col-[2] rotate-12"
+            className="row-[-6] col-[2] rotate-12"
           />
 
           <PainPointList
             point="Updating content or fixing issues feels complicated and time-consuming."
-            className="row-[3] rotate-12"
-          />
-
-          <PainPointList
-            point="Your visitors get confused and don’t take action because the site isn’t clear."
-            className="row-[-5] col-[2] -rotate-12"
+            className="row-[3] -rotate-12"
           />
 
           <PainPointList
             point="You worry about security risks and protecting your customer data."
-            className="row-[-4] rotate-12"
+            className="row-[-4] col-[2] rotate-12"
           />
 
           <PainPointList
             point="There’s no reliable support when something breaks or needs changing."
-            className="row-[-3] col-[2] -rotate-12"
+            className="row-[-3] -rotate-12"
           />
         </ul>
       </div>

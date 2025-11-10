@@ -71,9 +71,9 @@ export default function WebsitesFacts() {
             className="relative col-span-2 max-lg:col-span-1"
           >
             <FactsCard
-              headline="94% judge your site by its look and feel."
-              desc="Confusing design drives people away before they learn about your business."
-              source="— Northumbria University study"
+              headline="70% of small business websites lack basic security features."
+              desc="Without proper security, you're putting your business and customer data at risk."
+              source="— Security.org"
             >
               <FaCompass />
             </FactsCard>
@@ -94,9 +94,9 @@ export default function WebsitesFacts() {
 
           <motion.li variants={item} className="relative max-lg:col-span-1">
             <FactsCard
-              headline="94% of first impressions are based on design"
-              desc="Visitors leave if your site looks outdated or messy"
-              source="— Behaviour & Information Technology Journal"
+              headline="Pages with broken links lose 88% of visitors permanently."
+              desc="Technical errors send customers straight to your competitors."
+              source="— Sweor"
             >
               <FaStar />
             </FactsCard>

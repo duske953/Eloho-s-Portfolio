@@ -87,7 +87,7 @@ export const AnimatedTestimonials = ({
                     src={testimonial.src}
                     alt={testimonial.name}
                     draggable={false}
-                    className="size-96 rounded-3xl object-contain block"
+                    className="size-96 rounded-3xl object-cover block"
                   />
                 </motion.div>
               ))}

@@ -17,7 +17,7 @@ export default function ProjectHero({
 }) {
   return (
     <GridBackground className="">
-      <section className="relative overflow-hidden py-16">
+      <section className="relative overflow-hidden py-32">
         <Spotlight />
         <div className="grid grid-cols-2 px-8 items-center gap-4 max-lg:grid-cols-1 max-sm:px-4">
           <div>

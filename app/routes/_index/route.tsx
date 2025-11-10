@@ -49,9 +49,8 @@ export default function Index() {
         <TechStack />
 
         <Cta
-          heading="Get a website that actually helps your business."
-          description="Tell me your goals, and I’ll take care of building a website that
-            delivers."
+          heading="Get a website that's fast, secure, and built to last"
+          description="Tell me what you need, and I'll build it right - fast, secure, and reliable."
         >
           <ContactModal btnText="Let's Talk" />
         </Cta>

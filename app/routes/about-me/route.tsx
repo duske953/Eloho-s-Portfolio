@@ -176,7 +176,7 @@ export default function Page() {
                   alt="Profile of Eloho Kennedy"
                 />
                 <RiJavascriptFill className="absolute top-0 left-0 text-6xl" />
-                <FaNodeJs className="absolute top-16 right-20 text-6xl max-sm:-right-10" />
+                <FaNodeJs className="absolute top-16 right-20 text-6xl max-sm:-right-2" />
                 <FaReact className="absolute bottom-0 left-0 text-6xl" />
               </div>
             </div>
@@ -264,10 +264,8 @@ export default function Page() {
         </section>
 
         <Cta
-          heading="Let’s Build Something That Works"
-          description="Whether you're starting fresh or need help with your current
-              site, I build websites that are clear, simple, and do what
-              they’re meant to do."
+          heading="Get a website that's fast, secure, and built to last"
+          description="Tell me what you need, and I'll build it right - fast, secure, and reliable."
         >
           <ContactModal btnText="Let's Talk" />
         </Cta>

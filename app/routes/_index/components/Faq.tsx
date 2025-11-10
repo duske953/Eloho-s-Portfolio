@@ -5,9 +5,8 @@ import { cn } from '~/lib/utils';
 
 const faqsAnswers = [
   'Just send me a message through the contact form. I’ll reply within a day to discuss your goals and how we can move forward.',
-  'It depends on the size and complexity of your website. A simple site might take a few days, while a larger one with more features could take a few weeks. Once I understand your needs, I’ll give you a clear timeline.',
-  'There’s no one-size-fits-all price — it really comes down to how complex the site is. Once we talk through what you want, I’ll give you a clear and honest estimate.',
-  "I'm not a designer, but I know how to make websites that look good. I pay attention to spacing, colors, and structure, and I take inspiration from well-designed sites to make sure yours is easy to use and pleasant to look at.",
+  "No, copywriting isn't part of my service. I build the website based on the content you provide. If you need help with writing, I can point you toward copywriters.",
+  "I'm not a designer, but I can implement clean, professional layouts using modern design patterns. If you have branding guidelines or design preferences, I'll code them properly. If not, I'll build something functional and professional based on proven UI patterns.",
   'I provide one week of free post-launch support to help you settle in. After that, ongoing help is available through a flexible maintenance plan.',
   'If your site was built with actual code, yes I can jump in and improve or add features. I don’t work with drag-and-drop platforms like Webflow or Wix.',
   'Nope. While I use tools like AI to speed things up, I don’t let them do the thinking for me. I write, debug, and understand every line. So when things break (and they do), I know how to fix them.',
@@ -40,27 +39,25 @@ export default function Faq() {
 
             <FaqItem
               answer={faqsAnswers[1]}
-              question="How long does it take to finish a website?"
+              question="Do you write website copy?"
             />
 
             <FaqItem
               answer={faqsAnswers[2]}
-              question="How much does a website cost?"
+              question="Are you a web designer?"
             />
 
-            <FaqItem answer={faqsAnswers[3]} question="Are you a designer?" />
-
             <FaqItem
-              answer={faqsAnswers[4]}
+              answer={faqsAnswers[3]}
               question="Do you offer ongoing support or help after the site is launched?"
             />
 
             <FaqItem
-              answer={faqsAnswers[5]}
+              answer={faqsAnswers[4]}
               question="Can you fix or improve my current website?"
             />
 
-            <FaqItem answer={faqsAnswers[6]} question="Are you a vibe coder?" />
+            <FaqItem answer={faqsAnswers[5]} question="Are you a vibe coder?" />
           </motion.ul>
         </div>
       </div>
