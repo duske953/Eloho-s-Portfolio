@@ -23,6 +23,14 @@ export default function Testimonial() {
       designation: 'Founder @ Banister-staff',
       src: '/testimonials/Natalie.jpeg',
     },
+
+    {
+      quote:
+        'Eloho was great to work with from start to finish. Communication was clear, and he brought all our ideas to life with patience and attention to detail. We couldn’t have asked for a better developer for the job.',
+      name: 'Mariia Antoshchuk',
+      designation: 'Head of HR',
+      src: '/testimonials/Mariia.jpeg',
+    },
   ];
   return <AnimatedTestimonials testimonials={testimonials} />;
 }
