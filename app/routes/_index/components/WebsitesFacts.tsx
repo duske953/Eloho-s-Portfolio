@@ -36,7 +36,7 @@ export default function WebsitesFacts() {
         >
           <motion.li
             variants={item}
-            className="relative col-span-2 py-3 max-lg:col-span-1"
+            className="relative col-span-2 max-lg:col-span-1"
           >
             <FactsCard
               headline="Slow sites lose half their visitors."
@@ -119,7 +119,7 @@ function FactsCard({
   children: ReactNode;
 }) {
   return (
-    <Card className="flex items-center py-4 cursor-pointer h-60 bg-transparent w-full">
+    <Card className="grid grid-cols-[0.1fr_1fr] items-center py-4 cursor-pointer h-64 max-md:h-auto bg-transparent w-full">
       <CardHeader>
         <p className="text-4xl max-sm:text-2xl">{children}</p>
       </CardHeader>
