@@ -43,7 +43,7 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="px-8 py-20 antialiased max-sm:px-3 max-w-5xl mx-auto">
+    <div className="px-8 py-20 antialiased max-sm:px-3 max-w-5xl mx-auto overflow-hidden">
       <h2 className="text-center secondary-heading uppercase">
         Testimonials that speak to{' '}
         <span className="text-blue-600">My Results</span>
@@ -87,7 +87,7 @@ export const AnimatedTestimonials = ({
                     src={testimonial.src}
                     alt={testimonial.name}
                     draggable={false}
-                    className="size-96 rounded-3xl object-cover block"
+                    className="size-96 object-cover rounded-3xl"
                   />
                 </motion.div>
               ))}
