@@ -233,7 +233,7 @@ export default function Page() {
       <ProjectCta
         githubUrl="https://github.com/duske953/HOTEL"
         projectUrl="https://rockins.vercel.app"
-        nextProject="byte-cart"
+        nextProject="bytecart"
         cta="Explore the Booking Experience"
         heading="Let Your Website Work While You Rest"
         description="Turn visitors into customers with a site that does the heavy lifting

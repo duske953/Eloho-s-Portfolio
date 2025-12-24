@@ -37,7 +37,7 @@ const projects = [
     img: '/byte-cart/homepage.png',
     icon: <FaShoppingCart className="size-6" />,
     tech: ['Next.js', 'Node.js'],
-    projectUrl: 'https://byte-cart.vercel.app/',
+    projectUrl: 'https://bytecart.vercel.app/',
     detailsUrl: '/projects/byte-cart',
   },
 
