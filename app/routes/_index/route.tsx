@@ -52,7 +52,10 @@ export default function Index() {
           heading="Get a website that's fast, secure, and built to last"
           description="Tell me what you need, and I'll build it right - fast, secure, and reliable."
         >
-          <ContactModal btnText="Let's Talk" />
+          <ContactModal
+            btnText="Let's Talk"
+            className="bg-blue-600 hover:bg-blue-700 rounded-full px-10 py-7 text-lg"
+          />
         </Cta>
       </main>
     </>

@@ -72,7 +72,7 @@ export default function ContactModal({
     <Dialog onOpenChange={renderContactModal} open={contactModal}>
       <DialogTrigger asChild>
         <Button
-          className={cn('rounded-none', className)}
+          className={cn('rounded-sm', className)}
           size="lg"
           variant="secondary"
         >

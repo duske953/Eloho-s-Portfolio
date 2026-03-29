@@ -19,7 +19,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 onClick={() => scrollSectionIntoView('.portfolio-container')}
-                className="border rounded-none"
+                className="border rounded-full"
                 variant="secondary"
               >
                 See My Work

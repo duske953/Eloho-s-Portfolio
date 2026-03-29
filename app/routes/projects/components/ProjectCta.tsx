@@ -28,7 +28,7 @@ export default function ProjectCta({
           to={projectUrl}
           className={cn(
             buttonVariants({ variant: 'secondary', size: 'lg' }),
-            'rounded-none'
+            'rounded-full',
           )}
         >
           {cta}
