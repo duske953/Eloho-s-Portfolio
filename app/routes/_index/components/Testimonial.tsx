@@ -4,7 +4,7 @@ export default function Testimonial() {
   const testimonials = [
     {
       quote:
-        'My son, Kennedy, built a hotel management system that changed how we run the hotel. Everything is now digital — no more paper records or missing cash. I can monitor operations and approve reports from my phone, which has made management much easier.',
+        'Kennedy built a hotel management system that changed how we run the hotel. Everything is now digital — no more paper records or missing cash. I can monitor operations and approve reports from my phone, which has made management much easier.',
       name: 'Emmanuel Oghounu',
       designation: 'Director, Rockhills hotel',
       src: '/testimonials/emma.jpg',
