@@ -1,21 +1,32 @@
 /* eslint-disable react/no-unescaped-entities */
+import { ArrowDownIcon } from '@radix-ui/react-icons';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 export default function Hero() {
+  const avatars = [
+    { src: '/testimonials/emma.jpg', alt: 'Emmanuel' },
+    { src: '/testimonials/Ksenija.jpeg', alt: 'Ksenija' },
+    { src: '/testimonials/Natalie.jpeg', alt: 'Natalie' },
+    { src: '/testimonials/Mariia.jpeg', alt: 'Mariia' },
+  ];
+
   return (
     <>
-      <section className="pt-12 mb-24 pb-16 bg-img section-container">
+      <section className="pt-32 mb-24 pb-16 bg-img section-container max-md:pt-24">
         <section className="grid grid-cols-2 relative max-lg:grid-cols-1 max-lg:gap-10 items-center px-8 max-sm:px-3">
           <div className="">
             <h1 className={cn('primary-heading', 'leading-normal')}>
               Stop Losing Visitors to Slow, Broken Websites.
             </h1>
             <p className="text-xl mt-5 text-blue-200 max-sm:text-lg leading-10">
-              I develop professional websites so slow speeds and technical
-              problems don't break trust with visitors
+              "Eloho made a clear difference, our online presence and conversion
+              rate increased significantly."
+              <span className="block text-sm mt-2 text-neutral-400 font-medium italic">
+                — Natalie, Founder @ Banister-staff
+              </span>
             </p>
-            <div className="flex gap-9 mt-7 max-lg:gap-3">
+            <div className="flex gap-9 mt-7 max-lg:gap-3 items-center flex-wrap">
               <Button
                 size="lg"
                 onClick={() => scrollSectionIntoView('.portfolio-container')}
@@ -23,9 +34,28 @@ export default function Hero() {
                 variant="secondary"
               >
                 See My Work
+                <ArrowDownIcon className="size-5 ml-2" />
               </Button>
 
-              {/* <Link
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-3 overflow-hidden">
+                  {avatars.map((avatar, i) => (
+                    <img
+                      key={i}
+                      className="inline-block size-10 rounded-full ring-2 ring-black object-cover"
+                      src={avatar.src}
+                      alt={avatar.alt}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm font-medium text-neutral-400">
+                  Trusted by <span className="text-white">50+</span> business
+                  owners
+                </p>
+              </div>
+            </div>
+
+            {/* <Link
                 to="/eloho-kennedy's-resume.pdf"
                 reloadDocument
                 className={cn(
@@ -35,8 +65,8 @@ export default function Hero() {
               >
                 Need A Website?
               </Link> */}
-            </div>
           </div>
+
           <div>
             <img
               className="w-full"

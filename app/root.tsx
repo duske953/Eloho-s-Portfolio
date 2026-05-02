@@ -30,8 +30,7 @@ import handleSendMessage from './actions/handleSendMessage';
 import { BottomNavBar } from './components/Navbar';
 import { freeAudit } from './lib/mailchimp/audience';
 import { userSubscribed } from './cookie.server';
-import { Button } from './components/ui/button';
-import { Input } from './components/ui/input';
+
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -47,7 +46,7 @@ export const links: LinksFunction = () => [
 
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet',
   },
   {
     rel: 'apple-touch-icon',
@@ -94,7 +93,7 @@ export async function action({ request }: ActionFunctionArgs) {
       headers: {
         'Set-Cookie': response.status === 200 ? cookieValue : '',
       },
-    }
+    },
   );
 }
 export const loader: LoaderFunction = async ({ request }) => {

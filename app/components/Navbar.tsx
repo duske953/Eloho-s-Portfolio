@@ -37,8 +37,8 @@ export default function Navbar({ className }: { className?: string }) {
 
   useEffect(() => {
     if (!isInView) {
-      controls.set({ y: -100 });
-      controls.start({ y: 0 });
+      controls.set({ y: -100, opacity: 0 });
+      controls.start({ y: 0, opacity: 1 });
     }
     return () => controls.stop();
   }, [isInView]);
@@ -47,25 +47,31 @@ export default function Navbar({ className }: { className?: string }) {
     <>
       <header
         ref={navRef}
-        className={cn(className, 'max-md:overflow-auto section-container')}
+        className={cn(
+          className,
+          'max-md:overflow-auto section-container relative max-md:static',
+        )}
       >
         <motion.nav
           key={isInView ? 'in-view' : 'out-of-view'}
           animate={controls}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           className={cn(
-            'flex justify-between py-3 items-center max-md:justify-center bg-slate-900 section-container right-0 left-0 px-3 pl-10 max-md:pl-0',
-            !isInView && 'fixed top-0 w-full z-50'
+            'flex justify-between py-5 items-center max-md:border-b max-md:border-white/10 max-md:justify-center max-lg:flex-col transition-all duration-300 section-container right-0 left-0 px-8 max-md:px-4 z-50',
+            !isInView
+              ? 'fixed top-0 w-full bg-black/60 backdrop-blur-lg border-b border-white/10 py-3 shadow-2xl'
+              : 'absolute top-0 w-full bg-gradient-to-b from-black/50 to-transparent',
           )}
         >
-          <Link to="/">
+          <Link to="/" className="hover:opacity-80 transition-opacity">
             <img
               src="/Eloho-Logo.png"
-              className="w-14 object-cover max-sm:w-10"
+              className="size-16 object-cover max-sm:size-12 max-sm:scale-[1.7]"
               alt="Eloho Kennedy, web developer for local businesses"
             />
           </Link>
 
-          <TopNavBar className="max-md:hidden flex max-md:pointer-events-none" />
+          <TopNavBar className="max-md:hidden flex items-center" />
         </motion.nav>
       </header>
     </>
@@ -74,16 +80,16 @@ export default function Navbar({ className }: { className?: string }) {
 
 function TopNavBar({ className }: { className: string }) {
   return (
-    <ul
-      className={cn(
-        className,
-        `gap-10 items-center z-[100] max-md:bg-slate-900 transition-transform max-md:border-none max-md:rounded-none max-md:py-5 max-md:px-2`
-      )}
-    >
+    <ul className={cn(className, 'gap-8')}>
       {navBarLinks.map((prop, i) => {
         return <NavLinks i={i} key={i} />;
       })}
-      <ContactModal />
+      <li>
+        <ContactModal
+          btnText="Let's Talk"
+          className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-2.5 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+        />
+      </li>
     </ul>
   );
 }
@@ -103,20 +109,21 @@ function NavLinks({ i }: { i: number }) {
   return (
     <li>
       {!navBarLinks[i].link ? (
-        <Button
+        <button
           onClick={() => scrollSectionIntoView(navBarLinks[i].ref!)}
-          variant="outline"
-          size="lg"
+          className="text-sm font-medium text-neutral-400 hover:text-white transition-colors relative group"
         >
           {navBarLinks[i].title}
-        </Button>
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-blue-600 transition-all group-hover:w-full" />
+        </button>
       ) : (
         <Link
           onMouseEnter={() => renderMouseEnterNav(i)}
-          className={cn(buttonVariants({ variant: 'outline', size: 'lg' }))}
+          className="text-sm font-medium text-neutral-400 hover:text-white transition-colors relative group"
           to={navBarLinks[i].link}
         >
           {navBarLinks[i].title}
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-blue-600 transition-all group-hover:w-full" />
         </Link>
       )}
     </li>
@@ -143,36 +150,44 @@ export function BottomNavBar() {
   }, []);
 
   return (
-    <ul
+    <div
       className={cn(
-        'hidden transition-transform pointer-events-none max-md:pointer-events-auto max-md:flex justify-around gap-5 z-[200] max-md:sticky bottom-0 max-md:left-0 bg-slate-900 items-center py-6',
-        scrollingDown ? 'translate-y-full' : ' translate-y-0 '
+        'fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] w-[90%] max-w-md transition-all duration-500 max-md:block hidden',
+        scrollingDown
+          ? 'translate-y-[200%] opacity-0'
+          : 'translate-y-0 opacity-100',
       )}
     >
-      <BottmonNavLinks link="/#services" text="Services">
-        <IoBriefcase />
-      </BottmonNavLinks>
+      <ul className="flex justify-around items-center py-3 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-4">
+        <BottmonNavLinks link="/#services" text="Services">
+          <IoBriefcase className="size-5" />
+        </BottmonNavLinks>
 
-      <BottmonNavLinks link="/#projects" text="Projects">
-        <IoCode />
-      </BottmonNavLinks>
+        <BottmonNavLinks link="/#projects" text="Projects">
+          <IoCode className="size-5" />
+        </BottmonNavLinks>
 
-      <BottmonNavLinks link="/about-me" text="About me">
-        <FaUser />
-      </BottmonNavLinks>
+        <BottmonNavLinks link="/about-me" text="About me">
+          <FaUser className="size-5" />
+        </BottmonNavLinks>
 
-      <li>
-        <ContactModal
-          btnText={
-            <div className="flex flex-col items-center gap-3">
-              <IoMail className="text-blue-600" />
-              <span>Contact</span>
-            </div>
-          }
-          className="bg-transparent hover:bg-transparent p-0 contents font-semibold text-sm"
-        />
-      </li>
-    </ul>
+        <li>
+          <ContactModal
+            btnText={
+              <div className="flex flex-col items-center gap-1 group">
+                <div className="p-2 rounded-full group-hover:bg-blue-600/10 transition-colors">
+                  <IoMail className="text-blue-600 size-5" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors">
+                  Contact
+                </span>
+              </div>
+            }
+            className="bg-transparent hover:bg-transparent p-0 contents"
+          />
+        </li>
+      </ul>
+    </div>
   );
 }
 
@@ -196,11 +211,15 @@ function BottmonNavLinks({
     <li>
       <Link
         onMouseEnter={renderMouseEnterNav}
-        className="flex flex-col justify-center items-center gap-3"
+        className="flex flex-col justify-center items-center gap-1 group"
         to={link}
       >
-        <span className="text-blue-600">{children}</span>
-        <span className="font-semibold text-sm">{text}</span>
+        <div className="p-2 rounded-full group-hover:bg-blue-600/10 transition-colors text-blue-600">
+          {children}
+        </div>
+        <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors">
+          {text}
+        </span>
       </Link>
     </li>
   );

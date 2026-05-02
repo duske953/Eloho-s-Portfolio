@@ -14,7 +14,10 @@ import Testimonial from './components/Testimonial';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Your business deserves more than a pretty homepage.' },
+    {
+      title:
+        'Eloho Kennedy | Your business deserves more than a pretty homepage.',
+    },
 
     {
       name: 'description',
@@ -24,7 +27,7 @@ export const meta: MetaFunction = () => {
     {
       name: 'keywords',
       content:
-        'web development for local business, small business websites, affordable website design, local business web developer, International website builder, website builder Nigeria, Eloho web services',
+        'web development for local business, small business websites, affordable website design, local business web developer, International website builder, website builder Nigeria, Eloho web services, Eloho Kennedy, Who is Eloho Kennedy, Eloho Kennedy web developer Who is Eloho',
     },
     {
       name: 'author',

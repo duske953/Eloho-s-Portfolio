@@ -45,8 +45,7 @@ export default function PorfolioMarquee() {
             Problems
           </h2>
           <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-lg text-white">
-            See how I turn everyday business challenges into working web
-            solutions.
+            Here's what happens when speed, function, and design come together.
           </p>
         </div>
 

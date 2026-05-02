@@ -119,17 +119,21 @@ function FactsCard({
   children: ReactNode;
 }) {
   return (
-    <Card className="grid grid-cols-[0.1fr_1fr] items-center py-4 cursor-pointer h-64 max-md:h-auto bg-transparent w-full">
-      <CardHeader>
-        <p className="text-4xl max-sm:text-2xl">{children}</p>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-3">
-        <p className="text-blue-400 font-bold text-xl text-start max-lg:text-lg">
+    <Card className="flex flex-col p-8 cursor-pointer h-full bg-zinc-950/50 border-white/5 hover:border-blue-500/20 transition-all duration-300 group">
+      <div className="size-12 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-500 text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+        {children}
+      </div>
+      <div className="flex flex-col gap-3">
+        <p className="text-white font-bold text-xl leading-tight group-hover:text-blue-400 transition-colors">
           {headline}
         </p>
-        <p className="text-blue-200 text-start leading-normal">{desc}</p>
-        <span className="italic text-gray-500 text-start">{source}</span>
-      </CardContent>
+        <p className="text-neutral-400 leading-relaxed text-base">
+          {desc}
+        </p>
+        <span className="text-xs font-medium uppercase tracking-widest text-neutral-600 mt-2">
+          {source}
+        </span>
+      </div>
     </Card>
   );
 }

@@ -26,7 +26,7 @@ export default function Faq() {
             Questions you may have
           </h2>
           <motion.ul
-            className="flex flex-col gap-7"
+            className="flex flex-col gap-3"
             variants={container}
             initial="hidden"
             viewport={{ once: true, amount: 0.2, margin: '0px 0px -100px 0px' }}
@@ -69,50 +69,65 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   const [openFaq, setOpenFaq] = useState(false);
 
   const item: Variants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: 10 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, type: 'spring', mass: 1.5, damping: 10 },
+      transition: { duration: 0.4 },
     },
   };
 
   return (
     <motion.li
       variants={item}
-      className="flex flex-col border-b border-gray-300 py-4 px-6 mb-4 cursor-pointer relative max-sm:pl-3"
+      onClick={() => setOpenFaq((prev) => !prev)}
+      className={cn(
+        'group flex flex-col border border-white/5 rounded-2xl p-6 mb-2 cursor-pointer transition-all duration-300',
+        openFaq
+          ? 'bg-zinc-900/50 border-white/10'
+          : 'bg-transparent hover:bg-zinc-900/30',
+      )}
     >
-      <div className="relative">
+      <div className="flex justify-between items-center gap-4">
         <p
           className={cn(
-            'text-xl font-bold max-sm:text-sm',
-            openFaq && 'text-blue-600'
+            'text-lg font-semibold max-sm:text-sm transition-colors',
+            openFaq
+              ? 'text-white'
+              : 'text-neutral-400 group-hover:text-neutral-200',
           )}
         >
           {question}
         </p>
 
-        <IoArrowDown
+        <div
           className={cn(
-            'text-3xl max-sm:-right-8 absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-300 cursor-pointer transition-transform',
-            openFaq ? 'rotate-180' : ''
+            'flex items-center justify-center size-8 rounded-full border border-white/10 shrink-0 transition-all duration-300',
+            openFaq
+              ? 'bg-blue-600 border-blue-600 rotate-180'
+              : 'bg-transparent',
           )}
-          onClick={() => setOpenFaq((prev) => !prev)}
-        />
+        >
+          <IoArrowDown
+            className={cn(
+              'text-lg transition-colors',
+              openFaq ? 'text-white' : 'text-neutral-500',
+            )}
+          />
+        </div>
       </div>
 
       <motion.div
-        className="h-0 text-sm"
-        initial={{ opacity: 0, y: -10, height: 0 }}
+        initial={false}
         animate={{
-          opacity: openFaq ? 1 : 0,
-          y: openFaq ? 0 : -10,
           height: openFaq ? 'auto' : 0,
-          marginTop: openFaq ? '1rem' : 0,
+          opacity: openFaq ? 1 : 0,
+          marginTop: openFaq ? 16 : 0,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+        className="overflow-hidden"
       >
-        <p className="text-lg leading-relaxed max-sm:text-sm max-sm:leading-relaxed">
+        <p className="text-base text-neutral-400 leading-relaxed max-sm:text-xs">
           {answer}
         </p>
       </motion.div>

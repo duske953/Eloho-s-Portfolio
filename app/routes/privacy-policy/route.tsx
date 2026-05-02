@@ -3,7 +3,7 @@ import Navbar from '~/components/Navbar';
 export default function Page() {
   return (
     <>
-      <Navbar className="fixed left-0 right-0 top-0 w-full z-[100] bg-slate-900" />
+      <Navbar className="fixed left-0 right-0 top-0 w-full z-[100] bg-black" />
       <main className="px-6 py-28 max-sm:py-20">
         <section className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold mb-7">Privacy Policy</h1>

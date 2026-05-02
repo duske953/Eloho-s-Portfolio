@@ -74,80 +74,80 @@ const projects = [
 
 export function Porfolio() {
   return (
-    <DotBackground>
-      <section className="px-6 pb-32 relative max-md:px-3">
-        <ul className="grid grid-cols-2 gap-x-7 gap-y-12 max-md:grid-cols-1">
-          {projects.map((project, i) => {
-            return (
-              <motion.li
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '0px 0px -250px 0px' }}
-                transition={{
-                  delay: i === 0 ? 0.03 : i * 0.09,
-                  mass: 1.5,
-                  damping: 10,
-                  type: 'spring',
-                }}
-                className={cn(
-                  project.title === 'Music snip' && 'left-2/4 max-md:left-0'
-                )}
-                key={crypto.randomUUID()}
-              >
-                <Card className="bg-slate-950/100 h-full overflow-hidden">
-                  <CardHeader>
-                    <CardTitle className="uppercase flex items-center gap-3">
-                      {project.icon}
-                      <p className="xs:text-xs">{project.title}</p>
-                      <div className="ml-auto flex gap-2">
-                        <Badge variant="secondary">{project.tech[0]}</Badge>
-                        <Badge variant="secondary">{project.tech[1]}</Badge>
-                      </div>
-                    </CardTitle>
-                    <CardDescription className="text-xl text-blue-300 font-bold lg:text-xl sm:text-sm">
-                      {projects[i].description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="overflow-hidden">
+    <section className="px-6 pb-32 relative max-md:px-3">
+      <ul className="grid grid-cols-2 gap-x-7 gap-y-12 max-md:grid-cols-1">
+        {projects.map((project, i) => {
+          return (
+            <motion.li
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '0px 0px -250px 0px' }}
+              transition={{
+                delay: i === 0 ? 0.03 : i * 0.09,
+                mass: 1.5,
+                damping: 10,
+                type: 'spring',
+              }}
+              className={cn(
+                project.title === 'Music snip' && 'left-2/4 max-md:left-0',
+              )}
+              key={crypto.randomUUID()}
+            >
+              <Card className="group bg-zinc-950/50 backdrop-blur-md border-white/5 hover:border-blue-500/20 transition-all duration-500 h-full overflow-hidden flex flex-col rounded-[2rem]">
+                <CardHeader className="pb-4">
+                  <CardTitle className="uppercase flex items-center gap-3">
+                    <span className="text-blue-500">{project.icon}</span>
+                    <p className="text-sm font-bold tracking-widest">{project.title}</p>
+                    <div className="ml-auto flex gap-2">
+                      <Badge variant="secondary" className="bg-white/5 text-neutral-400 border-none hover:bg-white/10 transition-colors">{project.tech[0]}</Badge>
+                      <Badge variant="secondary" className="bg-white/5 text-neutral-400 border-none hover:bg-white/10 transition-colors">{project.tech[1]}</Badge>
+                    </div>
+                  </CardTitle>
+                  <CardDescription className="text-lg text-neutral-200 font-semibold leading-snug">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="px-6 pb-6 pt-0 overflow-hidden flex-1">
+                  <div className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5">
                     <img
-                      className="rounded-2xl object-cover scale-125"
+                      className="absolute inset-0 size-full object-cover scale-100 group-hover:scale-110 transition-transform duration-700"
                       src={project.img}
                       alt={project.description}
                     />
-                  </CardContent>
-                  <CardFooter className="flex justify-end gap-6 relative z-40">
-                    <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${buttonVariants({
-                        variant: 'secondary',
-                        size: 'lg',
-                      })}`}
-                      to={project.projectUrl}
-                    >
-                      Visit
-                    </Link>
+                  </div>
+                </CardContent>
+                <CardFooter className="flex justify-end gap-4 p-6 pt-0 relative z-40">
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${buttonVariants({
+                      variant: 'secondary',
+                      size: 'default',
+                    })} rounded-full px-8 bg-blue-600 hover:bg-blue-700 text-white border-none shadow-[0_0_15px_rgba(37,99,235,0.2)]`}
+                    to={project.projectUrl}
+                  >
+                    Visit
+                  </Link>
 
-                    <Link
-                      viewTransition
-                      onMouseEnter={() =>
-                        (document.documentElement.style.scrollBehavior = 'auto')
-                      }
-                      className={`${buttonVariants({
-                        variant: 'outline',
-                        size: 'lg',
-                      })}`}
-                      to={project.detailsUrl}
-                    >
-                      Details
-                    </Link>
-                  </CardFooter>
-                </Card>
-              </motion.li>
-            );
-          })}
-        </ul>
-      </section>
-    </DotBackground>
+                  <Link
+                    viewTransition
+                    onMouseEnter={() =>
+                      (document.documentElement.style.scrollBehavior = 'auto')
+                    }
+                    className={`${buttonVariants({
+                      variant: 'outline',
+                      size: 'default',
+                    })} rounded-full px-8 border-white/10 hover:bg-white/5 hover:text-white transition-all`}
+                    to={project.detailsUrl}
+                  >
+                    Details
+                  </Link>
+                </CardFooter>
+              </Card>
+            </motion.li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }

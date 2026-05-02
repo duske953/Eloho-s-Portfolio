@@ -17,7 +17,7 @@ export default function ProjectFeatures({
         {features.map((feature, index) => (
           <li
             key={index}
-            className="flex items-start gap-4 border border-gray-700 p-4 rounded-lg hover:bg-slate-900 transition-colors cursor-pointer"
+            className="flex items-start gap-4 border border-gray-700 p-4 rounded-lg hover:bg-zinc-900 transition-colors cursor-pointer"
           >
             <span className="text-blue-600 text-3xl max-sm:text-sm">
               {feature.icon}
