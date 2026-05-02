@@ -84,9 +84,9 @@ function Benefit({ heading, text }: { heading: string; text: string }) {
 export default function Page() {
   return (
     <>
-      <Navbar className="fixed left-0 right-0 top-0 w-full z-[100] bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5" />
-      <main className="section-container bg-[#0a0a0a] min-h-screen">
-        <section className="pt-40 pb-24 relative z-50 w-full px-6 max-w-7xl mx-auto overflow-hidden">
+      <Navbar className="" />
+      <main className="section-container bg-[#0a0a0a]">
+        <section className="pt-40 pb-24 relative w-full px-6 max-w-7xl mx-auto overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

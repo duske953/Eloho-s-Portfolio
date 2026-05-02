@@ -49,7 +49,7 @@ export default function Navbar({ className }: { className?: string }) {
         ref={navRef}
         className={cn(
           className,
-          'max-md:overflow-auto section-container relative max-md:static',
+          'max-md:overflow-auto section-container relative z-50 max-md:static',
         )}
       >
         <motion.nav
@@ -60,7 +60,7 @@ export default function Navbar({ className }: { className?: string }) {
             'flex justify-between py-5 items-center max-md:border-b max-md:border-white/10 max-md:justify-center max-lg:flex-col transition-all duration-300 section-container right-0 left-0 px-8 max-md:px-4 z-50',
             !isInView
               ? 'fixed top-0 w-full bg-black/60 backdrop-blur-lg border-b border-white/10 py-3 shadow-2xl'
-              : 'absolute top-0 w-full bg-gradient-to-b from-black/50 to-transparent',
+              : 'absolute z-[1000] top-0 w-full bg-gradient-to-b from-black/50 to-transparent',
           )}
         >
           <Link to="/" className="hover:opacity-80 transition-opacity">
@@ -135,7 +135,6 @@ export function BottomNavBar() {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
