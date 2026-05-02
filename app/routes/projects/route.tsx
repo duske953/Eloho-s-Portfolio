@@ -5,7 +5,6 @@ export default function page() {
   return (
     <>
       <Navbar className="" />
-
       <main className="section-container">
         <Outlet />
       </main>

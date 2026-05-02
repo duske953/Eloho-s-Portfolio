@@ -46,7 +46,7 @@ export const links: LinksFunction = () => [
 
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap',
   },
   {
     rel: 'apple-touch-icon',
