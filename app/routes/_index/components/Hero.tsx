@@ -49,7 +49,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <p className="text-sm font-medium text-neutral-400">
-                  Trusted by <span className="text-white">50+</span> business
+                  Trusted by <span className="text-white">10+</span> business
                   owners
                 </p>
               </div>
