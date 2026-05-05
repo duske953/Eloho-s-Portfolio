@@ -31,11 +31,11 @@ export async function sendMail(subject: string, text: string, email: string) {
   } catch (err: any) {
     if (err.errno === -3008)
       throw new Error(
-        'No internet connection. Please check your internet settings'
+        'No internet connection. Please check your internet settings',
       );
     if (err.code === 'ETIMEDOUT')
       throw new Error(
-        'Looks like your have an unstable network. Please try again'
+        'Looks like your have an unstable network. Please try again',
       );
     throw new Error('Something went wrong');
   }
@@ -53,19 +53,20 @@ export default async function handleSendMessage(data: {
   });
   if (!isValid) return { status: 400, response: 'Please fill in all details' };
   try {
-    if (!(await audienceExists(data.email))) {
-      await createAudience(data.name, data.email);
-    }
+    // if (!(await audienceExists(data.email))) {
+    //   await createAudience(data.name, data.email);
+    // }
 
     await sendMail(
       `Important message from ${data.name}`,
       data.message,
-      data.email
+      data.email,
     );
 
     return { status: 200, response: 'Success' };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
+    console.log(err);
     return { status: 500, response: 'Something went wrong' };
   }
 }
