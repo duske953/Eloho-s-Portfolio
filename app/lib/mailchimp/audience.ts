@@ -41,8 +41,8 @@ export async function audienceExists(audienceEmail: string) {
     });
 
     return true;
-  } catch (err) {
-    if (err.status === 404) return false;
+  } catch (err: any) {
+    if (err.response?.status === 404) return false;
     throw err;
   }
 }

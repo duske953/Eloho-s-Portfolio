@@ -1,3 +1,5 @@
+'use client';
+
 import { useInView, animated } from '@react-spring/web';
 
 export default function AboutMe() {

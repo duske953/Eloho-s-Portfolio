@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, Variants } from 'motion/react';
 import { ReactNode } from 'react';
 import { FaCheck, FaCompass, FaEye, FaStar, FaStopwatch } from 'react-icons/fa';

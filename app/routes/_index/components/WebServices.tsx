@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { motion } from 'motion/react';
 import ContactModal from '~/components/ContactModal';

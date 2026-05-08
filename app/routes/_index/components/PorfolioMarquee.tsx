@@ -1,3 +1,4 @@
+'use client';
 import { ThreeDMarquee } from '~/components/ui/Marquee';
 const images = [
   './rockins/homepage.jpeg',

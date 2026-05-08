@@ -1,4 +1,6 @@
-import { Link } from '@remix-run/react';
+'use client';
+
+import Link from 'next/link';
 import { cn } from '~/lib/utils';
 import { Button, buttonVariants } from './ui/button';
 import { useInView, motion, useAnimation } from 'motion/react';
@@ -6,7 +8,7 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
 import ContactModal from './ContactModal';
 import { FaUser } from 'react-icons/fa';
-import { IoBriefcase, IoCode, IoMail } from 'react-icons/io5';
+import { IoBriefcase, IoCode, IoMail, IoSparkles } from 'react-icons/io5';
 
 const navBarLinks = [
   {
@@ -24,6 +26,11 @@ const navBarLinks = [
   {
     link: '/about-me',
     title: 'About Me',
+  },
+
+  {
+    link: '/freebies',
+    title: 'Freebies',
   },
 ];
 
@@ -63,7 +70,7 @@ export default function Navbar({ className }: { className?: string }) {
               : 'absolute z-[1000] top-0 w-full bg-gradient-to-b from-black/50 to-transparent',
           )}
         >
-          <Link to="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <img
               src="/Eloho-Logo.png"
               className="size-16 object-cover max-sm:size-12 max-sm:scale-[1.7]"
@@ -120,7 +127,7 @@ function NavLinks({ i }: { i: number }) {
         <Link
           onMouseEnter={() => renderMouseEnterNav(i)}
           className="text-sm font-medium text-neutral-400 hover:text-white transition-colors relative group"
-          to={navBarLinks[i].link}
+          href={navBarLinks[i].link}
         >
           {navBarLinks[i].title}
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-blue-600 transition-all group-hover:w-full" />
@@ -158,16 +165,20 @@ export function BottomNavBar() {
       )}
     >
       <ul className="flex justify-around items-center py-3 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-4">
-        <BottmonNavLinks link="/#services" text="Services">
+        <BottmonNavLinks href="/#services" text="Services">
           <IoBriefcase className="size-5" />
         </BottmonNavLinks>
 
-        <BottmonNavLinks link="/#projects" text="Projects">
+        <BottmonNavLinks href="/#projects" text="Projects">
           <IoCode className="size-5" />
         </BottmonNavLinks>
 
-        <BottmonNavLinks link="/about-me" text="About me">
+        <BottmonNavLinks href="/about-me" text="About me">
           <FaUser className="size-5" />
+        </BottmonNavLinks>
+
+        <BottmonNavLinks href="/freebies" text="Freebies">
+          <IoSparkles className="size-5" />
         </BottmonNavLinks>
 
         <li>
@@ -192,11 +203,11 @@ export function BottomNavBar() {
 
 function BottmonNavLinks({
   text,
-  link,
+  href,
   children,
 }: {
   text: string;
-  link: string;
+  href: string;
   children: ReactNode;
 }) {
   function renderMouseEnterNav() {
@@ -211,7 +222,7 @@ function BottmonNavLinks({
       <Link
         onMouseEnter={renderMouseEnterNav}
         className="flex flex-col justify-center items-center gap-1 group"
-        to={link}
+        href={href}
       >
         <div className="p-2 rounded-full group-hover:bg-blue-600/10 transition-colors text-blue-600">
           {children}

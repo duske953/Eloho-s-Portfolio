@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+'use client';
 import { ArrowDownIcon } from '@radix-ui/react-icons';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';

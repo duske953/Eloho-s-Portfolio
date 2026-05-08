@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react/no-unescaped-entities */
 import { FaArrowDown } from 'react-icons/fa';
 import { motion } from 'motion/react';

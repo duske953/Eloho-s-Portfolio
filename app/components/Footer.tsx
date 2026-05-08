@@ -1,4 +1,4 @@
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 import { FaGithub, FaLinkedinIn, FaPinterest } from 'react-icons/fa';
 import { Separator } from './ui/separator';
 
@@ -13,7 +13,7 @@ export default function Footer() {
       <footer className="px-8 py-8 grid grid-cols-1 gap-8 section-container">
         <div>
           <div className="flex gap-3 items-center">
-            <Link to="/">
+            <Link href="/">
               <img
                 src="/Eloho-Logo.png"
                 className="w-10 object-cover"
@@ -29,21 +29,21 @@ export default function Footer() {
             <Link
               target="_blank"
               rel="noreferrer noopener"
-              to="https://linkedin.com/in/eloho-kennedy-65b731139"
+              href="https://linkedin.com/in/eloho-kennedy-65b731139"
             >
               <FaLinkedinIn className="size-5" />
             </Link>
             <Link
               target="_blank"
               rel="noreferrer noopener"
-              to="https://github.com/duske953"
+              href="https://github.com/duske953"
             >
               <FaGithub className="size-5" />
             </Link>
             <Link
               target="_blank"
               rel="noreferrer noopener"
-              to="https://www.pinterest.com/Eloho_ken/"
+              href="https://www.pinterest.com/Eloho_ken/"
             >
               <FaPinterest className="size-5" />
             </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
 
         <div className="pt-14 sm:pt-6 flex flex-col gap-2">
           <p>© {date.getFullYear()} Eloho Kennedy. All Rights Reserved.</p>
-          <Link viewTransition to="/privacy-policy">
+          <Link href="/privacy-policy">
             Privacy Policy
           </Link>
         </div>

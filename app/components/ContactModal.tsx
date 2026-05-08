@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from './ui/button';
 import {
   Dialog,
@@ -13,11 +15,11 @@ import { Textarea } from './ui/textarea';
 import { object, string } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { ReactNode, useEffect, useState } from 'react';
-import { useFetcher } from '@remix-run/react';
+import { ReactNode, useState, useTransition } from 'react';
 import { ReloadIcon } from '@radix-ui/react-icons';
 import { toast } from 'react-toastify';
 import { cn } from '~/lib/utils';
+import { contactAction } from '~/actions/contact';
 
 export const userDetailsSchema = object({
   name: string()
@@ -42,31 +44,41 @@ export default function ContactModal({
   const {
     register,
     reset,
+    handleSubmit,
     formState: { isValid },
   } = useForm({
     resolver: yupResolver(userDetailsSchema),
   });
-  const fetcher = useFetcher<{ status: number; response: string }>();
+  const [isPending, startTransition] = useTransition();
   const [contactModal, setContactModal] = useState(false);
+
   function renderContactModal(state: boolean) {
-    if (fetcher.state === 'submitting') return;
+    if (isPending) return;
     setContactModal(state);
   }
 
-  useEffect(() => {
-    if (fetcher.data && fetcher.data.status === 200) {
-      reset({ name: '', email: '', message: '' });
-      setContactModal(false);
-      toast('Your message has been received', {
-        type: 'success',
-        toastId: 'contact',
-      });
-      return;
-    }
-    if (fetcher.data && fetcher.data.status !== 200) {
-      toast(fetcher.data.response, { type: 'error', toastId: 'contact' });
-    }
-  }, [fetcher.data, reset]);
+  const onSubmit = async (data: any) => {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('message', data.message);
+    startTransition(async () => {
+      const result = await contactAction(formData);
+      if (result && result.status === 200) {
+        reset({ name: '', email: '', message: '' });
+        setContactModal(false);
+        toast('Your message has been received', {
+          type: 'success',
+          toastId: 'contact',
+        });
+      } else {
+        toast(result?.response || 'Something went wrong', {
+          type: 'error',
+          toastId: 'contact',
+        });
+      }
+    });
+  };
 
   return (
     <Dialog onOpenChange={renderContactModal} open={contactModal}>
@@ -84,7 +96,7 @@ export default function ContactModal({
           <DialogTitle className="mb-5">Have a website In mind?</DialogTitle>
         </DialogHeader>
 
-        <fetcher.Form id="contact" method="post" action="/">
+        <form id="contact" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label htmlFor="Name">Name</Label>
@@ -101,7 +113,7 @@ export default function ContactModal({
               <Textarea {...register('message')} />
             </div>
           </div>
-        </fetcher.Form>
+        </form>
         <span className="text-xs font-bold">
           By submitting this form, you consent to the use of your email for
           communication and updates.
@@ -112,15 +124,9 @@ export default function ContactModal({
             form="contact"
             variant="secondary"
             size="lg"
-            disabled={
-              !isValid ||
-              fetcher.state === 'loading' ||
-              fetcher.state === 'submitting'
-            }
+            disabled={!isValid || isPending}
           >
-            {fetcher.state === 'submitting' && (
-              <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-            )}
+            {isPending && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
             Let&apos;s get started
           </Button>
         </DialogFooter>

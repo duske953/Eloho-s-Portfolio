@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, Variants } from 'motion/react';
 import { useState } from 'react';
 import { IoArrowDown } from 'react-icons/io5';

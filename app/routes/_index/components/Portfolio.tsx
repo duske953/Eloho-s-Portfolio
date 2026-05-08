@@ -1,10 +1,12 @@
+'use client';
+
 import {
   FaHotel,
   FaLocationArrow,
   FaMusic,
   FaShoppingCart,
 } from 'react-icons/fa';
-import { Link } from '@remix-run/react';
+import Link from 'next/link';
 import { buttonVariants } from '~/components/ui/button';
 import { IoChatboxSharp } from 'react-icons/io5';
 import { Badge } from '~/components/ui/badge';
@@ -91,7 +93,7 @@ export function Porfolio() {
               className={cn(
                 project.title === 'Music snip' && 'left-2/4 max-md:left-0',
               )}
-              key={crypto.randomUUID()}
+              key={i}
             >
               <Card className="group bg-zinc-950/50 backdrop-blur-md border-white/5 hover:border-blue-500/20 transition-all duration-500 h-full overflow-hidden flex flex-col rounded-[2rem]">
                 <CardHeader className="pb-4">
@@ -124,13 +126,12 @@ export function Porfolio() {
                       variant: 'secondary',
                       size: 'default',
                     })} rounded-full px-8 bg-blue-600 hover:bg-blue-700 text-white border-none shadow-[0_0_15px_rgba(37,99,235,0.2)]`}
-                    to={project.projectUrl}
+                    href={project.projectUrl}
                   >
                     Visit
                   </Link>
 
                   <Link
-                    viewTransition
                     onMouseEnter={() =>
                       (document.documentElement.style.scrollBehavior = 'auto')
                     }
@@ -138,7 +139,7 @@ export function Porfolio() {
                       variant: 'outline',
                       size: 'default',
                     })} rounded-full px-8 border-white/10 hover:bg-white/5 hover:text-white transition-all`}
-                    to={project.detailsUrl}
+                    href={project.detailsUrl}
                   >
                     Details
                   </Link>
