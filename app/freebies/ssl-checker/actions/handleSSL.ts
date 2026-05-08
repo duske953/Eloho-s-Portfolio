@@ -2,13 +2,16 @@
 
 export async function handleSSL(url: string) {
   try {
-    const data = await fetch('https://freebies-server.onrender.com/check-ssl', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const data = await fetch(
+      'https://freebies-server-nine.vercel.app/check-ssl',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url }),
       },
-      body: JSON.stringify({ url }),
-    });
+    );
     const result = await data.json();
     return { code: data.status, response: result };
   } catch (err) {
