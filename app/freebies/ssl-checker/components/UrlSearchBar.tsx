@@ -94,9 +94,9 @@ export default function UrlSearchBar() {
               <div className="text-sm font-bold text-red-500 uppercase tracking-widest mb-1">
                 Critical Error
               </div>
-              <div className="text-white font-bold mb-1">
+              {/* <div className="text-white font-bold mb-1">
                 {result.error.message}
-              </div>
+              </div> */}
               <p className="text-xs text-gray-400 leading-relaxed">
                 Your website security has lapsed. This can lead to browser
                 warnings and loss of customer trust.
