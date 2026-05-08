@@ -158,37 +158,37 @@ export function BottomNavBar() {
   return (
     <div
       className={cn(
-        'fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] w-[90%] max-w-md transition-all duration-500 max-md:block hidden',
+        'fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] w-[95%] max-w-lg transition-all duration-500 max-md:block hidden',
         scrollingDown
           ? 'translate-y-[200%] opacity-0'
           : 'translate-y-0 opacity-100',
       )}
     >
-      <ul className="flex justify-around items-center py-3 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-4">
+      <ul className="flex justify-between items-center py-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] px-2 sm:px-6">
         <BottmonNavLinks href="/#services" text="Services">
-          <IoBriefcase className="size-5" />
+          <IoBriefcase className="size-5 sm:size-6" />
         </BottmonNavLinks>
 
         <BottmonNavLinks href="/#projects" text="Projects">
-          <IoCode className="size-5" />
+          <IoCode className="size-5 sm:size-6" />
         </BottmonNavLinks>
 
-        <BottmonNavLinks href="/about-me" text="About me">
-          <FaUser className="size-5" />
+        <BottmonNavLinks href="/about-me" text="About">
+          <FaUser className="size-5 sm:size-6" />
         </BottmonNavLinks>
 
         <BottmonNavLinks href="/freebies" text="Freebies">
-          <IoSparkles className="size-5" />
+          <IoSparkles className="size-5 sm:size-6" />
         </BottmonNavLinks>
 
         <li>
           <ContactModal
             btnText={
-              <div className="flex flex-col items-center gap-1 group">
-                <div className="p-2 rounded-full group-hover:bg-blue-600/10 transition-colors">
-                  <IoMail className="text-blue-600 size-5" />
+              <div className="flex flex-col items-center gap-0.5 group min-w-[50px]">
+                <div className="p-1.5 sm:p-2 rounded-full group-hover:bg-blue-600/10 transition-colors">
+                  <IoMail className="text-blue-600 size-5 sm:size-6" />
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors">
+                <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-neutral-400 group-hover:text-white transition-colors">
                   Contact
                 </span>
               </div>
@@ -221,13 +221,13 @@ function BottmonNavLinks({
     <li>
       <Link
         onMouseEnter={renderMouseEnterNav}
-        className="flex flex-col justify-center items-center gap-1 group"
+        className="flex flex-col justify-center items-center gap-0.5 group min-w-[50px]"
         href={href}
       >
-        <div className="p-2 rounded-full group-hover:bg-blue-600/10 transition-colors text-blue-600">
+        <div className="p-1.5 sm:p-2 rounded-full group-hover:bg-blue-600/10 transition-colors text-blue-600">
           {children}
         </div>
-        <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors">
+        <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-neutral-400 group-hover:text-white transition-colors">
           {text}
         </span>
       </Link>
