@@ -1,7 +1,7 @@
 'use server';
 
 import handleSendMessage from '~/actions/handleSendMessage';
-import { freeAudit } from '~/lib/mailchimp/audience';
+import { processEmail } from '~/lib/mailchimp/audience';
 import { cookies } from 'next/headers';
 
 export async function contactAction(formData: FormData) {
@@ -21,14 +21,14 @@ export async function auditAction(formData: FormData) {
   const email = formData.get('email') as string;
   if (!email) return { status: 400, response: 'Email is required' };
 
-  const response = await freeAudit(email);
-  
+  const response = await processEmail(email);
+
   if (response.status === 200) {
     const cookieStore = await cookies();
     cookieStore.set('subscribed', 'true', {
-        maxAge: 60 * 60 * 24 * 7, // one week
-        path: '/',
-        httpOnly: true,
+      maxAge: 60 * 60 * 24 * 7, // one week
+      path: '/',
+      httpOnly: true,
     });
   }
 

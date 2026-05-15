@@ -17,24 +17,25 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: 'Eloho Kennedy | Your business deserves more than a pretty homepage.',
+  title:
+    'Eloho Kennedy | The cheapest website is the one built right the first time.',
   description:
     'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm. Start with Eloho today.',
   keywords:
     'web development for local business, small business websites, affordable website design, local business web developer, International website builder, website builder Nigeria, Eloho web services, Eloho Kennedy, Who is Eloho Kennedy, Eloho Kennedy web developer Who is Eloho',
   authors: [{ name: 'Eloho Kennedy' }],
-  icons: {
-    icon: [
-      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon/favicon.ico' },
-    ],
-    apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
-  },
+  // icons: {
+  //   icon: [
+  //     { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+  //     { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+  //     { url: '/favicon/favicon.ico' },
+  //   ],
+  //   apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
+  // },
   manifest: '/favicon/site.webmanifest',
   openGraph: {
     title:
-      'Eloho Kennedy | Your business deserves more than a pretty homepage.',
+      'Eloho Kennedy | The cheapest website is the one built right the first time.',
     description:
       'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm.',
     url: 'https://eloho.pro', // Replace with your actual domain if different
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <GoogleTagManager gtmId="GTM-5W8WTZ8S" />
+        <meta name="apple-mobile-web-app-title" content="MyWebSite" />
       </head>
       <body className={syne.className}>
         <ThemeProvider

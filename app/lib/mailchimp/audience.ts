@@ -14,7 +14,7 @@ function contactOptions(method: string, identifier: string, params: any = {}) {
 
 export async function createAudience(
   audienceName: string,
-  audienceEmail: string
+  audienceEmail: string,
 ) {
   try {
     const splitName = audienceName.split(' ');
@@ -47,7 +47,7 @@ export async function audienceExists(audienceEmail: string) {
   }
 }
 
-export async function freeAudit(email: string) {
+export async function processEmail(email: string) {
   try {
     if (!email)
       return { status: 400, response: 'Please provide your email address' };
@@ -59,5 +59,37 @@ export async function freeAudit(email: string) {
     return { status: 200, response: 'success' };
   } catch (err) {
     return { status: 500, response: 'Something went wrong' };
+  }
+}
+
+export async function sendTransactionalEmail({
+  email,
+  subject,
+  htmlContent,
+  attachment,
+}: {
+  email: string;
+  subject: string;
+  htmlContent: string;
+  attachment: { content: string; name: string }[];
+}) {
+  try {
+    await axios.request({
+      ...contactOptions('POST', 'smtp/email'),
+      data: {
+        sender: { name: 'Eloho Kennedy', email: 'web@eloho.pro' },
+        to: [
+          { email },
+          { email: 'kennyduske@gmail.com', name: 'Eloho Kennedy' },
+        ],
+        subject,
+        htmlContent,
+        attachment,
+      },
+    });
+    return { status: 200, response: 'Email sent' };
+  } catch (err) {
+    console.error('Brevo Email Error:', err);
+    return { status: 500, response: 'Failed to send email' };
   }
 }

@@ -6,7 +6,6 @@ import Cta from '~/components/Cta';
 import ContactModal from '~/components/ContactModal';
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -14,7 +13,7 @@ import {
 } from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 import Link from 'next/link';
-import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight, MailSearch, Search } from 'lucide-react';
 
 const freebies = [
   {
@@ -23,9 +22,16 @@ const freebies = [
       "Quickly analyze your website's SSL certificate, TLS version, and security headers to ensure your visitors are safe.",
     icon: <ShieldCheck className="w-10 h-10 text-blue-500" />,
     link: '/freebies/ssl-checker',
-    // tag: 'Popular',
+    tag: 'Popular',
   },
-  // More freebies can be added here
+  {
+    title: 'Site Analyzer',
+    description:
+      'Get a quick SEO and technical audit of your website to see what is holding you back from ranking higher.',
+    icon: <Search className="w-10 h-10 text-blue-500" />,
+    link: '/freebies/site-analyzer',
+    tag: 'New',
+  },
 ];
 
 export default function FreebiesPage() {
@@ -40,18 +46,6 @@ export default function FreebiesPage() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-center mb-20"
           >
-            {/* <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-blue-500/20 rounded-full bg-blue-500/5"
-            >
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em]">
-                Free Tools & Resources
-              </span>
-            </motion.div> */}
-
             <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-8">
               Useful <span className="text-blue-600">Freebies</span> for your
               Business.
@@ -79,11 +73,6 @@ export default function FreebiesPage() {
                       <CardTitle className="text-2xl font-bold text-white tracking-tight">
                         {freebie.title}
                       </CardTitle>
-                      {/* {freebie.tag && (
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500 bg-blue-500/10 px-2 py-1 rounded">
-                          {freebie.tag}
-                        </span>
-                      )} */}
                     </div>
                     <CardDescription className="text-gray-400 text-base mt-2">
                       {freebie.description}

@@ -15,7 +15,6 @@ export async function handleSSL(url: string) {
     const result = await data.json();
     return { code: data.status, response: result };
   } catch (err) {
-    console.log(err);
     return { code: 500, response: 'Failed to check SSL' };
   }
 }

@@ -66,7 +66,6 @@ export default async function handleSendMessage(data: {
     return { status: 200, response: 'Success' };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
-    console.log(err);
     return { status: 500, response: 'Something went wrong' };
   }
 }
