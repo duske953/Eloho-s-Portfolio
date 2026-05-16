@@ -93,8 +93,10 @@ const outcomes = [
 
 export const metadata: Metadata = {
   title: 'Anonymo | Chat Freely, Stay Anonymous',
-  description: 'Talk to strangers without fear. No accounts, no tracking. Your messages disappear after each session — pure, private chats.',
-  keywords: 'anonymous chat, secure chat app, private messaging, no login chat, chat without data, real-time chat app',
+  description:
+    'Talk to strangers without fear. No accounts, no tracking. Your messages disappear after each session — pure, private chats.',
+  keywords:
+    'anonymous chat, secure chat app, private messaging, no login chat, chat without data, real-time chat app',
 };
 
 export default function Page() {
@@ -137,7 +139,7 @@ export default function Page() {
       ></ProjectOutcomes>
       <ProjectDemo url="https://youtu.be/oljFL41ISN8"></ProjectDemo>
       <ProjectCta
-        projectUrl="https://anonymo.vercel.app/"
+        projectUrl="https://anonymo.eloho.dev/"
         githubUrl="https://github.com/duske953/chatapplication-frontend"
         nextProject="music-snip"
         cta="Start Chatting Now"

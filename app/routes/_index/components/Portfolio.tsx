@@ -29,7 +29,7 @@ const projects = [
     img: '/rockins/homepage.png',
     icon: <FaHotel className="size-6" />,
     tech: ['React', 'Next.js'],
-    projectUrl: 'https://rockins.vercel.app/',
+    projectUrl: 'https://rockins.eloho.dev/',
     detailsUrl: '/projects/rockins',
   },
 
@@ -39,7 +39,7 @@ const projects = [
     img: '/byte-cart/homepage.png',
     icon: <FaShoppingCart className="size-6" />,
     tech: ['Next.js', 'Node.js'],
-    projectUrl: 'https://bytecart.vercel.app/',
+    projectUrl: 'https://bytecart.eloho.dev/',
     detailsUrl: '/projects/byte-cart',
   },
 
@@ -49,7 +49,7 @@ const projects = [
     img: '/geocoords/homepage.png',
     icon: <FaLocationArrow className="size-6" />,
     tech: ['Javascript', 'ArcGis'],
-    projectUrl: 'https://geocoordinates.netlify.app/',
+    projectUrl: 'https://geocoords.eloho.dev/',
     detailsUrl: '/projects/geocoords',
   },
 
@@ -59,7 +59,7 @@ const projects = [
     img: '/anonymo/homepage.png',
     icon: <IoChatboxSharp className="size-6" />,
     tech: ['React', 'Socket.io'],
-    projectUrl: 'https://anonymo.vercel.app/',
+    projectUrl: 'https://anonymo.eloho.dev/',
     detailsUrl: '/projects/anonymo',
   },
 
@@ -69,7 +69,7 @@ const projects = [
     img: '/music-snip/homepage.png',
     icon: <FaMusic className="size-6" />,
     tech: ['Next.js', 'React'],
-    projectUrl: 'https://music-snip.vercel.app',
+    projectUrl: 'https://music.eloho.dev',
     detailsUrl: '/projects/music-snip',
   },
 ];
@@ -99,10 +99,22 @@ export function Porfolio() {
                 <CardHeader className="pb-4">
                   <CardTitle className="uppercase flex items-center gap-3">
                     <span className="text-blue-500">{project.icon}</span>
-                    <p className="text-sm font-bold tracking-widest">{project.title}</p>
+                    <p className="text-sm font-bold tracking-widest">
+                      {project.title}
+                    </p>
                     <div className="ml-auto flex gap-2">
-                      <Badge variant="secondary" className="bg-white/5 text-neutral-400 border-none hover:bg-white/10 transition-colors">{project.tech[0]}</Badge>
-                      <Badge variant="secondary" className="bg-white/5 text-neutral-400 border-none hover:bg-white/10 transition-colors">{project.tech[1]}</Badge>
+                      <Badge
+                        variant="secondary"
+                        className="bg-white/5 text-neutral-400 border-none hover:bg-white/10 transition-colors"
+                      >
+                        {project.tech[0]}
+                      </Badge>
+                      <Badge
+                        variant="secondary"
+                        className="bg-white/5 text-neutral-400 border-none hover:bg-white/10 transition-colors"
+                      >
+                        {project.tech[1]}
+                      </Badge>
                     </div>
                   </CardTitle>
                   <CardDescription className="text-lg text-neutral-200 font-semibold leading-snug">

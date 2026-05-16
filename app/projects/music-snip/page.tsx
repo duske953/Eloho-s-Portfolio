@@ -138,7 +138,7 @@ export default function Page() {
       ></ProjectOutcomes>
       <ProjectDemo url="https://youtu.be/t6MPgJzveXg"></ProjectDemo>
       <ProjectCta
-        projectUrl="https://music-snip.vercel.app/"
+        projectUrl="https://music.eloho.dev/"
         nextProject="rockins"
         githubUrl="https://github.com/duske953/preview-music"
         cta="Try a quick preview"
