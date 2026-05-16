@@ -124,8 +124,8 @@ export default async function pdfReport(
   footer.innerHTML = `
        <div style="color: #444;">
          <div style="font-weight: 600; color: #000; margin-bottom: 4px;">Need help fixing these?</div>
-         <div>Email: web@eloho.pro</div>
-         <div>Web: eloho.pro</div>
+         <div>Email: web@eloho.dev</div>
+         <div>Web: eloho.dev</div>
        </div>
        <div style="color: #999;">
          © ${new Date().getFullYear()} Eloho Kennedy

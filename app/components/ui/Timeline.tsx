@@ -32,10 +32,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     <div className="w-full" ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-3xl md:text-5xl mb-6 text-white font-bold max-w-4xl tracking-tight">
-          The Journey to <span className="text-blue-600">Eloho.pro</span>
+          The Journey to <span className="text-blue-600">eloho.dev</span>
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
-          How an engineering mindset evolved into a specialized service for small businesses seeking digital excellence.
+          How an engineering mindset evolved into a specialized service for
+          small businesses seeking digital excellence.
         </p>
       </div>
 

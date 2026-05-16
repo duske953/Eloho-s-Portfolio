@@ -1,3 +1,4 @@
+'use server';
 import nodemailer from 'nodemailer';
 import { userDetailsSchema } from '~/components/ContactModal';
 import { audienceExists, createAudience } from '~/lib/mailchimp/audience';
@@ -27,7 +28,6 @@ export async function sendMail(subject: string, text: string, email: string) {
 
   try {
     await transporter.sendMail(mailOptions);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     if (err.errno === -3008)
       throw new Error(
@@ -46,12 +46,14 @@ export default async function handleSendMessage(data: {
   email: string;
   message: string;
 }) {
-  const isValid = await userDetailsSchema.isValid({
-    name: data.name,
-    email: data.email,
-    message: data.message,
-  });
-  if (!isValid) return { status: 400, response: 'Please fill in all details' };
+  // const isValid = await userDetailsSchema.isValid({
+  //   name: data.name,
+  //   email: data.email,
+  //   message: data.message,
+  // });
+  if (!data.name || !data.email || !data.message) {
+    return { code: 400, response: 'Please fill in all details' };
+  }
   try {
     // if (!(await audienceExists(data.email))) {
     //   await createAudience(data.name, data.email);
@@ -63,9 +65,9 @@ export default async function handleSendMessage(data: {
       data.email,
     );
 
-    return { status: 200, response: 'Success' };
+    return { code: 200, response: 'Success' };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
-    return { status: 500, response: 'Something went wrong' };
+    return { code: 500, response: 'Something went wrong' };
   }
 }

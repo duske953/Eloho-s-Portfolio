@@ -17,7 +17,7 @@ export const ThreeDMarquee = ({
     <div
       className={cn(
         'mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100',
-        className
+        className,
       )}
     >
       <div className="flex size-full items-center justify-center">
@@ -38,7 +38,7 @@ export const ThreeDMarquee = ({
                 key={colIndex + 'marquee'}
                 className={cn(
                   `flex flex-col items-start gap-8`,
-                  colIndex % 2 === 0 ? 'duration-0' : 'duration-0'
+                  colIndex % 2 === 0 ? 'duration-10' : 'duration-10',
                 )}
               >
                 <GridLineVertical className="-left-4" offset="80px" />
@@ -100,7 +100,7 @@ const GridLineHorizontal = ({
         '[mask-composite:exclude]',
         'z-30',
         'dark:bg-[linear-gradient(to_right,var(--color-dark),var(--color-dark)_50%,transparent_0,transparent)]',
-        className
+        className,
       )}
     ></div>
   );
@@ -135,7 +135,7 @@ const GridLineVertical = ({
         '[mask-composite:exclude]',
         'z-30',
         'dark:bg-[linear-gradient(to_bottom,var(--color-dark),var(--color-dark)_50%,transparent_0,transparent)]',
-        className
+        className,
       )}
     ></div>
   );

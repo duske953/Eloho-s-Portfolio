@@ -13,7 +13,7 @@ export default function Page() {
           <p className="mb-6 leading-loose">
             This privacy policy explains how Eloho (“we”, “our”, or “us”)
             collects, uses, and protects your personal information when you
-            visit <strong>eloho.pro</strong> and use our web development
+            visit <strong>eloho.dev</strong> and use our web development
             services for your business.
           </p>
 
@@ -82,10 +82,10 @@ export default function Page() {
                 Abuja, Nigeria
                 <br />
                 <a
-                  href="mailto:web@eloho.pro"
+                  href="mailto:web@eloho.dev"
                   className="text-blue-600 underline"
                 >
-                  web@eloho.pro
+                  web@eloho.dev
                 </a>
               </address>
             </Section>

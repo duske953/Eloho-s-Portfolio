@@ -77,7 +77,7 @@ export async function sendTransactionalEmail({
     await axios.request({
       ...contactOptions('POST', 'smtp/email'),
       data: {
-        sender: { name: 'Eloho Kennedy', email: 'web@eloho.pro' },
+        sender: { name: 'Eloho Kennedy', email: 'web@eloho.dev' },
         to: [
           { email },
           { email: 'kennyduske@gmail.com', name: 'Eloho Kennedy' },
@@ -89,7 +89,6 @@ export async function sendTransactionalEmail({
     });
     return { status: 200, response: 'Email sent' };
   } catch (err) {
-    console.error('Brevo Email Error:', err);
     return { status: 500, response: 'Failed to send email' };
   }
 }

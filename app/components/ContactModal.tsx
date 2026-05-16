@@ -12,7 +12,7 @@ import {
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
-import { object, string } from 'yup';
+import { InferType, object, string } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ReactNode, useState, useTransition } from 'react';
@@ -20,6 +20,7 @@ import { ReloadIcon } from '@radix-ui/react-icons';
 import { toast } from 'react-toastify';
 import { cn } from '~/lib/utils';
 import { contactAction } from '~/actions/contact';
+import handleSendMessage from '~/actions/handleSendMessage';
 
 export const userDetailsSchema = object({
   name: string()
@@ -57,28 +58,28 @@ export default function ContactModal({
     setContactModal(state);
   }
 
-  const onSubmit = async (data: any) => {
-    const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('message', data.message);
+  async function onSubmit(data: InferType<typeof userDetailsSchema>) {
     startTransition(async () => {
-      const result = await contactAction(formData);
-      if (result && result.status === 200) {
+      const { response, code } = await handleSendMessage({
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+      if (code === 200) {
         reset({ name: '', email: '', message: '' });
         setContactModal(false);
         toast('Your message has been received', {
           type: 'success',
           toastId: 'contact',
         });
-      } else {
-        toast(result?.response || 'Something went wrong', {
-          type: 'error',
-          toastId: 'contact',
-        });
+        return;
       }
+      toast(response || 'Something went wrong', {
+        type: 'error',
+        toastId: 'contact',
+      });
     });
-  };
+  }
 
   return (
     <Dialog onOpenChange={renderContactModal} open={contactModal}>

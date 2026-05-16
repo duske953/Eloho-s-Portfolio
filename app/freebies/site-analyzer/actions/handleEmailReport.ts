@@ -16,7 +16,7 @@ export async function handleEmailReport({
       return { status: 400, response: 'Email is required' };
     }
     await processEmail(email);
-    const result = await sendTransactionalEmail({
+    await sendTransactionalEmail({
       email,
       subject: `Your Website Analysis Report for ${url}`,
       htmlContent: `
@@ -25,7 +25,7 @@ export async function handleEmailReport({
           <p>Hi there,</p>
           <p>Thank you for using the Site Analyzer. We've completed our check for <strong>${url}</strong>.</p>
           <p>Please find your detailed PDF report attached to this email.</p>
-          <p>If you have any questions about the findings, feel free to reach out to me at <a href="mailto:web@eloho.pro">web@eloho.pro</a> or visit <a href="https://eloho.pro">eloho.pro</a>.</p>
+          <p>If you have any questions about the findings, feel free to reach out to me at <a href="mailto:web@eloho.dev">web@eloho.dev</a> or visit <a href="https://eloho.dev">eloho.dev</a>.</p>
           <br/>
           <p>Best regards,<br/>Eloho Kennedy</p>
         </div>
