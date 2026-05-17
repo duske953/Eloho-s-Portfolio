@@ -173,9 +173,9 @@ export function BottomNavBar() {
           <IoCode className="size-5 sm:size-6" />
         </BottmonNavLinks>
 
-        <BottmonNavLinks href="/about-me" text="About">
+        {/* <BottmonNavLinks href="/about-me" text="About">
           <FaUser className="size-5 sm:size-6" />
-        </BottmonNavLinks>
+        </BottmonNavLinks> */}
 
         <BottmonNavLinks href="/freebies" text="Freebies">
           <IoSparkles className="size-5 sm:size-6" />
