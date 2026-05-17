@@ -23,10 +23,10 @@ const navBarLinks = [
     ref: '.portfolio-container',
   },
 
-  {
-    link: '/about-me',
-    title: 'About Me',
-  },
+  // {
+  //   link: '/about-me',
+  //   title: 'About Me',
+  // },
 
   {
     link: '/freebies',
