@@ -12,8 +12,8 @@ export default function Testimonial() {
     {
       quote:
         'Working with Eloho Kennedy was a smooth experience. He’s reliable, takes initiative, and handles challenges calmly. Communication was clear throughout, and he genuinely cares about delivering a good outcome.',
-      name: 'Ksenija Vjazni',
-      designation: 'COO & Head of sales',
+      name: 'Ksenia Vjazni',
+      designation: 'Fractional COO & Business Architect',
       src: '/testimonials/Ksenija.jpeg',
     },
     {
