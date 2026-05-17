@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm. Start with Eloho today.',
   keywords:
-    'web development for local business, small business websites, affordable website design, local business web developer, International website builder, website builder Nigeria, Eloho web services, Eloho Kennedy, Who is Eloho Kennedy, Eloho Kennedy web developer Who is Eloho',
+    'web development for early stage startups, small business websites, local business web developer, International website builder, website builder Nigeria, Eloho web services, Eloho Kennedy, Who is Eloho Kennedy, Eloho Kennedy web developer Who is Eloho',
   authors: [{ name: 'Eloho Kennedy' }],
 
   //   icon: [
@@ -75,7 +75,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <GoogleTagManager gtmId="GTM-5W8WTZ8S" />
-        <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+        <meta name="apple-mobile-web-app-title" content="Eloho Kennedy" />
       </head>
       <body className={syne.className}>
         <ThemeProvider
@@ -94,7 +94,7 @@ export default function RootLayout({
               This website uses cookies to enhance the user experience.
             </CookieConsent> */}
             <ToastContainer
-              bodyClassName={`font-medium sm:text-sm font-family`}
+              bodyClassName={`font-medium sm:text-sm font-family ${syne.className}`}
               autoClose={5000}
               hideProgressBar={true}
               theme="dark"
