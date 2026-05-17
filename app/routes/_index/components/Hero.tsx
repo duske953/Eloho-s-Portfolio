@@ -20,10 +20,11 @@ export default function Hero() {
               Stop Losing Visitors to Slow, Broken Websites.
             </h1>
             <p className="text-xl mt-5 text-blue-200 max-sm:text-lg leading-10">
-              "Eloho made a clear difference, our online presence and conversion
-              rate increased significantly."
+              "If you're looking for a developer who respects your time,
+              communicates clearly, and actually cares about the outcome —
+              you'll be very lucky to have Eloho Kennedy on your project."
               <span className="block text-sm mt-2 text-neutral-400 font-medium italic">
-                — Natalie, Founder @ Banister-staff
+                — Ksenia, Fractional COO & Business Architect.
               </span>
             </p>
             <div className="flex gap-9 mt-7 max-lg:gap-3 items-center flex-wrap">
