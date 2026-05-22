@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { BottomNavBar } from './components/Navbar';
 import ClientProviders from './ClientProviders';
 import { Syne } from 'next/font/google';
+import NowPlaying from './components/NowPlaying';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -66,7 +67,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -99,6 +100,7 @@ export default function RootLayout({
               hideProgressBar={true}
               theme="dark"
             />
+            <NowPlaying />
             <Footer />
             <BottomNavBar />
           </ClientProviders>

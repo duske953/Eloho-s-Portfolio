@@ -3,13 +3,8 @@ import { ArrowDownIcon } from '@radix-ui/react-icons';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 import scrollSectionIntoView from '~/utils/scrollSectionIntoView';
+import TrustedBy from '~/components/TrustedBy';
 export default function Hero() {
-  const avatars = [
-    { src: '/testimonials/emma.jpg', alt: 'Emmanuel' },
-    { src: '/testimonials/Ksenija.jpeg', alt: 'Ksenija' },
-    { src: '/testimonials/Natalie.jpeg', alt: 'Natalie' },
-    { src: '/testimonials/Mariia.jpeg', alt: 'Mariia' },
-  ];
 
   return (
     <>
@@ -38,22 +33,7 @@ export default function Hero() {
                 <ArrowDownIcon className="size-5 ml-2" />
               </Button>
 
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3 overflow-hidden">
-                  {avatars.map((avatar, i) => (
-                    <img
-                      key={i}
-                      className="inline-block size-10 rounded-full ring-2 ring-black object-cover"
-                      src={avatar.src}
-                      alt={avatar.alt}
-                    />
-                  ))}
-                </div>
-                <p className="text-sm font-medium text-neutral-400">
-                  Trusted by <span className="text-white">10+</span> business
-                  owners
-                </p>
-              </div>
+              <TrustedBy className="ring-black" />
             </div>
 
             {/* <Link
