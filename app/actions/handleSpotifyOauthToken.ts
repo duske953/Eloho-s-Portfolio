@@ -1,5 +1,4 @@
 export default async function handleSpotifyOauthToken() {
-  console.log('jey');
   const res = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     next: { revalidate: 3600 },
