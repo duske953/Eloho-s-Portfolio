@@ -11,7 +11,7 @@ export async function GET() {
     }
     const { access_token: token } = tokenData;
     const res = await fetch(
-      'https://api.spotify.com/v1/me/player/currently-playing',
+      'https://api.spotify.com/v1/me/player/currently-playing?additional_types=episode',
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -31,21 +31,34 @@ export async function GET() {
     }
 
     const isPlaying = song.is_playing;
-    const title = song.item.name;
-    const artist = song.item.artists
-      .map((_artist: any) => _artist.name)
-      .join(', ');
-    const album = song.item.album.name;
-    const albumImageUrl = song.item.album.images[0].url;
-    const songUrl = song.item.external_urls.spotify;
+    const type = song.currently_playing_type;
+    
+    let title = '';
+    let artist = '';
+    let albumImageUrl = '';
+    let songUrl = '';
+
+    if (type === 'track') {
+      title = song.item.name;
+      artist = song.item.artists
+        .map((_artist: any) => _artist.name)
+        .join(', ');
+      albumImageUrl = song.item.album.images[0].url;
+      songUrl = song.item.external_urls.spotify;
+    } else if (type === 'episode') {
+      title = song.item.name;
+      artist = song.item.show.name;
+      albumImageUrl = song.item.images[0]?.url || song.item.show.images[0]?.url;
+      songUrl = song.item.external_urls.spotify;
+    }
 
     return NextResponse.json({
       isPlaying,
       title,
       artist,
-      album,
-      albumImageUrl,
       songUrl,
+      albumImageUrl,
+      type,
     });
   } catch (error) {
     return NextResponse.json({ isPlaying: false }, { status: 500 });

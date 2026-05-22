@@ -11,6 +11,7 @@ interface NowPlayingData {
   album?: string;
   albumImageUrl?: string;
   songUrl?: string;
+  type?: 'track' | 'episode';
 }
 
 export default function NowPlaying() {
@@ -63,7 +64,9 @@ export default function NowPlaying() {
             <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">
-                  Now Playing
+                  {data.type === 'episode'
+                    ? 'Listening to Podcast'
+                    : 'Now Playing'}
                 </span>
                 <div className="flex gap-0.5 items-end h-2">
                   {[1, 2, 3].map((i) => (
