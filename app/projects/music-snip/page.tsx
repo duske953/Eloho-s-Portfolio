@@ -96,7 +96,7 @@ export const metadata: Metadata = {
   keywords:
     'music preview app, 30 second song clips, discover music fast, listen before saving, short song previews, quick music discovery',
   openGraph: {
-    url: '/projects/music-snip',
+    url: 'https://eloho.dev/projects/music-snip',
   },
 };
 

@@ -104,7 +104,7 @@ export const metadata: Metadata = {
   keywords:
     'find nearby places, location finder, gas stations near me, essential services map, local navigation tool',
   openGraph: {
-    url: '/projects/geocoords',
+    url: 'https://eloho.dev/projects/geocoords',
   },
 };
 

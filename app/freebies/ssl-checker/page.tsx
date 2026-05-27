@@ -10,7 +10,10 @@ export const metadata: Metadata = {
   title: 'SSL Checker | Verify Website Security',
   description: "Quickly analyze your website's SSL certificate, TLS version, and security headers to ensure your visitors are safe.",
   openGraph: {
-    url: '/freebies/ssl-checker',
+    url: 'https://eloho.dev/freebies/ssl-checker',
+  },
+  alternates: {
+    canonical: 'https://eloho.dev/freebies/ssl-checker',
   },
 };
 

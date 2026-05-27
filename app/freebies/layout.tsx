@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Freebies | Useful Tools for Your Business',
   description: 'Explore a collection of free tools and resources designed to help small businesses audit their security, SEO, and overall online performance.',
   openGraph: {
-    url: '/freebies',
+    url: 'https://eloho.dev/freebies',
   },
 };
 

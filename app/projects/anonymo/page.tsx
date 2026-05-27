@@ -98,7 +98,7 @@ export const metadata: Metadata = {
   keywords:
     'anonymous chat, secure chat app, private messaging, no login chat, chat without data, real-time chat app',
   openGraph: {
-    url: '/projects/anonymo',
+    url: 'https://eloho.dev/projects/anonymo',
   },
 };
 

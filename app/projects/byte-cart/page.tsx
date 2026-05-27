@@ -154,7 +154,7 @@ export const metadata: Metadata = {
   keywords:
     'tech products online, buy electronics, gadget store, eCommerce tech site, online tech shop, bytecart',
   openGraph: {
-    url: '/projects/byte-cart',
+    url: 'https://eloho.dev/projects/byte-cart',
   },
 };
 

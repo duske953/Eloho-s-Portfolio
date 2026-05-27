@@ -171,7 +171,7 @@ export const metadata: Metadata = {
   keywords:
     'hotel booking, book rooms online, hotel website, hotel finder, room reservation, hotel business online Rockins Hotel',
   openGraph: {
-    url: '/projects/rockins',
+    url: 'https://eloho.dev/projects/rockins',
   },
 };
 

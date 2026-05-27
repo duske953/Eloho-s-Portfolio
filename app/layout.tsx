@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'Eloho Kennedy | The cheapest website is the one built right the first time.',
     description:
       'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm.',
-    url: '/',
+    url: 'https://eloho.dev',
     siteName: 'Eloho Kennedy',
     images: [
       {

@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   title: 'Site Analyzer | Free SEO & Technical Audit',
   description: 'Get a quick SEO and technical audit of your website to see what is holding you back from ranking higher.',
   openGraph: {
-    url: '/freebies/site-analyzer',
+    url: 'https://eloho.dev/freebies/site-analyzer',
+  },
+  alternates: {
+    canonical: 'https://eloho.dev/freebies/site-analyzer',
   },
 };
 
