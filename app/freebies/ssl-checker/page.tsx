@@ -4,6 +4,15 @@ import Navbar from '~/components/Navbar';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import UrlSearchBar from './components/UrlSearchBar';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'SSL Checker | Verify Website Security',
+  description: "Quickly analyze your website's SSL certificate, TLS version, and security headers to ensure your visitors are safe.",
+  openGraph: {
+    url: '/freebies/ssl-checker',
+  },
+};
 
 export default function SSLChecker() {
   return (

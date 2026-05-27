@@ -10,6 +10,14 @@ import TechStack from './routes/_index/components/TechStack';
 import Cta from './components/Cta';
 import Navbar from './components/Navbar';
 import ContactModal from './components/ContactModal';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Eloho Kennedy | The cheapest website is the one built right the first time.',
+  openGraph: {
+    url: '/',
+  },
+};
 
 export default function Home() {
   return (

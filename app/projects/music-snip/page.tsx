@@ -95,6 +95,9 @@ export const metadata: Metadata = {
     'Don’t waste time listening to full tracks. Music-Snip plays the catchiest part of songs so you decide instantly if it’s your vibe.',
   keywords:
     'music preview app, 30 second song clips, discover music fast, listen before saving, short song previews, quick music discovery',
+  openGraph: {
+    url: '/projects/music-snip',
+  },
 };
 
 export default function Page() {

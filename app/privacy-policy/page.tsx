@@ -1,4 +1,13 @@
 import Navbar from '~/components/Navbar';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Eloho Kennedy',
+  description: 'Our privacy policy explains how we collect, use, and protect your personal information when you visit eloho.dev.',
+  openGraph: {
+    url: '/privacy-policy',
+  },
+};
 
 export default function Page() {
   return (

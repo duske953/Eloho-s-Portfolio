@@ -153,6 +153,9 @@ export const metadata: Metadata = {
     'Shop quality tech at Bytecart. Find top laptops, smartphones, and accessories with fast delivery, trusted reviews, and clear pricing—built for real users.',
   keywords:
     'tech products online, buy electronics, gadget store, eCommerce tech site, online tech shop, bytecart',
+  openGraph: {
+    url: '/projects/byte-cart',
+  },
 };
 
 export default function Page() {

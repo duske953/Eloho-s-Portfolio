@@ -97,6 +97,9 @@ export const metadata: Metadata = {
     'Talk to strangers without fear. No accounts, no tracking. Your messages disappear after each session — pure, private chats.',
   keywords:
     'anonymous chat, secure chat app, private messaging, no login chat, chat without data, real-time chat app',
+  openGraph: {
+    url: '/projects/anonymo',
+  },
 };
 
 export default function Page() {

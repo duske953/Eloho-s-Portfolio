@@ -103,6 +103,9 @@ export const metadata: Metadata = {
     'New in town? Geocoords helps you find gas stations, hotels, and more with turn-by-turn directions. No awkward questions, just quick results.',
   keywords:
     'find nearby places, location finder, gas stations near me, essential services map, local navigation tool',
+  openGraph: {
+    url: '/projects/geocoords',
+  },
 };
 
 export default function Page() {

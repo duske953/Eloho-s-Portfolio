@@ -25,21 +25,14 @@ export const metadata: Metadata = {
   keywords:
     'web development for early stage startups, small business websites, local business web developer, International website builder, website builder Nigeria, Eloho web services, Eloho Kennedy, Who is Eloho Kennedy, Eloho Kennedy web developer Who is Eloho',
   authors: [{ name: 'Eloho Kennedy' }],
-
-  //   icon: [
-  //     { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-  //     { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-  //     { url: '/favicon/favicon.ico' },
-  //   ],
-  //   apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
-  // },
+  metadataBase: new URL('https://eloho.dev'),
   manifest: '/favicon/site.webmanifest',
   openGraph: {
     title:
       'Eloho Kennedy | The cheapest website is the one built right the first time.',
     description:
       'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm.',
-    url: 'https://eloho.dev',
+    url: '/',
     siteName: 'Eloho Kennedy',
     images: [
       {

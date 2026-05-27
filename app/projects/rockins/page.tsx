@@ -170,6 +170,9 @@ export const metadata: Metadata = {
     'Rockins makes hotel booking simple. View rooms, read reviews, and reserve online. No calls, no stress — just tap, book, stay.',
   keywords:
     'hotel booking, book rooms online, hotel website, hotel finder, room reservation, hotel business online Rockins Hotel',
+  openGraph: {
+    url: '/projects/rockins',
+  },
 };
 
 export default function Page() {
