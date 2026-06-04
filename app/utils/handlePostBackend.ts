@@ -3,7 +3,7 @@
 export default async function handlePostBackend(resource: string, url: string) {
   try {
     const data = await fetch(
-      `https://freebies-server.vercel.app/api/v1/${resource}`,
+      `https://freebies-server-nine.vercel.app/api/v1/${resource}`,
       {
         method: 'POST',
         headers: {
