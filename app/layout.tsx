@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: 'eloho.dev',
     images: [
       {
-        url: "/Eloho's profile.png",
+        url: '/Eloho-OG.png',
         width: 1200,
         height: 630,
         alt: 'Eloho Kennedy Portfolio',
