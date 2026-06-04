@@ -11,6 +11,7 @@ import { BottomNavBar } from './components/Navbar';
 import ClientProviders from './ClientProviders';
 import { Syne } from 'next/font/google';
 import NowPlaying from './components/NowPlaying';
+import Maintenance from './components/Maintenance';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -76,9 +77,12 @@ export default async function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          <ClientProviders>
-            {children}
-            {/* <CookieConsent
+          {process.env.TYPE === 'MAINTENANCE' ? (
+            <Maintenance />
+          ) : (
+            <ClientProviders>
+              {children}
+              {/* <CookieConsent
               buttonStyle={{
                 backgroundColor: '#1D4ED8',
                 color: '#fff',
@@ -86,16 +90,17 @@ export default async function RootLayout({
             >
               This website uses cookies to enhance the user experience.
             </CookieConsent> */}
-            <ToastContainer
-              bodyClassName={`font-medium sm:text-sm font-family ${syne.className}`}
-              autoClose={5000}
-              hideProgressBar={true}
-              theme="dark"
-            />
-            <NowPlaying />
-            <Footer />
-            <BottomNavBar />
-          </ClientProviders>
+              <ToastContainer
+                bodyClassName={`font-medium sm:text-sm font-family ${syne.className}`}
+                autoClose={5000}
+                hideProgressBar={true}
+                theme="dark"
+              />
+              <NowPlaying />
+              <Footer />
+              <BottomNavBar />
+            </ClientProviders>
+          )}
         </ThemeProvider>
       </body>
     </html>
