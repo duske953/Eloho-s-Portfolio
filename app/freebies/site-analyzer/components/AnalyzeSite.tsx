@@ -1,21 +1,13 @@
 'use client';
-import {
-  Globe2,
-  CheckCircle2,
-  XCircle,
-  AlertCircle,
-  Image as ImageIcon,
-  Info,
-  Link2,
-  ShieldAlert,
-} from 'lucide-react';
-import { Input } from '~/components/ui/input';
+import { CheckCircle2, XCircle, AlertCircle, Info } from 'lucide-react';
 import { useState } from 'react';
 import { handleAnalyzeSite } from '../actions/handleAnaylzeSite';
 import { AnalysisData, AnalysisItem } from '../types';
 import { cn } from '~/lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
-import ReportGenerator from './ReportGenerator';
+import ReportGenerator from './SiteReport';
+import FreebieInput from '~/components/FreebieInput';
+import SiteReport from './SiteReport';
 
 export default function AnaylzeSite() {
   const [url, setUrl] = useState('');
@@ -87,27 +79,12 @@ export default function AnaylzeSite() {
         Know exactly what's wrong with your site in 10 seconds.
       </p>
 
-      <form onSubmit={renderAnalyzeSite} className="relative mb-16">
-        <div className="relative group">
-          <div className="absolute -inset-0.5 bg-blue-600/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition duration-500"></div>
-          <div className="relative flex gap-2 p-2 bg-[#0d0d0d] border border-white/5 rounded-2xl items-center">
-            <Globe2 className="w-5 h-5 text-gray-500 ml-4" />
-            <Input
-              placeholder="https://yourwebsite.com"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              className="bg-transparent border-none focus-visible:ring-0 text-white text-lg placeholder:text-gray-600 h-12"
-            />
-            <button
-              type="submit"
-              disabled={isAnalyzing || !url}
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-8 h-12 font-semibold transition-all disabled:opacity-50"
-            >
-              {isAnalyzing ? 'Analyzing...' : 'Analyze'}
-            </button>
-          </div>
-        </div>
-      </form>
+      <FreebieInput
+        url={url}
+        setUrl={setUrl}
+        onSubmit={renderAnalyzeSite}
+        isLoading={isAnalyzing}
+      />
 
       <AnimatePresence>
         {error && (
@@ -129,10 +106,6 @@ export default function AnaylzeSite() {
             exit={{ opacity: 0, y: -20 }}
             className="space-y-20"
           >
-            {/* <SummaryMessage
-              criticalCount={grouped.critical.length}
-              warningCount={grouped.warning.length}
-            /> */}
             <p className="text-center text-3xl font-bold">
               {data.seo.hasTitle.description}
             </p>
@@ -158,7 +131,7 @@ export default function AnaylzeSite() {
                 style={{ marginTop: 0 }}
                 className="py-14 border-t border-white/5 flex justify-center"
               >
-                <ReportGenerator data={data} url={url} />
+                <SiteReport data={data} url={url} />
               </div>
             </div>
           </motion.div>
@@ -167,35 +140,6 @@ export default function AnaylzeSite() {
     </motion.div>
   );
 }
-
-// function SummaryMessage({
-//   criticalCount,
-//   warningCount,
-// }: {
-//   criticalCount: number;
-//   warningCount: number;
-// }) {
-//   const hasManyIssues = criticalCount > 0 || warningCount > 3;
-
-//   return (
-//     <div className="pb-6 border-b border-white/5">
-//       <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
-//         <div className="max-w-2xl">
-//           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-//             {hasManyIssues
-//               ? 'Hey, there are quite a few issues here.'
-//               : 'Great news! Your site is looking solid.'}
-//           </h2>
-//           <p className="text-gray-400 text-lg leading-relaxed">
-//             {hasManyIssues
-//               ? 'We found several technical problems that could be holding your site back. Addressing these will significantly improve your user experience and search rankings.'
-//               : "Most of your site's foundation is in excellent shape. We've identified just a few minor areas where you can fine-tune things for even better results."}
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 
 function Group({ title, items }: { title: string; items: AnalysisItem[] }) {
   return (
@@ -225,34 +169,31 @@ function Group({ title, items }: { title: string; items: AnalysisItem[] }) {
 
 function ResultRow({ item }: { item: AnalysisItem }) {
   const getSeverityStyles = (severity: string) => {
-    switch (severity) {
-      case 'pass':
-        return {
-          icon: <CheckCircle2 className="text-green-500" size={16} />,
-          text: 'PASS',
-          color: 'text-green-500 bg-green-500/5',
-        };
-      case 'critical':
-        return {
-          icon: <XCircle className="text-red-500" size={16} />,
-          text: 'CRITICAL',
-          color: 'text-red-500 bg-red-500/5',
-        };
-      case 'warning':
-        return {
-          icon: <AlertCircle className="text-amber-500" size={16} />,
-          text: 'WARNING',
-          color: 'text-amber-500 bg-amber-500/5',
-        };
-      case 'info':
-        return {
-          icon: <Info className="text-blue-500" size={16} />,
-          text: 'INFO',
-          color: 'text-blue-500 bg-blue-500/5',
-        };
-      default:
-        return { icon: null, text: '', color: '' };
-    }
+    if (severity === 'pass')
+      return {
+        icon: <CheckCircle2 className="text-green-500" size={16} />,
+        text: 'PASS',
+        color: 'text-green-500 bg-green-500/5',
+      };
+    if (severity === 'critical')
+      return {
+        icon: <XCircle className="text-red-500" size={16} />,
+        text: 'CRITICAL',
+        color: 'text-red-500 bg-red-500/5',
+      };
+    if (severity === 'warning')
+      return {
+        icon: <AlertCircle className="text-amber-500" size={16} />,
+        text: 'WARNING',
+        color: 'text-amber-500 bg-amber-500/5',
+      };
+    if (severity === 'info')
+      return {
+        icon: <Info className="text-blue-500" size={16} />,
+        text: 'INFO',
+        color: 'text-blue-500 bg-blue-500/5',
+      };
+    return { icon: null, text: '', color: '' };
   };
 
   const styles = getSeverityStyles(item?.severity);
@@ -265,11 +206,6 @@ function ResultRow({ item }: { item: AnalysisItem }) {
           <h4 className="text-white font-bold text-lg leading-none tracking-tight">
             {item.title}
           </h4>
-          {/* <span
-            className={`text-[7px] font-black px-1.5 py-0.5 rounded uppercase tracking-[0.2em] ${styles.color}`}
-          >
-            {styles.text}
-          </span> */}
         </div>
         <p className="text-gray-400 text-sm leading-relaxed max-w-3xl">
           {item.message}

@@ -13,7 +13,7 @@ import {
 } from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 import Link from 'next/link';
-import { ShieldCheck, ArrowRight, MailSearch, Search } from 'lucide-react';
+import { ShieldCheck, ArrowRight, MailSearch, Search, Share2 } from 'lucide-react';
 
 const freebies = [
   {
@@ -30,6 +30,14 @@ const freebies = [
       'Get a quick SEO and technical audit of your website to see what is holding you back from ranking higher.',
     icon: <Search className="w-10 h-10 text-blue-500" />,
     link: '/freebies/site-analyzer',
+    tag: 'New',
+  },
+  {
+    title: 'Social Media Preview',
+    description:
+      'See how your website looks when shared on Facebook, Twitter, LinkedIn and more. Optimize your social media presence.',
+    icon: <Share2 className="w-10 h-10 text-blue-500" />,
+    link: '/freebies/social-preview',
     tag: 'New',
   },
 ];

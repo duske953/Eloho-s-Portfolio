@@ -6,14 +6,16 @@ import { AnalysisData, AnalysisItem } from '../types';
 import { handleEmailReport } from '../actions/handleEmailReport';
 import { Input } from '~/components/ui/input';
 import pdfReport from '../pdfReport';
+import TipsCheckbox from '~/components/TipsCheckbox';
 
 interface ReportGeneratorProps {
   data: AnalysisData;
   url: string;
 }
 
-export default function ReportGenerator({ data, url }: ReportGeneratorProps) {
+export default function SiteReport({ data, url }: ReportGeneratorProps) {
   const [email, setEmail] = useState('');
+  const [sendTips, setSendTips] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -32,6 +34,7 @@ export default function ReportGenerator({ data, url }: ReportGeneratorProps) {
         email,
         url,
         pdfBase64: pdf,
+        sendTips,
       });
       document.body.removeChild(element);
       setIsGenerating(false);
@@ -83,6 +86,14 @@ export default function ReportGenerator({ data, url }: ReportGeneratorProps) {
             </button>
           </div>
         </div>
+
+        <TipsCheckbox
+          id="sendTipsAnalyzer"
+          checked={sendTips}
+          onChange={setSendTips}
+          className="px-1"
+        />
+
         {error && (
           <p className="text-xs text-red-500 text-center mt-2">{error}</p>
         )}

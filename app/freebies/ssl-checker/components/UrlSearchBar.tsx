@@ -1,19 +1,16 @@
 'use client';
-import { Button } from '~/components/ui/button';
-import { Input } from '~/components/ui/input';
 import {
   CheckCircle2,
-  Globe2,
-  Search,
   AlertCircle,
   Clock,
   ShieldCheck,
   Calendar,
-  Info,
+  Search,
 } from 'lucide-react';
 import { handleSSL } from '../actions/handleSSL';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import FreebieInput from '~/components/FreebieInput';
 
 interface SSLResult {
   secure: {
@@ -37,6 +34,7 @@ export default function UrlSearchBar() {
     error: { code: number; message: string } | null;
     result: SSLResult | null;
   }>();
+
   async function renderSubmitSSL(e: React.FormEvent) {
     e.preventDefault();
     if (!url) return;
@@ -53,31 +51,15 @@ export default function UrlSearchBar() {
 
   return (
     <div className="w-full">
-      <form onSubmit={renderSubmitSSL} className="relative mb-6">
-        <div className="relative group">
-          <div className="absolute -inset-0.5 bg-blue-600/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition duration-500"></div>
-          <div className="relative flex gap-2 p-2 bg-[#0d0d0d] border border-white/5 rounded-2xl items-center">
-            <Globe2 className="w-5 h-5 text-gray-500 ml-4" />
-            <Input
-              placeholder="yourbusiness.com"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              className="bg-transparent border-none focus-visible:ring-0 text-white text-lg placeholder:text-gray-600 h-12"
-            />
-            <Button
-              type="submit"
-              disabled={isChecking || !url}
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-8 h-12 font-semibold transition-all"
-            >
-              {isChecking ? (
-                <Search className="w-5 h-5 animate-spin" />
-              ) : (
-                'Analyze'
-              )}
-            </Button>
-          </div>
-        </div>
-      </form>
+      <FreebieInput
+        url={url}
+        setUrl={setUrl}
+        onSubmit={renderSubmitSSL}
+        isLoading={isChecking}
+        placeholder="yourbusiness.com"
+        ButtonIcon={Search}
+        loadingText=""
+      />
 
       <AnimatePresence>
         {result?.error && result.result === null && (
@@ -94,9 +76,6 @@ export default function UrlSearchBar() {
               <div className="text-sm font-bold text-red-500 uppercase tracking-widest mb-1">
                 Critical Error
               </div>
-              {/* <div className="text-white font-bold mb-1">
-                {result.error.message}
-              </div> */}
               <p className="text-xs text-gray-400 leading-relaxed">
                 Your website security has lapsed. This can lead to browser
                 warnings and loss of customer trust.

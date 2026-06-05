@@ -1,21 +1,27 @@
 'use server';
 
-import { processEmail, sendTransactionalEmail } from '~/lib/mailchimp/audience';
+import {
+  createAudience,
+  processEmail,
+  sendTransactionalEmail,
+} from '~/lib/mailchimp/audience';
 
 export async function handleEmailReport({
   email,
   url,
   pdfBase64,
+  sendTips,
 }: {
   email: string;
   url: string;
   pdfBase64: string;
+  sendTips: boolean;
 }) {
   try {
     if (!email) {
       return { status: 400, response: 'Email is required' };
     }
-    await processEmail(email);
+    await createAudience('', email, url, sendTips);
     await sendTransactionalEmail({
       email,
       subject: `Your Website Analysis Report for ${url}`,

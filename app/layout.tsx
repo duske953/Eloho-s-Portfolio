@@ -29,8 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://eloho.dev'),
   manifest: '/favicon/site.webmanifest',
   openGraph: {
-    title:
-      'Eloho Kennedy | The cheapest website is the one built right the first time.',
+    title: 'The cheapest website is the one built right the first time.',
     description:
       'Professional websites built for business owners. Be found online, get more inquiries, and grow without the tech overwhelm.',
     siteName: 'eloho.dev',
